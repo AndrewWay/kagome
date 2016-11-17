@@ -1,6 +1,6 @@
 module input_module_3d
 implicit none
-!HELLO 
+ 
 !Parameters
 integer,parameter :: L=12
 double precision, parameter :: pi=3.14159265358979323846264338327
