@@ -10,9 +10,6 @@ phnum=$6
 output="ground_states.dat"
 rm $output
 
-echo "HELLO"
-echo $thlb $thub $thnum $phlb $phub $phnum
-
 thinc=`echo "($thub - $thlb)/$thnum" | bc -l`
 phinc=`echo "($phub - $phlb)/$phnum" | bc -l`
 

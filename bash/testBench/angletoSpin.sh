@@ -2,7 +2,8 @@
 
 File=ground_states.dat
 L=12
-output="conf$1".dat
+fnum=`printf "%04.0f" $1`
+output="conf$fnum".dat
 rm $output
 touch $output
 echo $output
