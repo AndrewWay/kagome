@@ -1,8 +1,9 @@
 #!/bin/bash
 
 File=ground_states.dat
-L=12
-output="conf$1".dat
+fnum=`printf "%04.0f" $1`
+output="gsconf$fnum".dat
+L=$2
 rm $output
 touch $output
 echo $output
@@ -16,8 +17,12 @@ a=`echo "s($theta)*c($phi)" | bc -l`
 b=`echo "s($theta)*s($phi)" | bc -l`
 c=`echo "c($theta)" | bc -l`
 d=`echo "-1*(1 - 2 * $a * $a)/(2 * $c)" | bc -l`
+errorSusceptQuant=`echo "1 - $a * $a - $d * $d" | bc -l`
+if [[ `echo $errorSusceptQuant'<'0 | bc -l` == 1 ]]; then
+echo "Forbidden zone state: aborting ground state creation"
+exit
+fi
 e=`echo "sqrt(1 - $a * $a - $d * $d)" | bc -l`
-
 nega=`echo "-1 * $a" | bc -l`
 negb=`echo "-1 * $b" | bc -l`
 nege=`echo "-1 * $e" | bc -l`
@@ -27,6 +32,10 @@ spinA="$a $b $c"
 spinB="$d $e $nega"
 spinC="$nege $negcd $negb"
 
+if [[ $L == 2 ]];then
+P=1
+rep=1
+fi
 
 if [[ $L == 6 ]];then
 P=9

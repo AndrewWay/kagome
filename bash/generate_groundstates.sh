@@ -1,18 +1,26 @@
 #!/bin/bash
 
-thlb=$1
-thub=$2
-thnum=$3
-phlb=$4
-phub=$5
-phnum=$6
+phlb=$1
+phub=$2
+phnum=$3
+thlb=$4
+thub=$5
+thnum=$6
+L=$7
+#rm gsconf*
 
+if [[ $# != 7 ]];then
+echo "Required arguments: phiLowerBound phiUpperBound phiQuantity thetaLowerBound thetaUpperBound thetaQuantity latticeDimension"
+exit 1
+fi
 
-./createGSangles.sh $thlb $thub $thnum $phlb $phub $phnum
+./createGSangles.sh $phlb $phub $phnum $thlb $thub $thnum
 
-confquant = `echo "$thnum * $phnum" | bc -l`
+confquant=`echo "$thnum * $phnum" | bc -l`
 
 for i in `seq 1 $confquant`
 do
-./angletoSpin.sh $i
+./angletoSpin.sh $i $L
 done
+
+./ExtractAllSpins.sh
