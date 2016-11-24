@@ -14,13 +14,14 @@ echo "Required arguments: phiLowerBound phiUpperBound phiQuantity thetaLowerBoun
 exit 1
 fi
 
-./createGSangles.sh $phlb $phub $phnum $thlb $thub $thnum
+createGSangles.sh $phlb $phub $phnum $thlb $thub $thnum
 
 confquant=`echo "$thnum * $phnum" | bc -l`
 
 for i in `seq 1 $confquant`
 do
-./angletoSpin.sh $i $L
+angletoSpin.sh $i $L
 done
-
-./ExtractAllSpins.sh
+mv ground_states.dat gsorigin.dat
+mv tmpGSang.dat ground_states.dat
+ExtractAllSpins.sh
