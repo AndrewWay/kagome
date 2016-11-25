@@ -96,11 +96,11 @@ for i in `seq 1 $rep`
 do
 for j in `seq 1 $P`
 do
-echo $spinB >> $output
+echo $negspinB >> $output
 done
 for k in `seq 1 $P`
 do
-echo $negspinB >> $output
+echo $spinB >> $output
 done
 done
 

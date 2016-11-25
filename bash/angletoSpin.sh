@@ -13,7 +13,6 @@ val=`cat $File | head -n $1 | tail -n 1`
 phi=`echo $val | awk '{print $1}'`
 theta=`echo $val | awk '{print $2}'`
 
-echo $phi $theta >> $tmpGS
 a=`echo "s($theta)*c($phi)" | bc -l`
 b=`echo "s($theta)*s($phi)" | bc -l`
 c=`echo "c($theta)" | bc -l`
@@ -23,6 +22,7 @@ if [[ `echo $errorSusceptQuant'<'0 | bc -l` == 1 ]]; then
     echo "Forbidden zone state: aborting ground state creation"
     exit        
 fi
+echo $phi $theta >> $tmpGS
 e=`echo "sqrt(1 - $a * $a - $d * $d)" | bc -l`
 nega=`echo "-1 * $a" | bc -l`
 negb=`echo "-1 * $b" | bc -l`
