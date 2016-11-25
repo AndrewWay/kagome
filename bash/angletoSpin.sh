@@ -14,6 +14,15 @@ phi=`echo $val | awk '{print $1}'`
 theta=`echo $val | awk '{print $2}'`
 
 echo $phi $theta >> $tmpGS
+a=`echo "s($theta)*c($phi)" | bc -l`
+b=`echo "s($theta)*s($phi)" | bc -l`
+c=`echo "c($theta)" | bc -l`
+d=`echo "-1*(1 - 2 * $a * $a)/(2 * $c)" | bc -l`
+errorSusceptQuant=`echo "1 - $a * $a - $d * $d" | bc -l`
+if [[ `echo $errorSusceptQuant'<'0 | bc -l` == 1 ]]; then
+    echo "Forbidden zone state: aborting ground state creation"
+    exit        
+fi
 e=`echo "sqrt(1 - $a * $a - $d * $d)" | bc -l`
 nega=`echo "-1 * $a" | bc -l`
 negb=`echo "-1 * $b" | bc -l`
@@ -87,11 +96,11 @@ for i in `seq 1 $rep`
 do
 for j in `seq 1 $P`
 do
-echo $spinB >> $output
+echo $negspinB >> $output
 done
 for k in `seq 1 $P`
 do
-echo $negspinB >> $output
+echo $spinB >> $output
 done
 done
 

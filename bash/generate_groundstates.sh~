@@ -16,7 +16,7 @@ fi
 
 createGSangles.sh $phlb $phub $phnum $thlb $thub $thnum
 
-confquant=`cat ground_states.dat | wc -l` #`echo "$thnum * $phnum" | bc -l`
+confquant=`cat ground_states.dat | wc -l`#`echo "$thnum * $phnum" | bc -l`
 
 for i in `seq 1 $confquant`
 do
