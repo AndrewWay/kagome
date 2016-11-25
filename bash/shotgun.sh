@@ -21,13 +21,16 @@ jobsperCore=`echo $dirQuant / $cores | bc -l`
 
 jobsperCore=`echo ${jobsperCore%.*}`
 jobsperCore=$((jobsperCore + 1))
-echo $jobsperCore
+
 start=1
 end=$jobsperCore
 for i in `seq 1 $cores`
 do
-echo "Jobs $start through $end submitted on core $i"
 shotgunload.sh $simcode $start $end &
+echo "Jobs $start through $end executing under process $!"
 start=$(( end + 1 ))
 end=`echo $end + $jobsperCore | bc -l`
 done
+wait
+echo ""
+echo "complete"
