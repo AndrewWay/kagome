@@ -27,6 +27,6 @@ th=`echo "$thlb + $i * $thinc" | bc -l`
     for j in `seq 0 $phnum`
     do
         ph=`echo "$phlb + $j * $phinc" | bc -l`
-	    echo $th $ph >> $output
+        echo $th $ph >> $output
 done 
 done

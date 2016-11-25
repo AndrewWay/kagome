@@ -5,8 +5,8 @@ fnum=`printf "%04.0f" $1`
 output="gsconf$fnum".dat
 tmpGS="tmpGSang.dat"
 L=$2
-rm $output
-echo $output
+rm $output 2> /dev/null
+#echo -ne "$output \r"
 Length=`cat $File | wc -l`
 
 val=`cat $File | head -n $1 | tail -n 1`
@@ -19,8 +19,8 @@ c=`echo "c($theta)" | bc -l`
 d=`echo "-1*(1 - 2 * $a * $a)/(2 * $c)" | bc -l`
 errorSusceptQuant=`echo "1 - $a * $a - $d * $d" | bc -l`
 if [[ `echo $errorSusceptQuant'<'0 | bc -l` == 1 ]]; then
-    echo "Forbidden zone state: aborting ground state creation"
-    exit        
+    #echo -ne "Forbidden zone state: aborting ground state creation"
+    exit 1       
 fi
 echo $phi $theta >> $tmpGS
 e=`echo "sqrt(1 - $a * $a - $d * $d)" | bc -l`
@@ -51,9 +51,9 @@ fi
 
 length=$((3*L*L*L/4))
 
-echo "Spin A: $spinA"
-echo "Spin B: $spinB"
-echo "Spin C: $spinC"
+#echo "Spin A: $spinA"
+#echo "Spin B: $spinB"
+#echo "Spin C: $spinC"
 
 spinAx=`echo $spinA | awk '{print $1}'`
 spinAy=`echo $spinA | awk '{print $2}'`
@@ -115,6 +115,4 @@ do
 echo $negspinC >> $output
 done
 done
-
-echo "Completed"
 

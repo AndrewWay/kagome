@@ -24,7 +24,7 @@ fi
 
 dir_name_precision=6
 
-
+j=$start
 for i in `seq $start $end`
 do
 		num=`printf "%04d" $i` 
@@ -32,7 +32,7 @@ do
 			echo "gsconf$num.dat does not exist: aborting"
 			continue
 		fi
-	line=`cat $gsAng | head -n $i | tail -n 1`
+	line=`cat $gsAng | head -n $j | tail -n 1`
 	theta=`echo $line | awk '{print $1}' | cut -c 1-$dir_name_precision`
 	phi=`echo $line | awk '{print $2}' | cut -c 1-$dir_name_precision`
 
@@ -40,16 +40,22 @@ do
 	run_dir=`echo $run_dir | tr - neg`
 	if [ -d "$run_dir" ]; then
 		i=$((i - 1))
-		echo "Directory already exists: increasing directory name precision"
+		echo "$run_dir already exists: increasing directory name precision"
 		dir_name_precision=$((dir_name_precision + 1))
-	else
-		echo "$run_dir ($i/$end)"
+	theta=`echo $line | awk '{print $1}' | cut -c 1-$dir_name_precision`
+	phi=`echo $line | awk '{print $2}' | cut -c 1-$dir_name_precision`
+	run_dir="$theta"_"$phi"
+	run_dir=`echo $run_dir | tr - neg`
+	fi
+		echo -ne "$run_dir ($i/$end)"
 		mkdir $run_dir
 		cp gsconf$num.dat $run_dir/spin0000.dat
 		cp ~/Desktop/Work/code/sim/$simcode $run_dir/
 		cd $run_dir
+		echo $theta > GS.dat
+		echo $phi >> GS.dat
 		gfortran $simcode
 		./a.out
 		cd ../
-	fi
+	j=$(( j + 1 ))
 done
