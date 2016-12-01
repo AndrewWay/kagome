@@ -6,7 +6,7 @@ output="gsconf$fnum".dat
 tmpGS="tmpGSang.dat"
 L=$2
 rm $output 2> /dev/null
-echo -ne "$output \r"
+#echo -ne "$output \r"
 Length=`cat $File | wc -l`
 
 val=`cat $File | head -n $1 | tail -n 1`

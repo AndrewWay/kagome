@@ -1,11 +1,11 @@
 #!/bin/bash
 
-thlb=$1
-thub=$2
-thnum=$3
-phlb=$4
-phub=$5
-phnum=$6
+phlb=$1
+phub=$2
+phnum=$3
+thlb=$4
+thub=$5
+thnum=$6
 
 output="ground_states.dat"
 rm $output 2> /dev/null
@@ -23,10 +23,20 @@ fi
 
 for i in `seq 0 $thnum`
 do
-th=`echo "$thlb + $i * $thinc" | bc -l`
+theta=`echo "$thlb + $i * $thinc" | bc -l`
     for j in `seq 0 $phnum`
     do
-        ph=`echo "$phlb + $j * $phinc" | bc -l`
-        echo $th $ph >> $output
+        phi=`echo "$phlb + $j * $phinc" | bc -l`
+		a=`echo "s($theta)*c($phi)" | bc -l`
+		b=`echo "s($theta)*s($phi)" | bc -l`
+		c=`echo "c($theta)" | bc -l`
+		d=`echo "-1*(1 - 2 * $a * $a)/(2 * $c)" | bc -l`
+		forbiddenCheck=`echo "1 - $a * $a - $d * $d" | bc -l`
+
+		if [[ `echo $forbiddenCheck'>'0 | bc -l` == 1 ]]; then
+e=`echo "sqrt(1 - $a * $a - $d * $d)" | bc -l`        	
+			echo $phi $theta >> $output     
+		fi
+
 done 
 done

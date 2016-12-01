@@ -17,11 +17,11 @@ a=`echo "s($theta)*c($phi)" | bc -l`
 b=`echo "s($theta)*s($phi)" | bc -l`
 c=`echo "c($theta)" | bc -l`
 d=`echo "-1*(1 - 2 * $a * $a)/(2 * $c)" | bc -l`
-errorSusceptQuant=`echo "1 - $a * $a - $d * $d" | bc -l`
-if [[ `echo $errorSusceptQuant'<'0 | bc -l` == 1 ]]; then
+#errorSusceptQuant=`echo "1 - $a * $a - $d * $d" | bc -l`
+#if [[ `echo $errorSusceptQuant'<'0 | bc -l` == 1 ]]; then
     #echo -ne "Forbidden zone state: aborting ground state creation"
-    exit 1       
-fi
+#    exit 1       
+#fi
 echo $phi $theta >> $tmpGS
 e=`echo "sqrt(1 - $a * $a - $d * $d)" | bc -l`
 nega=`echo "-1 * $a" | bc -l`
