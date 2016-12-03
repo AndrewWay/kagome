@@ -10,10 +10,10 @@ fi
 
 gsAng="ground_states.dat"
 
-if [ ! -f $gsAng ];then
-echo $gsAng does not exist: exiting
-exit
-fi
+#if [ ! -f $gsAng ];then
+#echo $gsAng does not exist: exiting
+#exit
+#fi
 
 dirQuant=`cat $gsAng | wc -l`
 
@@ -26,7 +26,6 @@ start=1
 end=$jobsperCore
 for i in `seq 1 $cores`
 do
-echo "Jobs $start through $end executing under process $!"
 shotgunload.sh $simcode $start $end &
 echo "Jobs $start through $end executing under process $!"
 start=$(( end + 1 ))

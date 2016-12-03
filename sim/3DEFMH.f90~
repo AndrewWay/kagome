@@ -170,7 +170,8 @@ call gamma(L,D)
 jex=0
 di=1
 Hmag=0
-
+Htheta=0.7
+Hphi=0.7
 call setField
 
 !Random initialization

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     63595,       1310]
-NotebookOptionsPosition[     61738,       1244]
-NotebookOutlinePosition[     62074,       1259]
-CellTagsIndexPosition[     62031,       1256]
+NotebookDataLength[    157664,       3113]
+NotebookOptionsPosition[    154970,       3023]
+NotebookOutlinePosition[    155520,       3044]
+CellTagsIndexPosition[    155414,       3039]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -24,6 +24,21 @@ Cell[BoxData[
  RowBox[{"Remove", "[", "\"\<Global`*\>\"", "]"}]], "Input",
  CellChangeTimes->{{3.6592127141922007`*^9, 3.6592127158574333`*^9}, {
   3.659213079104413*^9, 3.659213085164957*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Remove", "::", "rmnsm"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"There are no symbols matching \
+\\\"\[NoBreak]\\!\\(\\*RowBox[{\\\"\\\\\\\"Global`*\\\\\\\"\\\"}]\\)\[NoBreak]\
+\\\". \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Remove/rmnsm\\\", \
+ButtonNote -> \\\"Remove::rmnsm\\\"]\\)\"\>"}]], "Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{{3.688484173420698*^9, 3.688484174093388*^9}, 
+   3.688987412326744*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -44,7 +59,7 @@ ButtonNote->\\\"Remove::rmnsm\\\"]\)\>\""}]], "Message", "MSG",
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"SetDirectory", "[", "\"\<~/Desktop/Work/code/bash/testBench\>\"", 
+ RowBox[{"SetDirectory", "[", "\"\<~/Desktop/Work/data/25nov16\>\"", 
   "]"}]], "Input",
  CellChangeTimes->{{3.6758715708997183`*^9, 3.6758715721486473`*^9}, {
    3.67602775566796*^9, 3.6760277622104797`*^9}, {3.6760309497435417`*^9, 
@@ -56,44 +71,128 @@ Cell[BoxData[
    3.676033664118643*^9}, {3.676034197125977*^9, 3.6760341972216387`*^9}, {
    3.676034538982493*^9, 3.676034540294704*^9}, {3.676189762230599*^9, 
    3.676189762514876*^9}, {3.6762068858958683`*^9, 3.676206889176927*^9}, {
-   3.688484165908841*^9, 3.688484171012706*^9}}],
+   3.688484165908841*^9, 3.688484171012706*^9}, {3.688826800694561*^9, 
+   3.688826803057749*^9}, {3.688826906209711*^9, 3.6888269103213*^9}, {
+   3.6889874099053926`*^9, 3.688987409984907*^9}, {3.6889941205468397`*^9, 
+   3.6889941287862988`*^9}, {3.689097107303234*^9, 3.689097107382588*^9}}],
 
-Cell[BoxData["\<\"/users/home/arway/Desktop/Work/code/bash/testBench\"\>"], \
-"Output",
+Cell[BoxData["\<\"/users/home/arway/Desktop/Work/data/25nov16\"\>"], "Output",
  CellChangeTimes->{{3.676206889576665*^9, 3.6762068932299967`*^9}, 
    3.676206956626334*^9, 3.676211466184731*^9, 3.6762847785477123`*^9, {
-   3.688484171405878*^9, 3.688484176181252*^9}}]
+   3.688484171405878*^9, 3.688484176181252*^9}, 3.68848689570603*^9, {
+   3.688486933508068*^9, 3.688486936710503*^9}, 3.688487703174883*^9, 
+   3.688487745078755*^9, 3.688488122835784*^9, 3.6884884319811077`*^9, 
+   3.688826911100857*^9, 3.6888274300986423`*^9, 3.688987412450282*^9, 
+   3.6889887427648907`*^9, 3.6889894623436623`*^9, {3.688994121552485*^9, 
+   3.688994129034021*^9}, 3.689081562355719*^9, 3.689081714952921*^9, 
+   3.689083625902637*^9, 3.68908403995018*^9, 3.689088322078546*^9, {
+   3.689097096040723*^9, 3.689097109732325*^9}, 3.689100982213586*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.688826817105842*^9, 3.688826818657226*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"dat", "=", 
+    RowBox[{"Import", "[", 
+     RowBox[{"\"\<AllSpins.txt\>\"", ",", "\"\<Table\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"originGS", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{"\"\<gsorigin.dat\>\"", ",", "\"\<Table\>\""}], "]"}]}], ";"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"actualGS", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{"\"\<ground_states.dat\>\"", ",", "\"\<Table\>\""}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.659213113845862*^9, 3.6592131319988003`*^9}, {
+   3.659213193720044*^9, 3.6592131978295*^9}, 3.659213743325186*^9, {
+   3.688484379061349*^9, 3.688484396260251*^9}, {3.68882706499409*^9, 
+   3.688827066129171*^9}, {3.6889874428494673`*^9, 3.688987467537325*^9}, {
+   3.689081551924212*^9, 3.689081557789283*^9}, {3.689100995640061*^9, 
+   3.6891009985679913`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Import", "::", "nffil"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"File not found during \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"Import\\\"}]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\
+\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Import/nffil\\\", ButtonNote -> \
+\\\"Import::nffil\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.689100982500497*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"FileNames", "[", "\"\<All*txt\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.659224626596758*^9, 3.65922463653129*^9}}],
-
-Cell[BoxData[
- RowBox[{"{", "\<\"AllSpins.txt\"\>", "}"}]], "Output",
- CellChangeTimes->{
-  3.675412689209455*^9, 3.6754163210026693`*^9, 3.675417454267763*^9, 
-   3.675867729336514*^9, 3.675871578585039*^9, 3.676027784568253*^9, {
-   3.676030941218087*^9, 3.676030952432897*^9}, 3.6760310941800957`*^9, 
-   3.6760313099420967`*^9, 3.6760314048578987`*^9, 3.676031473658297*^9, 
-   3.6760315796370792`*^9, {3.676031663807564*^9, 3.676031675146297*^9}, {
-   3.676031786239851*^9, 3.676031804513151*^9}, {3.676032006966278*^9, 
-   3.676032036491124*^9}, 3.676033673929388*^9, 3.6760342024243793`*^9, 
-   3.676034555571189*^9, 3.676189778307584*^9, 3.6762068953135643`*^9, 
-   3.676206960509739*^9, 3.676211467874526*^9, 3.676284780573062*^9, 
-   3.688484177369124*^9}]
-}, Open  ]],
+ RowBox[{"mag1", "=", 
+  RowBox[{"Import", "[", 
+   RowBox[{"\"\<n1.000_.00001/fort.1\>\"", ",", "\"\<Table\>\""}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.689086041170391*^9, 3.689086063076317*^9}, {
+   3.689086111204997*^9, 3.689086141700616*^9}, 3.68908627538109*^9, {
+   3.6890863101002283`*^9, 3.689086321412394*^9}}],
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"dat", "=", 
-   RowBox[{"Import", "[", 
-    RowBox[{"\"\<AllSpins.txt\>\"", ",", "\"\<Table\>\""}], "]"}]}], 
-  ";"}]], "Input",
- CellChangeTimes->{{3.659213113845862*^9, 3.6592131319988003`*^9}, {
-   3.659213193720044*^9, 3.6592131978295*^9}, 3.659213743325186*^9}],
+  StyleBox[
+   RowBox[{"Import", "::", "nffil"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"File not found during \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"Import\\\"}]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\
+\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Import/nffil\\\", ButtonNote -> \
+\\\"Import::nffil\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.6890970965602694`*^9, 3.68909711024268*^9}, 
+   3.689100982640894*^9}],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{
+  3.6890860634185133`*^9, 3.689086114222381*^9, 3.689086144756764*^9, 
+   3.689086184476429*^9, 3.689086275644858*^9, {3.6890863119331512`*^9, 
+   3.6890863220102654`*^9}, 3.689088322542457*^9, {3.689097096561184*^9, 
+   3.6890971102434673`*^9}, 3.6891009826425*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mag", "=", 
+  RowBox[{"mag1", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", "2"}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.689086152121172*^9, 3.689086328388842*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Symbol", "::", "argx"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(\\*RowBox[{\\\"Symbol\\\"}]\\)\[NoBreak] \
+called with \[NoBreak]\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\[NoBreak] arguments; 1 \
+argument is expected. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/argx\\\", ButtonNote -> \
+\\\"Symbol::argx\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.689097096628232*^9, 3.689097110361191*^9}, 
+   3.68910098281021*^9}],
+
+Cell[BoxData[
+ RowBox[{"Symbol", "[", "]"}]], "Output",
+ CellChangeTimes->{{3.689086161503886*^9, 3.6890863286380663`*^9}, 
+   3.689088322644785*^9, {3.689097096630249*^9, 3.689097110363325*^9}, 
+   3.68910098281116*^9}]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -101,14 +200,17 @@ Cell[BoxData[
  RowBox[{"Length", "[", "dat", "]"}]], "Input",
  CellChangeTimes->{{3.65921321079779*^9, 3.659213217213963*^9}}],
 
-Cell[BoxData["36"], "Output",
+Cell[BoxData["1364"], "Output",
  CellChangeTimes->{
-  3.675412694055011*^9, 3.67541632104602*^9, 3.6754174566524687`*^9, 
-   3.6758677342521133`*^9, 3.675871581375806*^9, 3.6760277874921227`*^9, {
-   3.6760309446917152`*^9, 3.6760309560897217`*^9}, 3.6760310987747583`*^9, 
-   3.676031314825756*^9, 3.6760336765883703`*^9, 3.676034205194675*^9, 
-   3.676206898665226*^9, 3.676284793688747*^9, 3.688484181013763*^9}]
+  3.6888269347302637`*^9, 3.688827430365314*^9, 3.688987412902495*^9, 
+   3.688988742916761*^9, 3.6889894625646276`*^9, 3.688994135173208*^9, 
+   3.6890815627536583`*^9, 3.689081715366043*^9, 3.6890836262300577`*^9, 
+   3.689084040314302*^9, 3.6890883227412987`*^9, {3.6890970967104187`*^9, 
+   3.68909711044119*^9}, 3.6891009829452333`*^9}]
 }, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.688826804780242*^9, 3.688826807105051*^9}}],
 
 Cell[CellGroupData[{
 
@@ -133,7 +235,7 @@ Cell[BoxData[{
   3.6762069498633127`*^9, 3.676206949943282*^9}, {3.688484196485908*^9, 
   3.6884842079567738`*^9}}],
 
-Cell[BoxData["9"], "Output",
+Cell[BoxData["341"], "Output",
  CellChangeTimes->{
   3.6754126964032593`*^9, 3.67541632107161*^9, 3.675417457770912*^9, 
    3.6758677368425703`*^9, 3.675871582583063*^9, 3.676027789588705*^9, 
@@ -143,20 +245,37 @@ Cell[BoxData["9"], "Output",
    3.6760320411182537`*^9}, 3.67603367847894*^9, 3.676034206471427*^9, 
    3.6760345608393793`*^9, 3.676189782047752*^9, {3.6762069003452063`*^9, 
    3.676206907043005*^9}, 3.676206966304492*^9, 3.6762114715890408`*^9, 
-   3.676284795923833*^9, {3.688484193926433*^9, 3.688484208310574*^9}}]
+   3.676284795923833*^9, {3.688484193926433*^9, 3.688484208310574*^9}, 
+   3.68848690101228*^9, 3.6884869416203623`*^9, 3.6884877034542313`*^9, 
+   3.688487745414403*^9, 3.688488123079255*^9, 3.688488432335498*^9, 
+   3.6888269384282312`*^9, 3.688827430492495*^9, 3.688987413093463*^9, 
+   3.688988742975432*^9, 3.688989462706607*^9, 3.688994136757843*^9, 
+   3.689081562929028*^9, 3.6890817155315323`*^9, 3.689083626388384*^9, 
+   3.689084040403442*^9, 3.6890883230200377`*^9, {3.689097097034417*^9, 
+   3.689097110693735*^9}, 3.6891009832866287`*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Length", "[", "spins", "]"}]], "Input",
- CellChangeTimes->{{3.659213491343247*^9, 3.6592134956502438`*^9}}],
+ RowBox[{
+  RowBox[{"Length", "[", "spins", "]"}], "\.17", "\.11"}]], "Input",
+ CellChangeTimes->{{3.659213491343247*^9, 3.6592134956502438`*^9}, {
+  3.688826887349765*^9, 3.688826888769154*^9}}],
 
-Cell[BoxData["9"], "Output",
- CellChangeTimes->{3.675412698928314*^9, 3.6754163210942707`*^9, 
-  3.675417458988983*^9, 3.67586773994139*^9, 3.6758715852689123`*^9, 
-  3.676027791775505*^9, 3.676030960787334*^9, 3.6760313190793324`*^9, 
-  3.676206909860621*^9, 3.676284797950122*^9, 3.6884842106772623`*^9}]
+Cell[BoxData[
+ RowBox[{"341", " ", "\.11", " ", "\.17"}]], "Output",
+ CellChangeTimes->{
+  3.675412698928314*^9, 3.6754163210942707`*^9, 3.675417458988983*^9, 
+   3.67586773994139*^9, 3.6758715852689123`*^9, 3.676027791775505*^9, 
+   3.676030960787334*^9, 3.6760313190793324`*^9, 3.676206909860621*^9, 
+   3.676284797950122*^9, 3.6884842106772623`*^9, 3.6884869427363873`*^9, 
+   3.688487703540592*^9, 3.688487745457327*^9, 3.68848812311373*^9, 
+   3.6884884325667152`*^9, 3.6888269404029427`*^9, 3.6888274305352087`*^9, 
+   3.688987413219386*^9, 3.688988743061268*^9, 3.688989462715734*^9, 
+   3.6889941389565487`*^9, 3.689081563048581*^9, 3.6890817156443977`*^9, 
+   3.689083626480912*^9, 3.68908404047202*^9, 3.6890883231049423`*^9, {
+   3.689097097143386*^9, 3.6890971107884197`*^9}, 3.6891009834247713`*^9}]
 }, Open  ]],
 
 Cell[BoxData[
@@ -202,26 +321,27 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{
   RowBox[{"spins", "[", 
-   RowBox[{"[", "7", "]"}], "]"}], "//", "MatrixForm"}]], "Input",
+   RowBox[{"[", "1", "]"}], "]"}], "//", "MatrixForm"}]], "Input",
  CellChangeTimes->{{3.6592137764512863`*^9, 3.659213788244162*^9}, {
   3.675417464362059*^9, 3.675417465546135*^9}, {3.675867748564356*^9, 
-  3.6758677520024977`*^9}}],
+  3.6758677520024977`*^9}, {3.688994144626953*^9, 3.688994144770417*^9}}],
 
 Cell[BoxData[
  TagBox[
   RowBox[{"(", "\[NoBreak]", GridBox[{
-     {"0.30918490153486850385`19.490218277807113", 
-      RowBox[{"-", "0.10705636961152599963`19.02961251193725"}], 
-      "0.94495694631473766439`19.975412021838487"},
-     {"0.4279609756190714639999999999999999999999999999999999999999`19.\
-631404168905714", 
-      RowBox[{"-", "0.84926680142935422992`19.929044147471274"}], 
-      "0.30918490153486850385`19.490218277807113"},
      {
-      RowBox[{"-", "0.84926680142935422992`19.929044147471274"}], 
-      RowBox[{
-      "-", "0.5169959706956662003900000000000000000000000000000000000001`19.\
-713487158352248"}], "0.10705636961152599963`19.02961251193725"}
+      RowBox[{"-", "0.8414709847658229574`19.92503914541779"}], 
+      RowBox[{"-", "8.41470984793871`*^-6"}], 
+      "0.5403023058681397174000000000000000000000000000000000000001`19.\
+73263682099778"},
+     {"0.37897268367001677613`19.578607907174085", 
+      "0.9254078587094114677300000000000000000000000000000000000001`19.\
+96633318327674", 
+      RowBox[{"-", "8.41470984793871`*^-6"}]},
+     {"0.37897268367001677613`19.578607907174085", 
+      "0.9254078587094114677300000000000000000000000000000000000001`19.\
+96633318327674", 
+      RowBox[{"-", "8.41470984793871`*^-6"}]}
     },
     GridBoxAlignment->{
      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
@@ -238,7 +358,14 @@ Cell[BoxData[
  CellChangeTimes->{
   3.675416321196611*^9, {3.675417461503976*^9, 3.6754174662544527`*^9}, {
    3.6758677445123863`*^9, 3.675867752783032*^9}, 3.675871588738524*^9, 
-   3.676027796483821*^9, 3.6762069145563517`*^9, 3.6884842308755407`*^9}]
+   3.676027796483821*^9, 3.6762069145563517`*^9, 3.6884842308755407`*^9, 
+   3.6884869453991137`*^9, 3.688487703651843*^9, 3.688487745572381*^9, 
+   3.6884881231544*^9, 3.688488432626677*^9, 3.68882694293819*^9, 
+   3.688827430609002*^9, 3.68898741353013*^9, 3.688988743141861*^9, 
+   3.688989462769195*^9, {3.688994142745143*^9, 3.688994145276647*^9}, 
+   3.6890815634729013`*^9, 3.689081716045815*^9, 3.689083626634276*^9, 
+   3.6890840406047277`*^9, 3.689088323253625*^9, {3.689097097301752*^9, 
+   3.689097110945179*^9}, 3.689100983650365*^9}]
 }, Open  ]],
 
 Cell["Check the Byron relationship", "Text",
@@ -293,126 +420,71 @@ Cell[BoxData[{
          RowBox[{"spins", "[", 
           RowBox[{"[", 
            RowBox[{"i", ",", "3", ",", "2"}], "]"}], "]"}]}], "<", 
-        RowBox[{"(", 
-         RowBox[{"1.1", "*", "tol"}], ")"}]}], ",", "0", ",", 
-       "\"\<oops\>\""}], "]"}]}], "]"}], ",", 
+        RowBox[{"(", "tol", ")"}]}], ",", "0", ",", "\"\<oops\>\""}], "]"}]}],
+     "]"}], ",", 
    RowBox[{"{", 
-    RowBox[{"i", ",", "1", ",", "nspins"}], "}"}]}], "]"}]}], "Input",
+    RowBox[{"i", ",", "1", ",", "1"}], "}"}]}], "]"}]}], "Input",
+ EvaluatorNames->{"Local" -> {"AutoStartOnLaunch" -> True}},
+ NotebookAutoSave->False,
+ ClosingAutoSave->False,
+ ClosingSaveDialog->True,
+ CloseOnClickOutside->False,
+ IncludeFileExtension->True,
+ FileChangeProtection->Automatic,
+ TransitionEffect->Automatic,
+ TransitionDirection->Horizontal,
+ TransitionDuration->Short,
+ RasterExploreViewRange->17,
+ MarkerLineThickness->1.,
+ MarkerAspectRatio->0.,
+ AutoGeneratedPackage->None,
+ Editable->True,
+ Saveable->True,
+ StyleEnvironment->Automatic,
+ ScreenStyleEnvironment->"Working",
+ PrintingStyleEnvironment->"Printout",
+ ShowPageBreaks->False,
+ WindowToolbars->{},
+ RulerUnits->"Inches",
+ BlinkingCellInsertionPoint->True,
+ GhostCellInEmptyNotebook->True,
+ CellInsertionPointColor->GrayLevel[0.7500114442664225],
+ CellInsertionPointCell->None,
+ Evaluator->"Local",
+ EvaluationCompletionAction->{},
+ PrintAction->"PrintToNotebook",
+ OutputAutoOverwrite->True,
+ InitializationCellEvaluation->Automatic,
+ InitializationCellWarning->True,
+ NotebookEventActions->None,
+ NotebookDynamicExpression:>Null,
+ BackgroundAppearance->None,
+ BackgroundAppearanceOptions->"Fill",
  CellChangeTimes->{{3.6592254626365337`*^9, 3.659225599663767*^9}, {
   3.65922566702921*^9, 3.659225919023695*^9}, {3.6592268843255043`*^9, 
   3.659226890276003*^9}, {3.675867882522863*^9, 3.675867910582205*^9}, {
   3.675871593020793*^9, 3.675871593143866*^9}, {3.676027833995837*^9, 
-  3.67602784932283*^9}}],
-
-Cell[CellGroupData[{
+  3.67602784932283*^9}, {3.688488527675551*^9, 3.688488573217986*^9}, {
+  3.688827038021916*^9, 3.688827050181719*^9}, {3.688827424322474*^9, 
+  3.688827426785475*^9}, {3.6889941558605537`*^9, 3.6889941608174067`*^9}},
+ Magnification->1.,
+ Background->None],
 
 Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"config\"\>", "\[InvisibleSpace]", "0", 
    "\[InvisibleSpace]", "\<\" check a \"\>", "\[InvisibleSpace]", "0", 
-   "\[InvisibleSpace]", "\<\" check e \"\>", "\[InvisibleSpace]", "0", 
-   "\[InvisibleSpace]", "\<\" check d \"\>", 
-   "\[InvisibleSpace]", "\<\"oops\"\>"}],
-  SequenceForm[
-  "config", 0, " check a ", 0, " check e ", 0, " check d ", "oops"],
-  Editable->False]], "Print",
- CellChangeTimes->{3.6884842525071583`*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"config\"\>", "\[InvisibleSpace]", "1", 
-   "\[InvisibleSpace]", "\<\" check a \"\>", "\[InvisibleSpace]", "0", 
-   "\[InvisibleSpace]", "\<\" check e \"\>", "\[InvisibleSpace]", "0", 
-   "\[InvisibleSpace]", "\<\" check d \"\>", 
-   "\[InvisibleSpace]", "\<\"oops\"\>"}],
-  SequenceForm[
-  "config", 1, " check a ", 0, " check e ", 0, " check d ", "oops"],
-  Editable->False]], "Print",
- CellChangeTimes->{3.688484252508623*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"config\"\>", "\[InvisibleSpace]", "2", 
-   "\[InvisibleSpace]", "\<\" check a \"\>", 
+   "\[InvisibleSpace]", "\<\" check e \"\>", 
    "\[InvisibleSpace]", "\<\"oops\"\>", 
-   "\[InvisibleSpace]", "\<\" check e \"\>", "\[InvisibleSpace]", "0", 
    "\[InvisibleSpace]", "\<\" check d \"\>", 
    "\[InvisibleSpace]", "\<\"oops\"\>"}],
   SequenceForm[
-  "config", 2, " check a ", "oops", " check e ", 0, " check d ", "oops"],
+  "config", 0, " check a ", 0, " check e ", "oops", " check d ", "oops"],
   Editable->False]], "Print",
- CellChangeTimes->{3.6884842525107727`*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"config\"\>", "\[InvisibleSpace]", "3", 
-   "\[InvisibleSpace]", "\<\" check a \"\>", 
-   "\[InvisibleSpace]", "\<\"oops\"\>", 
-   "\[InvisibleSpace]", "\<\" check e \"\>", "\[InvisibleSpace]", "0", 
-   "\[InvisibleSpace]", "\<\" check d \"\>", 
-   "\[InvisibleSpace]", "\<\"oops\"\>"}],
-  SequenceForm[
-  "config", 3, " check a ", "oops", " check e ", 0, " check d ", "oops"],
-  Editable->False]], "Print",
- CellChangeTimes->{3.688484252512865*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"config\"\>", "\[InvisibleSpace]", "4", 
-   "\[InvisibleSpace]", "\<\" check a \"\>", "\[InvisibleSpace]", "0", 
-   "\[InvisibleSpace]", "\<\" check e \"\>", "\[InvisibleSpace]", "0", 
-   "\[InvisibleSpace]", "\<\" check d \"\>", "\[InvisibleSpace]", "0"}],
-  SequenceForm["config", 4, " check a ", 0, " check e ", 0, " check d ", 0],
-  Editable->False]], "Print",
- CellChangeTimes->{3.688484252515023*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"config\"\>", "\[InvisibleSpace]", "5", 
-   "\[InvisibleSpace]", "\<\" check a \"\>", "\[InvisibleSpace]", "0", 
-   "\[InvisibleSpace]", "\<\" check e \"\>", "\[InvisibleSpace]", "0", 
-   "\[InvisibleSpace]", "\<\" check d \"\>", 
-   "\[InvisibleSpace]", "\<\"oops\"\>"}],
-  SequenceForm[
-  "config", 5, " check a ", 0, " check e ", 0, " check d ", "oops"],
-  Editable->False]], "Print",
- CellChangeTimes->{3.688484252517337*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"config\"\>", "\[InvisibleSpace]", "6", 
-   "\[InvisibleSpace]", "\<\" check a \"\>", 
-   "\[InvisibleSpace]", "\<\"oops\"\>", 
-   "\[InvisibleSpace]", "\<\" check e \"\>", "\[InvisibleSpace]", "0", 
-   "\[InvisibleSpace]", "\<\" check d \"\>", 
-   "\[InvisibleSpace]", "\<\"oops\"\>"}],
-  SequenceForm[
-  "config", 6, " check a ", "oops", " check e ", 0, " check d ", "oops"],
-  Editable->False]], "Print",
- CellChangeTimes->{3.688484252519587*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"config\"\>", "\[InvisibleSpace]", "7", 
-   "\[InvisibleSpace]", "\<\" check a \"\>", 
-   "\[InvisibleSpace]", "\<\"oops\"\>", 
-   "\[InvisibleSpace]", "\<\" check e \"\>", "\[InvisibleSpace]", "0", 
-   "\[InvisibleSpace]", "\<\" check d \"\>", "\[InvisibleSpace]", "0"}],
-  SequenceForm[
-  "config", 7, " check a ", "oops", " check e ", 0, " check d ", 0],
-  Editable->False]], "Print",
- CellChangeTimes->{3.688484252522149*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"config\"\>", "\[InvisibleSpace]", "8", 
-   "\[InvisibleSpace]", "\<\" check a \"\>", "\[InvisibleSpace]", "0", 
-   "\[InvisibleSpace]", "\<\" check e \"\>", "\[InvisibleSpace]", "0", 
-   "\[InvisibleSpace]", "\<\" check d \"\>", "\[InvisibleSpace]", "0"}],
-  SequenceForm["config", 8, " check a ", 0, " check e ", 0, " check d ", 0],
-  Editable->False]], "Print",
- CellChangeTimes->{3.688484252524296*^9}]
-}, Open  ]]
+ CellChangeTimes->{
+  3.688994161400795*^9, 3.689081563593155*^9, 3.689081716149199*^9, 
+   3.689083626941012*^9, 3.68908404067594*^9, 3.6890883233989067`*^9, {
+   3.6890970975182323`*^9, 3.6890971110167913`*^9}, 3.689100983799561*^9}]
 }, Open  ]],
 
 Cell["\<\
@@ -428,6 +500,8 @@ cos\[Theta]=c\
 \>", "Text",
  CellChangeTimes->{{3.659217622230068*^9, 3.6592176769009113`*^9}, {
   3.6592177893550253`*^9, 3.659217795707062*^9}}],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
@@ -478,6 +552,60 @@ Cell[BoxData[{
 
 Cell[BoxData[
  RowBox[{
+  StyleBox[
+   RowBox[{"ArcTan", "::", "indet"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Indeterminate expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"ArcTan\\\", \\\"[\\\", RowBox[{\\\"0\\\", \
+\\\",\\\", \\\"0\\\"}], \\\"]\\\"}]\\)\[NoBreak] encountered. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/indet\\\", \
+ButtonNote -> \\\"ArcTan::indet\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.689100983969468*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ArcTan", "::", "indet"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Indeterminate expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"ArcTan\\\", \\\"[\\\", RowBox[{\\\"0\\\", \
+\\\",\\\", \\\"0\\\"}], \\\"]\\\"}]\\)\[NoBreak] encountered. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/indet\\\", \
+ButtonNote -> \\\"ArcTan::indet\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6891009840303707`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ArcTan", "::", "indet"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Indeterminate expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"ArcTan\\\", \\\"[\\\", RowBox[{\\\"0\\\", \
+\\\",\\\", \\\"0\\\"}], \\\"]\\\"}]\\)\[NoBreak] encountered. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/indet\\\", \
+ButtonNote -> \\\"ArcTan::indet\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.689100984036564*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[RowBox[{\\\"ArcTan\\\", \\\"::\\\", \
+\\\"indet\\\"}], \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during \
+this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.689100984106196*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
   RowBox[{"Bound", "[", "\[Phi]_", "]"}], ":=", 
   RowBox[{"If", "[", 
    RowBox[{
@@ -502,9 +630,60 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
+Cell[BoxData[
+ RowBox[{"??", "Diamond"}]], "Input",
+ CellChangeTimes->{{3.688484669711997*^9, 3.6884846706123962`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\!\(\*RowBox[{\\\"Diamond\\\", \\\"[\\\", RowBox[{StyleBox[\\\
+\"x\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"y\\\", \\\"TI\\\"], \\\",\\\", \
+StyleBox[\\\"\[Ellipsis]\\\", \\\"TR\\\"]}], \\\"]\\\"}]\) displays as \
+\!\(\*RowBox[{StyleBox[\\\"x\\\", \\\"TI\\\"], \\\"\[Diamond]\\\", \
+StyleBox[\\\"y\\\", \\\"TI\\\"], \\\"\[Diamond]\\\", StyleBox[\\\"\[Ellipsis]\
+\\\", \\\"TR\\\"]}]\).\"\>", "MSG"], "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Diamond"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.689100984532996*^9},
+ CellTags->"Info-7d1389bf-38e3-4a43-9795-559407842ef4"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"marker1", "=", 
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"RGBColor", "[", 
+       RowBox[{"0.22", ",", "0.6", ",", "0.32"}], "]"}], ",", 
+      RowBox[{"Disk", "[", "]"}]}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"marker2", "=", 
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"RGBColor", "[", 
+       RowBox[{"0.13", ",", "0.83", ",", "1"}], "]"}], ",", 
+      RowBox[{"Disk", "[", "]"}]}], "}"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.688484650799427*^9, 3.688484757125012*^9}, {
+  3.688987473056089*^9, 3.688987489617503*^9}, {3.688987540753079*^9, 
+  3.68898754387332*^9}}],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[{
  RowBox[{
   RowBox[{"gsPlot", "=", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"originGS", ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Orange"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"confPlot", "=", 
    RowBox[{"ListPlot", "[", 
     RowBox[{
      RowBox[{"Transpose", "[", 
@@ -518,7 +697,19 @@ Cell[BoxData[{
       RowBox[{"{", 
        RowBox[{"\"\<\[Phi]\>\"", ",", "\"\<\[Theta]\>\""}], "}"}]}], ",", 
      RowBox[{"Axes", "\[Rule]", "False"}], ",", 
-     RowBox[{"PlotRangePadding", "\[Rule]", "Automatic"}]}], "]"}]}], 
+     RowBox[{"PlotRangePadding", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"PlotMarkers", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"marker1", ",", "0.03"}], "}"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"actGSPlot", "=", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"actualGS", ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Blue"}], ",", 
+     RowBox[{"PlotMarkers", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<X\>\"", ",", "20"}], "}"}]}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"boundPlot", "=", 
@@ -544,15 +735,235 @@ Cell[BoxData[{
          RowBox[{"0", ",", "\[Pi]"}], "}"}]}], "}"}]}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{"Show", "[", 
-  RowBox[{"boundPlot", ",", "gsPlot"}], "]"}]}], "Input",
+  RowBox[{"boundPlot", ",", "actGSPlot", ",", "confPlot", ",", "gsPlot"}], 
+  "]"}]}], "Input",
  CellChangeTimes->{{3.675868049460319*^9, 3.6758680535456343`*^9}, {
    3.676028756825625*^9, 3.676028785734251*^9}, 3.676031012388297*^9, {
-   3.6884842816869993`*^9, 3.68848435960522*^9}}],
+   3.6884842816869993`*^9, 3.68848435960522*^9}, {3.688484404117196*^9, 
+   3.6884844374599257`*^9}, {3.688484496454555*^9, 3.688484524980256*^9}, {
+   3.688484598310288*^9, 3.688484641477244*^9}, {3.688484764039975*^9, 
+   3.688484779397197*^9}, {3.68882746321876*^9, 3.6888274671084023`*^9}, {
+   3.688987559938179*^9, 3.688987607920166*^9}, {3.6889876514088707`*^9, 
+   3.688987737520287*^9}}],
 
 Cell[BoxData[
- GraphicsBox[{{{}, {}, 
-    {RGBColor[0.368417, 0.506779, 0.709798], AbsoluteThickness[1.6], Opacity[
-     1.], LineBox[CompressedData["
+ RowBox[{
+  StyleBox[
+   RowBox[{"ListPlot", "::", "lpn"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(\\*RowBox[{\\\"$Failed\\\"}]\\)\[NoBreak] \
+is not a list of numbers or pairs of numbers. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/ListPlot\\\", ButtonNote -> \\\"ListPlot::lpn\\\"]\
+\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.689100984913485*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ListPlot", "::", "lpn"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(\\*RowBox[{\\\"$Failed\\\"}]\\)\[NoBreak] \
+is not a list of numbers or pairs of numbers. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/ListPlot\\\", ButtonNote -> \\\"ListPlot::lpn\\\"]\
+\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.68910098508346*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gcomb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Could not combine the graphics objects in \[NoBreak]\\!\\(\
+\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{GraphicsBox[List[List[List[], \
+List[], List[Directive[Opacity[1.`], RGBColor[0.368417`, 0.506779`, \
+0.709798`], AbsoluteThickness[1.6`]], LineBox[List[List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], Skeleton[917]]]], List[Directive[Opacity[1.`], \
+RGBColor[0.880722`, 0.611041`, 0.142051`], AbsoluteThickness[1.6`]], \
+LineBox[List[List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], \
+List[Skeleton[2]], List[Skeleton[2]], List[Skeleton[2]], Skeleton[917]]]]]], \
+List[Rule[DisplayFunction, Identity], Rule[AspectRatio, \
+NCache[Power[GoldenRatio, -1], 0.6180339887498948`]], Rule[Axes, List[True, \
+True]], Rule[AxesLabel, List[None, None]], Rule[AxesOrigin, List[0, 0]], \
+RuleDelayed[DisplayFunction, Identity], Rule[Frame, List[List[False, False], \
+List[False, False]]], Rule[FrameLabel, List[List[None, None], List[None, \
+None]]], Rule[FrameTicks, List[List[Automatic, Automatic], List[Automatic, \
+Automatic]]], Rule[GridLines, List[None, None]], Rule[GridLinesStyle, \
+Directive[GrayLevel[0.5`, 0.4`]]], Rule[Method, \
+List[Rule[\\\"DefaultBoundaryStyle\\\", Automatic], Rule[\\\"DefaultMeshStyle\
+\\\", AbsolutePointSize[6]], Rule[\\\"ScalingFunctions\\\", None]]], \
+Rule[PlotRange, NCache[List[List[Times[-180, Degree], Times[180, Degree]], \
+List[0, Pi]], List[List[-3.141592653589793`, 3.141592653589793`], List[0, \
+3.141592653589793`]]]], Rule[PlotRangeClipping, True], Rule[PlotRangePadding, \
+List[List[0, 0], List[0, 0]]], Rule[Ticks, List[Automatic, Automatic]]]], \
+\\\",\\\", GraphicsBox[List[List[], \
+List[List[List[Directive[PointSize[Skeleton[1]], \
+AbsoluteThickness[Skeleton[1]], RGBColor[Skeleton[3]], \
+AbsolutePointSize[Skeleton[1]]], \
+GeometricTransformationBox[InsetBox[BoxData[FormBox[RowBox[List[\\\"\\\\[\
+LeftSkeleton]\\\", \\\"2\\\", \\\"\\\\[RightSkeleton]\\\"]], \
+TraditionalForm]]], List[Skeleton[341]]]], List[]]], List[]], \
+List[Rule[DisplayFunction, Identity], Rule[PlotRangePadding, \
+List[List[Scaled[0.02`], Scaled[0.02`]], List[Scaled[0.05`], \
+Scaled[0.05`]]]], Rule[AxesOrigin, List[0, 0]], Rule[PlotRange, List[List[0, \
+3.`], List[-1.`, 1.`]]], Rule[DisplayFunction, Identity], Rule[AspectRatio, \
+NCache[Power[GoldenRatio, -1], 0.6180339887498948`]], Rule[Axes, List[True, \
+True]], Rule[AxesLabel, List[None, None]], Rule[AxesOrigin, List[0, 0]], \
+RuleDelayed[DisplayFunction, Identity], Rule[Frame, List[List[False, False], \
+List[False, False]]], Rule[FrameLabel, List[List[None, None], List[None, \
+None]]], Rule[FrameTicks, List[List[Automatic, Automatic], List[Automatic, \
+Automatic]]], Rule[GridLines, List[None, None]], Rule[GridLinesStyle, \
+Directive[GrayLevel[0.5`, 0.4`]]], Rule[Method, List[]], Rule[PlotRange, \
+List[List[0, 3.`], List[-1.`, 1.`]]], Rule[PlotRangeClipping, True], \
+Rule[PlotRangePadding, List[List[Scaled[0.02`], Scaled[0.02`]], \
+List[Scaled[0.05`], Scaled[0.05`]]]], Rule[Ticks, List[Automatic, \
+Automatic]]]], \\\",\\\", GraphicsBox[List[List[], \
+List[List[List[Directive[PointSize[Skeleton[1]], RGBColor[Skeleton[3]], \
+AbsoluteThickness[Skeleton[1]], AbsolutePointSize[Skeleton[1]]], \
+InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], Automatic, \
+Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], \
+Automatic, Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], \
+List[Skeleton[2]], Automatic, Scaled[Skeleton[1]]], \
+InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], Automatic, \
+Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], \
+Automatic, Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], \
+List[Skeleton[2]], Automatic, Scaled[Skeleton[1]]], \
+InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], Automatic, \
+Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], \
+Automatic, Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], \
+List[Skeleton[2]], Automatic, Scaled[Skeleton[1]]], \
+InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], Automatic, \
+Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], \
+Automatic, Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], \
+List[Skeleton[2]], Automatic, Scaled[Skeleton[1]]], \
+InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], Automatic, \
+Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], \
+Automatic, Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], \
+List[Skeleton[2]], Automatic, Scaled[Skeleton[1]]], \
+InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], Automatic, \
+Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], \
+Automatic, Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], \
+List[Skeleton[2]], Automatic, Scaled[Skeleton[1]]], \
+InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], Automatic, \
+Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], \
+Automatic, Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], \
+List[Skeleton[2]], Automatic, Scaled[Skeleton[1]]], \
+InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], Automatic, \
+Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], \
+Automatic, Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], \
+List[Skeleton[2]], Automatic, Scaled[Skeleton[1]]], \
+InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], Automatic, \
+Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], \
+Automatic, Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], \
+List[Skeleton[2]], Automatic, Scaled[Skeleton[1]]], \
+InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], Automatic, \
+Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], \
+Automatic, Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], \
+List[Skeleton[2]], Automatic, Scaled[Skeleton[1]]], \
+InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], Automatic, \
+Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], \
+Automatic, Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], \
+List[Skeleton[2]], Automatic, Scaled[Skeleton[1]]], \
+InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], Automatic, \
+Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], \
+Automatic, Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], \
+List[Skeleton[2]], Automatic, Scaled[Skeleton[1]]], \
+InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], Automatic, \
+Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], \
+Automatic, Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], \
+List[Skeleton[2]], Automatic, Scaled[Skeleton[1]]], \
+InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], Automatic, \
+Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], \
+Automatic, Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], \
+List[Skeleton[2]], Automatic, Scaled[Skeleton[1]]], \
+InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], Automatic, \
+Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], \
+Automatic, Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], \
+List[Skeleton[2]], Automatic, Scaled[Skeleton[1]]], \
+InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], Automatic, \
+Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], \
+Automatic, Scaled[Skeleton[1]]], InsetBox[GraphicsBox[Skeleton[1]], \
+List[Skeleton[2]], Automatic, Scaled[Skeleton[1]]], \
+InsetBox[GraphicsBox[Skeleton[1]], List[Skeleton[2]], Automatic, \
+Scaled[Skeleton[1]]], Skeleton[261]], List[]]], List[]], \
+List[Rule[DisplayFunction, Identity], Rule[PlotRangePadding, \
+List[List[Scaled[0.02`], Scaled[0.02`]], List[Scaled[0.02`], \
+Scaled[0.05`]]]], Rule[AxesOrigin, List[0, 0]], Rule[PlotRange, \
+List[List[-3.141582653589793`, 3.`], List[0, 1.`]]], Rule[DisplayFunction, \
+Identity], Rule[AspectRatio, NCache[Power[GoldenRatio, -1], \
+0.6180339887498948`]], Rule[Axes, List[False, False]], Rule[AxesLabel, \
+List[None, None]], Rule[AxesOrigin, List[0, 0]], RuleDelayed[DisplayFunction, \
+Identity], Rule[Frame, List[List[True, False], List[True, False]]], \
+Rule[FrameLabel, List[List[FormBox[\\\"\\\\\\\"\\\\[Theta]\\\\\\\"\\\", \
+TraditionalForm], None], List[FormBox[\\\"\\\\\\\"\\\\[Phi]\\\\\\\"\\\", \
+TraditionalForm], None]]], Rule[FrameTicks, List[List[Automatic, Automatic], \
+List[Automatic, Automatic]]], Rule[GridLines, List[None, None]], \
+Rule[GridLinesStyle, Directive[GrayLevel[0.5`, 0.4`]]], Rule[Method, List[]], \
+Rule[PlotRange, List[List[-3.141582653589793`, 3.`], List[0, 1.`]]], \
+Rule[PlotRangeClipping, True], Rule[PlotRangePadding, \
+List[List[Scaled[0.02`], Scaled[0.02`]], List[Scaled[0.02`], \
+Scaled[0.05`]]]], Rule[Ticks, List[Automatic, Automatic]]]], \\\",\\\", \
+RowBox[{\\\"ListPlot\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\",\\\", \
+RowBox[{\\\"PlotStyle\\\", \\\"\[Rule]\\\", \
+InterpretationBox[ButtonBox[TooltipBox[GraphicsBox[List[List[GrayLevel[0], \
+RectangleBox[List[0, 0]]], List[GrayLevel[0], RectangleBox[List[1, -1]]], \
+List[RGBColor[1, 0.5`, 0], RectangleBox[List[0, -1], List[2, 1]]]], \
+Rule[AspectRatio, 1], Rule[Frame, True], Rule[FrameStyle, \
+RGBColor[0.6666666666666666`, 0.33333333333333337`, 0.`]], Rule[FrameTicks, \
+None], Rule[PlotRangePadding, None], Rule[ImageSize, Dynamic[List[Automatic, \
+Times[1.35`, CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]]], \\\"RGBColor[1, 0.5, \
+0]\\\"], Rule[Appearance, None], Rule[BaseStyle, List[]], \
+Rule[BaselinePosition, Baseline], Rule[DefaultBaseStyle, List[]], \
+RuleDelayed[ButtonFunction, With[List[Set[Typeset`box$, EvaluationBox[]]], \
+If[Not[AbsoluteCurrentValue[\\\"Deployed\\\"]], \
+CompoundExpression[SelectionMove[Typeset`box$, All, Expression], \
+Set[FrontEnd`Private`$ColorSelectorInitialAlpha, 1], \
+Set[FrontEnd`Private`$ColorSelectorInitialColor, RGBColor[1, 0.5`, 0]], \
+Set[FrontEnd`Private`$ColorSelectorUseMakeBoxes, True], \
+MathLink`CallFrontEnd[FrontEnd`AttachCell[Typeset`box$, \
+FrontEndResource[\\\"RGBColorValueSelector\\\"], List[0, List[Left, Bottom]], \
+List[Left, Top], Rule[\\\"ClosingActions\\\", \
+List[\\\"SelectionDeparture\\\", \\\"ParentChanged\\\", \
+\\\"EvaluatorQuit\\\"]]]]]]]], Rule[BaseStyle, Inherited], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], RGBColor[1, 0.5`, 0], \
+Rule[Editable, False], Rule[Selectable, False]]}]}], \\\"]\\\"}]}], \
+\\\"]\\\"}]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Show/gcomb\\\", ButtonNote -> \
+\\\"Show::gcomb\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.689100985329371*^9}],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{
+   GraphicsBox[{{}, {}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], AbsoluteThickness[1.6], Opacity[
+      1.], LineBox[CompressedData["
 1:eJw1m3k0Ve/bhzmmo1SUSlKGSoqUaKLcu0hShjTRRCohNGuSzCpU0lfGEiKU
 Icns2ZnnKRWJhIQMZ5/5GH9Pa73vX9a19pn2s5/7vj/X2puy3UXLczQhIaFK
 ESGhf39N9s41mFCWJEfCBFsOFTNgoeM9Bn25JPliQx469IkB3fcZMYvkJcls
@@ -880,9 +1291,9 @@ hJWET4sl5g+fig4nTtMJ41wfjgLmpJbzLGkRSUIqJ/fiP9+N7JUJuSMhSXi0
 lRJlmIPYBZr9syUJjeCDDq8w3xOzr7OQliQSq1X6ff/dP14k7VQgK0mwKX6e
 6z9/XZ0vobpEkkg7mdL77/7t0a1nXz9ZJkl8cl185jDm//v/YuL//7/4f9+a
 afo=
-      "]]}, 
-    {RGBColor[0.880722, 0.611041, 0.142051], AbsoluteThickness[1.6], Opacity[
-     1.], LineBox[CompressedData["
+       "]]}, 
+     {RGBColor[0.880722, 0.611041, 0.142051], AbsoluteThickness[1.6], Opacity[
+      1.], LineBox[CompressedData["
 1:eJw1m3k4VV3fgLdjOkpIiigkhCShkmltmcmYJCmiJEmUSoZIhUqDeGQKISJl
 nmXtJFTmEJKQhCizM593ua7v++u57ucY9tlnr/W77/a2ze2i3RkShmFNnBi2
 +l9zMwED+jY+IuOUiWZnPYZvPBc6S5bkIz7GnV20eYfhw1GzzzaJ8xF1U4qK
@@ -1208,42 +1619,1410 @@ OyfeuYS+PqCkowTxu8INldo0Mu6dS/rTibj03dsj2SwyvmgT3j+NOKfr7IIQ
 Jx/+pPNsymrvJv1cHxPEy4f346Pqq/eDoxdrVMbX8uHhHuLpq88rh3J7tNgI
 8eFGzWojq88zX9ok5FUjwodLlpqsGKz2645qXvnNfLg+y2d0tU+Pap5+8Xgr
 H155pTJjtV//7++L8f//++L/ASJiVA4=
-      "]]}}, {{}, {{}, 
-     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
-      0.012833333333333334`], AbsoluteThickness[1.6], 
-      PointBox[{{2.141592653589793, 1.}, {2.141592653589793, 
-       0.3333333333333333}, {-1., 0.3333333333333333}, {-1., 1.}, {
-       2.80825932025646, 1.}, {2.80825932025646, 
-       0.3333333333333333}, {-0.3333333333333333, 
-       0.3333333333333333}, {-0.3333333333333333, 1.}, {-2.80825932025646, 
-       1.}}]}, {}}, {}}},
-  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
-  Axes->{True, True},
-  AxesLabel->{None, None},
-  AxesOrigin->{0, 0},
-  DisplayFunction->Identity,
-  Frame->{{False, False}, {False, False}},
-  FrameLabel->{{None, None}, {None, None}},
-  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
-  GridLines->{None, None},
-  GridLinesStyle->Directive[
-    GrayLevel[0.5, 0.4]],
-  Method->{
-   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
-    AbsolutePointSize[6], "ScalingFunctions" -> None},
-  PlotRange->
-   NCache[{{(-180) Degree, 180 Degree}, {0, Pi}}, {{-3.141592653589793, 
-     3.141592653589793}, {0, 3.141592653589793}}],
-  PlotRangeClipping->True,
-  PlotRangePadding->{{0, 0}, {0, 0}},
-  Ticks->{Automatic, Automatic}]], "Output",
+       "]]}},
+    AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+    Axes->{True, True},
+    AxesLabel->{None, None},
+    AxesOrigin->{0, 0},
+    DisplayFunction->Identity,
+    Frame->{{False, False}, {False, False}},
+    FrameLabel->{{None, None}, {None, None}},
+    FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+    GridLines->{None, None},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
+      AbsolutePointSize[6], "ScalingFunctions" -> None},
+    PlotRange->
+     NCache[{{(-180) Degree, 180 Degree}, {0, Pi}}, {{-3.141592653589793, 
+       3.141592653589793}, {0, 3.141592653589793}}],
+    PlotRangeClipping->True,
+    PlotRangePadding->{{0, 0}, {0, 0}},
+    Ticks->{Automatic, Automatic}], ",", 
+   GraphicsBox[{{}, {
+      {RGBColor[0, 0, 1], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+       GeometricTransformationBox[InsetBox[
+         StyleBox["\<\"X\"\>",
+          StripOnInput->False,
+          FontSize->20], {0., 0.}], CompressedData["
+1:eJxdmEGIlWUYRl+dNCMqQlpL0KpodYsQaR4xaOUqKFoIgtitNAhCLAVr4UZc
+Ka3+ITRqUS6CiFq00KGVfXStKVv0ktjQTMVHQmMTYVONjcbzyXd+7uVytvdw
+uM9979/z8lPPTUXE0+si1l6xfu199YWFY59cW5yOm8/S7Gtx6vy2mU9l/vXS
++cVfhtL4wq75358dXWz8wBe7ls8O2fjcW1cO3RvzjevFB1eeGC00vu/OFw8f
+HP/cePuO91beH2rjlw79dPj7yZXGO787+e/GWGr84/KHj789XG386j1zR7aO
+lhvf9dBvZ7+Z/NH43SfvXt0//rPx1j0PT2+Ia42/OrLz9VPDX433DvvPPTb6
+u/HKx8dX5yb/ND4xd2Z633i18eaDe2fXvsvt5stTB3Z/ObnFZ04evT4zrGt8
+YMubp58fr2+sD97RI6Opxnds++iHiNsaf/v5Z29cmNzi0898vWVm2NB43+L8
+7Hi8sfGjryztHo1ub/z/56bG9j0z3Hhq8222b7N9m+3bbN9m+zbbt9m+zfZt
+tm+zfZvt22zfZvs227fZvs32bbZvs32b7dts32b7Ntu32b7N9m22b7N9m+3b
+bN9m+zbb9+jms9B8m+3bbN9m+zbbt9m+zfZttm+zfZvt22zfZvs227fZvs32
+bbZvs32b7dts32b7Ntu32b7N9m22b7N9m+3bbN9m+zbbt9m+zX3fib4TfSf6
+TvSd6DvRd6LvRN+JvhN9J/pO9J3oO9F3ou9E34m+E30n+k70neg70Xei70Tf
+ib4TfSf6TvSd6DvRd8J3ge8C3wW+C3wX+C7wXeC7wHeB7wLfBb4LfBf4LvBd
+4LvAd4HvAt8Fvgt8F/gu8F3gu8B3ge8C3wW+C3wX+C7wXWb7vRbR77WIfq9F
+9Hstot9rEf1ei+j3WkS/19a+qG6vRfR7LaLfaxH9Xovo91pEv9ci+r0W0e+1
+iH6vRfR7LaLfaxH9Xovo91pEv9ci+r0W0e+1iH6vRfR7LaLfaxH9Xovo91pE
+v9f8bGqMvoW+hb6FvoW+hb6FvoW+hb6FvoW+hb6FvoW+hb6FvoW+hb6FvoW+
+hb6FvoW+hb6FvoW+hb6FvoW+hb5l32b8fsN3wnfCd8J3wnfCd8J3wnfCd8J3
+wnfCd8J3wnfCd8J3wnfCd8J3wnfCd8J3wnfCd8J3wnfCd8J3wnfCdwr7XNjn
+wj4X9rmwz4V9LuxzYZ8L+1zY58I+F/a5sM+FfS7sc2GfC/tc2OfCPhf2ubDP
+hX0u7HNhnwv7XNjnwj4X9rmwz4V93nyb8f8bfVf0XdF3Rd8VfVf0XdF3Rd8V
+fVf0XdF3Rd8VfVf0XdF3Rd8VfVf0XdF3Rd8VfVf0XdF3Rd8VfVf0XdF3Rd8V
+fVf0XYX7mnBfE+5rwn1NuK8J9zXhvibc14T7mnBfE+5rwn1NuK8J9zXhvibc
+14T7mnBfE+5rwn1NuK8J9zXhvibc14T7mnBfE+5rwn1NuK8J97Xm2/wfdO+2
+AQ==
+        "]]}, {}}, {}},
+    AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+    Axes->{True, True},
+    AxesLabel->{None, None},
+    AxesOrigin->{0, 0},
+    DisplayFunction->Identity,
+    Frame->{{False, False}, {False, False}},
+    FrameLabel->{{None, None}, {None, None}},
+    FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+    GridLines->{None, None},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{},
+    PlotRange->{{0, 3.}, {-1., 1.}},
+    PlotRangeClipping->True,
+    PlotRangePadding->{{
+       Scaled[0.02], 
+       Scaled[0.02]}, {
+       Scaled[0.05], 
+       Scaled[0.05]}},
+    Ticks->{Automatic, Automatic}], ",", 
+   GraphicsBox[{{}, {
+      {RGBColor[0.368417, 0.506779, 0.709798], AbsolutePointSize[6], 
+       AbsoluteThickness[1.6], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-3.141582653589793, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-3.041582986923127, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.94158332025646, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.8415836535897934`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.7415839869231267`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.64158432025646, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.5415846535897932`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.4415849869231265`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.34158532025646, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.241585653589793, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.1415859869231264`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.0415863202564597`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.9415866535897932`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.8415869869231265`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.74158732025646, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.6415876535897933`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.5415879869231266`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.4415883202564599`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.3415886535897932`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.2415889869231265`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.14158932025646, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.0415896535897933`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.9415899869231266, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.8415903202564599, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.7415906535897933, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.6415909869231265, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.54159132025646, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.44159165358979324`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.3415919869231266, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.2415923202564599, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.14159265358979323`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-3.141582653589793, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-3.041582986923127, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.94158332025646, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.8415836535897934`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.7415839869231267`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.64158432025646, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.5415846535897932`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.4415849869231265`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.34158532025646, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.241585653589793, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.1415859869231264`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.0415863202564597`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.9415866535897932`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.8415869869231265`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.74158732025646, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.6415876535897933`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.5415879869231266`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.4415883202564599`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.3415886535897932`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.2415889869231265`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.14158932025646, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.0415896535897933`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.9415899869231266, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.8415903202564599, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.7415906535897933, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.6415909869231265, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.54159132025646, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.44159165358979324`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.3415919869231266, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.2415923202564599, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.14159265358979323`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-3.141582653589793, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-3.041582986923127, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.94158332025646, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.8415836535897934`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.7415839869231267`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.64158432025646, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.5415846535897932`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.4415849869231265`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.34158532025646, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.241585653589793, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.1415859869231264`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.0415863202564597`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.9415866535897932`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.8415869869231265`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.74158732025646, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.6415876535897933`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.5415879869231266`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.4415883202564599`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.3415886535897932`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.2415889869231265`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.14158932025646, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.0415896535897933`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.9415899869231266, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.8415903202564599, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.7415906535897933, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.6415909869231265, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.54159132025646, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.44159165358979324`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.3415919869231266, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.2415923202564599, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.14159265358979323`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-3.141582653589793, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-3.041582986923127, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.94158332025646, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.8415836535897934`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.7415839869231267`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.64158432025646, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.5415846535897932`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.4415849869231265`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.34158532025646, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.241585653589793, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.1415859869231264`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.0415863202564597`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.9415866535897932`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.8415869869231265`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.74158732025646, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.6415876535897933`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.5415879869231266`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.4415883202564599`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.3415886535897932`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.2415889869231265`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.14158932025646, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.0415896535897933`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.9415899869231266, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.8415903202564599, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.7415906535897933, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.6415909869231265, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.54159132025646, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.44159165358979324`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.3415919869231266, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.2415923202564599, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.14159265358979323`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-3.141582653589793, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-3.041582986923127, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.94158332025646, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.8415836535897934`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.7415839869231267`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.64158432025646, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.5415846535897932`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.4415849869231265`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.34158532025646, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.241585653589793, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.1415859869231264`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-2.0415863202564597`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.9415866535897932`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.8415869869231265`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.74158732025646, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.6415876535897933`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.5415879869231266`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.4415883202564599`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.3415886535897932`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.2415889869231265`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.14158932025646, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-1.0415896535897933`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.9415899869231266, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.8415903202564599, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.7415906535897933, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.6415909869231265, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.54159132025646, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.44159165358979324`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.3415919869231266, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.2415923202564599, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {-0.14159265358979323`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {9.999999999999947*^-6, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.10000966666666666`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.20000933333333334`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.300009, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.4000086666666667, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.5000083333333334, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.600008, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.7000076666666667, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.8000073333333333, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.900007, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.0000066666666667`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.1000063333333334`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.200006, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.3000056666666666`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.4000053333333333`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.500005, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.6000046666666667`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.7000043333333332`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.800004, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.9000036666666666`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.0000033333333334`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.100003, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.2000026666666668`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.3000023333333335`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.400002, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.5000016666666665`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.600001333333333, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.700001, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.8000006666666666`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.9000003333333333`, 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {3., 0.2}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {9.999999999999994*^-6, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.10000966666666666`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.20000933333333334`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.300009, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.4000086666666667, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.5000083333333334, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.600008, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.7000076666666667, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.8000073333333333, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.900007, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.0000066666666667`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.1000063333333334`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.200006, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.3000056666666666`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.4000053333333333`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.500005, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.6000046666666667`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.7000043333333332`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.800004, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.9000036666666666`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.0000033333333334`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.100003, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.2000026666666668`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.3000023333333335`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.400002, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.5000016666666665`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.600001333333333, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.700001, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.8000006666666666`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.9000003333333333`, 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {3., 0.4}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {9.999999999999987*^-6, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.10000966666666666`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.20000933333333334`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.300009, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.4000086666666667, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.5000083333333334, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.600008, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.7000076666666667, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.8000073333333333, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.900007, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.0000066666666667`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.1000063333333334`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.200006, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.3000056666666666`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.4000053333333333`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.500005, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.6000046666666667`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.7000043333333332`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.800004, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.9000036666666666`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.0000033333333334`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.100003, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.2000026666666668`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.3000023333333335`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.400002, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.5000016666666665`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.600001333333333, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.700001, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.8000006666666666`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.9000003333333333`, 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {3., 0.6}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {9.999999999999989*^-6, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.10000966666666666`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.20000933333333334`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.300009, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.4000086666666667, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.5000083333333334, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.600008, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.7000076666666667, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.8000073333333333, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.900007, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.0000066666666667`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.1000063333333334`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.200006, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.3000056666666666`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.4000053333333333`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.500005, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.6000046666666667`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.7000043333333332`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.800004, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.9000036666666666`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.0000033333333334`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.100003, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.2000026666666668`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.3000023333333335`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.400002, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.5000016666666665`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.600001333333333, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.700001, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.8000006666666666`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.9000003333333333`, 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {3., 0.8}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {9.999999999999989*^-6, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.10000966666666666`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.20000933333333334`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.300009, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.4000086666666667, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.5000083333333334, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.600008, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.7000076666666667, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.8000073333333333, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {0.900007, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.0000066666666667`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.1000063333333334`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.200006, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.3000056666666666`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.4000053333333333`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.500005, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.6000046666666667`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.7000043333333332`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.800004, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {1.9000036666666666`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.0000033333333334`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.100003, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.2000026666666668`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.3000023333333335`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.400002, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.5000016666666665`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.600001333333333, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.700001, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.8000006666666666`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {2.9000003333333333`, 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]], InsetBox[
+        GraphicsBox[
+         {RGBColor[0.22, 0.6, 0.32], AbsolutePointSize[6], AbsoluteThickness[
+          1.6], DiskBox[{0, 0}]}], {3., 1.}, Automatic, 
+        Scaled[{0.03, 0.03}]]}, {}}, {}},
+    AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+    Axes->{False, False},
+    AxesLabel->{None, None},
+    AxesOrigin->{0, 0},
+    DisplayFunction->Identity,
+    Frame->{{True, False}, {True, False}},
+    FrameLabel->{{
+       FormBox["\"\[Theta]\"", TraditionalForm], None}, {
+       FormBox["\"\[Phi]\"", TraditionalForm], None}},
+    FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+    GridLines->{None, None},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{},
+    PlotRange->{{-3.141582653589793, 3.}, {0, 1.}},
+    PlotRangeClipping->True,
+    PlotRangePadding->{{
+       Scaled[0.02], 
+       Scaled[0.02]}, {
+       Scaled[0.02], 
+       Scaled[0.05]}},
+    Ticks->{Automatic, Automatic}], ",", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"$Failed", ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      InterpretationBox[
+       ButtonBox[
+        TooltipBox[
+         GraphicsBox[{
+           {GrayLevel[0], RectangleBox[{0, 0}]}, 
+           {GrayLevel[0], RectangleBox[{1, -1}]}, 
+           {RGBColor[1, 0.5, 0], RectangleBox[{0, -1}, {2, 1}]}},
+          AspectRatio->1,
+          Frame->True,
+          FrameStyle->RGBColor[0.6666666666666666, 0.33333333333333337`, 0.],
+          FrameTicks->None,
+          
+          ImageSize->
+           Dynamic[{
+            Automatic, 1.35 CurrentValue["FontCapHeight"]/
+             AbsoluteCurrentValue[Magnification]}],
+          PlotRangePadding->None],
+         "RGBColor[1, 0.5, 0]"],
+        Appearance->None,
+        BaseStyle->{},
+        BaselinePosition->Baseline,
+        ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+          If[
+           Not[
+            AbsoluteCurrentValue["Deployed"]], 
+           SelectionMove[Typeset`box$, All, Expression]; 
+           FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+           FrontEnd`Private`$ColorSelectorInitialColor = RGBColor[1, 0.5, 0]; 
+           FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+           MathLink`CallFrontEnd[
+             FrontEnd`AttachCell[Typeset`box$, 
+              FrontEndResource["RGBColorValueSelector"], {
+              0, {Left, Bottom}}, {Left, Top}, 
+              "ClosingActions" -> {
+               "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+        DefaultBaseStyle->{},
+        Evaluator->Automatic,
+        Method->"Preemptive"],
+       RGBColor[1, 0.5, 0],
+       Editable->False,
+       Selectable->False]}]}], "]"}]}], "]"}]], "Output",
  CellChangeTimes->{
   3.67620703015186*^9, 3.688484272598016*^9, {3.6884843108244658`*^9, 
-   3.6884843601745853`*^9}}]
-}, Open  ]]
+   3.6884843601745853`*^9}, {3.6884844093078613`*^9, 3.688484437945573*^9}, {
+   3.688484503055768*^9, 3.6884845255615597`*^9}, {3.688484627356942*^9, 
+   3.688484642062491*^9}, {3.688484771517878*^9, 3.688484779915081*^9}, 
+   3.6884877042838993`*^9, 3.68848774614023*^9, 3.6884881236575947`*^9, 
+   3.68848843434412*^9, {3.688826957209449*^9, 3.688826964374023*^9}, {
+   3.688827432153126*^9, 3.688827467836502*^9}, 3.688987415346669*^9, {
+   3.688987598965355*^9, 3.688987608474478*^9}, {3.688987669354707*^9, 
+   3.688987686382534*^9}, {3.688987719405603*^9, 3.688987737997292*^9}, 
+   3.688988744049206*^9, 3.6889894632950907`*^9, 3.689081564574113*^9, 
+   3.689081717022629*^9, 3.689083627465724*^9, 3.689084041404861*^9, 
+   3.689088323974888*^9, {3.68909709890902*^9, 3.689097111727831*^9}, 
+   3.6891009855813637`*^9}]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.689085515574547*^9}]
 },
-WindowSize->{935, 1028},
-WindowMargins->{{-6, Automatic}, {Automatic, 0}},
+WindowSize->{Full, Full},
+WindowMargins->{{-7, Automatic}, {Automatic, 0}},
 FrontEndVersion->"10.3 for Linux x86 (64-bit) (October 9, 2015)",
 StyleDefinitions->"Default.nb"
 ]
@@ -1251,67 +3030,91 @@ StyleDefinitions->"Default.nb"
 
 (* Internal cache information *)
 (*CellTagsOutline
-CellTagsIndex->{}
+CellTagsIndex->{
+ "Info-7d1389bf-38e3-4a43-9795-559407842ef4"->{
+  Cell[24300, 636, 716, 14, 44, "Print",
+   CellTags->"Info-7d1389bf-38e3-4a43-9795-559407842ef4"]}
+ }
 *)
 (*CellTagsIndex
-CellTagsIndex->{}
+CellTagsIndex->{
+ {"Info-7d1389bf-38e3-4a43-9795-559407842ef4", 155290, 3033}
+ }
 *)
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 193, 3, 32, "Input"],
-Cell[776, 27, 539, 13, 23, "Message"]
+Cell[776, 27, 595, 13, 23, "Message"],
+Cell[1374, 42, 539, 13, 23, "Message"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1352, 45, 895, 13, 32, "Input"],
-Cell[2250, 60, 277, 4, 32, "Output"]
+Cell[1950, 60, 1134, 16, 32, "Input"],
+Cell[3087, 78, 792, 10, 32, "Output"]
+}, Open  ]],
+Cell[3894, 91, 92, 1, 32, "Input"],
+Cell[CellGroupData[{
+Cell[4011, 96, 942, 23, 77, "Input"],
+Cell[4956, 121, 461, 10, 23, "Message"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2564, 69, 141, 2, 32, "Input"],
-Cell[2708, 73, 766, 12, 32, "Output"]
-}, Open  ]],
-Cell[3489, 88, 300, 7, 32, "Input"],
-Cell[CellGroupData[{
-Cell[3814, 99, 126, 2, 32, "Input"],
-Cell[3943, 103, 413, 6, 32, "Output"]
+Cell[5454, 136, 341, 7, 32, "Input"],
+Cell[5798, 145, 512, 11, 23, "Message"],
+Cell[6313, 158, 321, 5, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4393, 114, 722, 19, 55, "Input"],
-Cell[5118, 135, 696, 10, 32, "Output"]
+Cell[6671, 168, 199, 5, 32, "Input"],
+Cell[6873, 175, 586, 12, 23, "Message"],
+Cell[7462, 189, 220, 4, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5851, 150, 131, 2, 32, "Input"],
-Cell[5985, 154, 306, 4, 32, "Output"]
+Cell[7719, 198, 126, 2, 32, "Input"],
+Cell[7848, 202, 393, 6, 32, "Output"]
 }, Open  ]],
-Cell[6306, 161, 1052, 33, 77, "Input"],
-Cell[7361, 196, 135, 1, 33, "Text"],
+Cell[8256, 211, 92, 1, 32, "Input"],
 Cell[CellGroupData[{
-Cell[7521, 201, 283, 6, 32, "Input"],
-Cell[7807, 209, 1405, 31, 77, "Output"]
+Cell[8373, 216, 722, 19, 55, "Input"],
+Cell[9098, 237, 1179, 17, 32, "Output"]
 }, Open  ]],
-Cell[9227, 243, 114, 1, 33, "Text"],
 Cell[CellGroupData[{
-Cell[9366, 248, 2185, 56, 189, "Input"],
-Cell[CellGroupData[{
-Cell[11576, 308, 479, 10, 23, "Print"],
-Cell[12058, 320, 477, 10, 23, "Print"],
-Cell[12538, 332, 499, 11, 23, "Print"],
-Cell[13040, 345, 497, 11, 23, "Print"],
-Cell[13540, 358, 454, 8, 23, "Print"],
-Cell[13997, 368, 477, 10, 23, "Print"],
-Cell[14477, 380, 497, 11, 23, "Print"],
-Cell[14977, 393, 477, 10, 23, "Print"],
-Cell[15457, 405, 454, 8, 23, "Print"]
-}, Open  ]]
+Cell[10314, 259, 209, 4, 32, "Input"],
+Cell[10526, 265, 812, 12, 32, "Output"]
 }, Open  ]],
-Cell[15938, 417, 223, 4, 33, "Text"],
-Cell[16164, 423, 241, 6, 77, "Text"],
-Cell[16408, 431, 1634, 45, 99, "Input"],
-Cell[18045, 478, 693, 22, 83, "Input"],
+Cell[11353, 280, 1052, 33, 77, "Input"],
+Cell[12408, 315, 135, 1, 33, "Text"],
 Cell[CellGroupData[{
-Cell[18763, 504, 1627, 45, 121, "Input"],
-Cell[20393, 551, 41329, 690, 288, "Output"]
-}, Open  ]]
+Cell[12568, 320, 329, 6, 32, "Input"],
+Cell[12900, 328, 1856, 39, 86, "Output"]
+}, Open  ]],
+Cell[14771, 370, 114, 1, 33, "Text"],
+Cell[CellGroupData[{
+Cell[14910, 375, 3492, 95, 189, "Input"],
+Cell[18405, 472, 691, 14, 23, "Print"]
+}, Open  ]],
+Cell[19111, 489, 223, 4, 33, "Text"],
+Cell[19337, 495, 241, 6, 77, "Text"],
+Cell[CellGroupData[{
+Cell[19603, 505, 1634, 45, 99, "Input"],
+Cell[21240, 552, 544, 11, 23, "Message"],
+Cell[21787, 565, 546, 11, 23, "Message"],
+Cell[22336, 578, 544, 11, 23, "Message"],
+Cell[22883, 591, 562, 12, 23, "Message"]
+}, Open  ]],
+Cell[23460, 606, 693, 22, 83, "Input"],
+Cell[CellGroupData[{
+Cell[24178, 632, 119, 2, 32, "Input"],
+Cell[24300, 636, 716, 14, 44, "Print",
+ CellTags->"Info-7d1389bf-38e3-4a43-9795-559407842ef4"]
+}, Open  ]],
+Cell[25031, 653, 717, 20, 55, "Input"],
+Cell[CellGroupData[{
+Cell[25773, 677, 2625, 69, 187, "Input"],
+Cell[28401, 748, 473, 10, 23, "Message"],
+Cell[28877, 760, 472, 10, 23, "Message"],
+Cell[29352, 772, 12663, 186, 107, "Message"],
+Cell[42018, 960, 112846, 2057, 90, "Output"]
+}, Open  ]],
+Cell[154879, 3020, 87, 1, 55, "Input"]
 }
 ]
 *)

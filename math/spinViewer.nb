@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     18980,        466]
-NotebookOptionsPosition[     17995,        429]
-NotebookOutlinePosition[     18353,        445]
-CellTagsIndexPosition[     18310,        442]
+NotebookDataLength[     48651,       1173]
+NotebookOptionsPosition[     45837,       1095]
+NotebookOutlinePosition[     46194,       1111]
+CellTagsIndexPosition[     46151,       1108]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -34,9 +34,8 @@ Cell[BoxData[
 Cell[BoxData[
  RowBox[{
   RowBox[{
-  "SetDirectory", "[", 
-   "\"\</users/home/arway/Desktop/Work/Data/TEFM/22july16\>\"", "]"}], 
-  ";"}]], "Input",
+  "SetDirectory", "[", "\"\</users/home/arway/Desktop/Work/data/18nov16\>\"", 
+   "]"}], ";"}]], "Input",
  CellChangeTimes->{{3.643531395052595*^9, 3.643531424682768*^9}, {
    3.643626583918521*^9, 3.6436265855347977`*^9}, 3.6437101267700167`*^9, {
    3.6452808946709003`*^9, 3.6452809111836357`*^9}, {3.645346212211898*^9, 
@@ -85,7 +84,8 @@ Cell[BoxData[
    3.677946788665539*^9, 3.677946793239088*^9}, {3.678105352956818*^9, 
    3.678105356759458*^9}, {3.678187005747757*^9, 3.678187005889921*^9}, {
    3.678279777729147*^9, 3.678279778485105*^9}, {3.678280054772848*^9, 
-   3.678280054852625*^9}}],
+   3.678280054852625*^9}, {3.688485953862467*^9, 3.68848596434015*^9}, {
+   3.688486014996914*^9, 3.688486015747978*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -98,7 +98,8 @@ Cell[BoxData[
    3.657901062209989*^9, 3.657901074739143*^9}, 3.65791302777177*^9, {
    3.671286809855626*^9, 3.671286813247761*^9}, {3.6712870385439997`*^9, 
    3.6712870463522463`*^9}, {3.6713602643803263`*^9, 3.671360277730641*^9}, {
-   3.6713610251582623`*^9, 3.67136103035295*^9}}],
+   3.6713610251582623`*^9, 3.67136103035295*^9}, {3.688486020773094*^9, 
+   3.688486024180726*^9}}],
 
 Cell[BoxData[
  RowBox[{"Do", "[", 
@@ -113,6 +114,26 @@ Cell[BoxData[
      RowBox[{"Length", "[", "list1", "]"}]}], "}"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.6435315244807987`*^9, 3.643531556715097*^9}, 
    3.64353722710258*^9, {3.657656218708087*^9, 3.6576562194432898`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"L2sl", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L12sl", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "37", ",", "433", ",", "469", ",", "865", ",", "901"}], 
+    "}"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.688486163716901*^9, 3.688486171140642*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"spinLines", "=", "L2sl"}], ";"}]], "Input",
+ CellChangeTimes->{{3.688486048129901*^9, 3.688486081876136*^9}, {
+  3.688486127172826*^9, 3.688486140324497*^9}, {3.6884861746285467`*^9, 
+  3.6884861766281223`*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -139,21 +160,6 @@ Cell[BoxData[{
   3.654939317764711*^9}, {3.65493938250028*^9, 3.654939388531034*^9}, {
   3.654939555411316*^9, 3.654939571603695*^9}, {3.671361142083707*^9, 
   3.6713611434008303`*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData["list1"], "Input",
- CellChangeTimes->{{3.67828179896798*^9, 3.678281819511218*^9}, 
-   3.67828199739587*^9}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"\<\"conf001.dat\"\>", ",", "\<\"conf01.dat\"\>", 
-   ",", "\<\"conf1.dat\"\>"}], "}"}]], "Output",
- CellChangeTimes->{{3.678281800065445*^9, 3.6782818202394648`*^9}, 
-   3.6782818951629047`*^9, {3.6782819941576138`*^9, 3.678281998081634*^9}, 
-   3.678622046718133*^9}]
-}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -197,8 +203,11 @@ Cell[BoxData[
                  RowBox[{
                   RowBox[{"conf", "[", "i", "]"}], "[", 
                   RowBox[{"[", 
-                   RowBox[{"1", ",", "All"}], "]"}], "]"}]}], "}"}], ",", 
-               "0.01"}], "]"}], "]"}]}], "}"}], "]"}], ",", 
+                   RowBox[{
+                    RowBox[{"spinLines", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", "All"}], "]"}], 
+                  "]"}]}], "}"}], ",", "0.01"}], "]"}], "]"}]}], "}"}], "]"}],
+          ",", 
          RowBox[{"Graphics3D", "[", 
           RowBox[{"{", 
            RowBox[{"Green", ",", 
@@ -213,8 +222,11 @@ Cell[BoxData[
                  RowBox[{
                   RowBox[{"conf", "[", "i", "]"}], "[", 
                   RowBox[{"[", 
-                   RowBox[{"37", ",", "All"}], "]"}], "]"}]}], "}"}], ",", 
-               "0.01"}], "]"}], "]"}]}], "}"}], "]"}], ",", 
+                   RowBox[{
+                    RowBox[{"spinLines", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", "All"}], "]"}], 
+                  "]"}]}], "}"}], ",", "0.01"}], "]"}], "]"}]}], "}"}], "]"}],
+          ",", 
          RowBox[{"Graphics3D", "[", 
           RowBox[{"{", 
            RowBox[{"Blue", ",", 
@@ -229,8 +241,11 @@ Cell[BoxData[
                  RowBox[{
                   RowBox[{"conf", "[", "i", "]"}], "[", 
                   RowBox[{"[", 
-                   RowBox[{"433", ",", "All"}], "]"}], "]"}]}], "}"}], ",", 
-               "0.01"}], "]"}], "]"}]}], "}"}], "]"}], ",", 
+                   RowBox[{
+                    RowBox[{"spinLines", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}], ",", "All"}], "]"}], 
+                  "]"}]}], "}"}], ",", "0.01"}], "]"}], "]"}]}], "}"}], "]"}],
+          ",", 
          RowBox[{"Graphics3D", "[", 
           RowBox[{"{", 
            RowBox[{"Pink", ",", 
@@ -245,8 +260,11 @@ Cell[BoxData[
                  RowBox[{
                   RowBox[{"conf", "[", "i", "]"}], "[", 
                   RowBox[{"[", 
-                   RowBox[{"469", ",", "All"}], "]"}], "]"}]}], "}"}], ",", 
-               "0.01"}], "]"}], "]"}]}], "}"}], "]"}], ",", 
+                   RowBox[{
+                    RowBox[{"spinLines", "[", 
+                    RowBox[{"[", "4", "]"}], "]"}], ",", "All"}], "]"}], 
+                  "]"}]}], "}"}], ",", "0.01"}], "]"}], "]"}]}], "}"}], "]"}],
+          ",", 
          RowBox[{"Graphics3D", "[", 
           RowBox[{"{", 
            RowBox[{"Brown", ",", 
@@ -261,8 +279,11 @@ Cell[BoxData[
                  RowBox[{
                   RowBox[{"conf", "[", "i", "]"}], "[", 
                   RowBox[{"[", 
-                   RowBox[{"865", ",", "All"}], "]"}], "]"}]}], "}"}], ",", 
-               "0.01"}], "]"}], "]"}]}], "}"}], "]"}], ",", 
+                   RowBox[{
+                    RowBox[{"spinLines", "[", 
+                    RowBox[{"[", "5", "]"}], "]"}], ",", "All"}], "]"}], 
+                  "]"}]}], "}"}], ",", "0.01"}], "]"}], "]"}]}], "}"}], "]"}],
+          ",", 
          RowBox[{"Graphics3D", "[", 
           RowBox[{"{", 
            RowBox[{"Purple", ",", 
@@ -277,8 +298,11 @@ Cell[BoxData[
                  RowBox[{
                   RowBox[{"conf", "[", "i", "]"}], "[", 
                   RowBox[{"[", 
-                   RowBox[{"901", ",", "All"}], "]"}], "]"}]}], "}"}], ",", 
-               "0.01"}], "]"}], "]"}]}], "}"}], "]"}]}], "}"}], ",", 
+                   RowBox[{
+                    RowBox[{"spinLines", "[", 
+                    RowBox[{"[", "6", "]"}], "]"}], ",", "All"}], "]"}], 
+                  "]"}]}], "}"}], ",", "0.01"}], "]"}], "]"}]}], "}"}], 
+          "]"}]}], "}"}], ",", 
        RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", 
        RowBox[{"ViewPoint", "\[Rule]", 
         RowBox[{"{", 
@@ -310,22 +334,22 @@ Cell[BoxData[
    3.674555590607164*^9, 3.6745556062707863`*^9}, {3.6745566995808487`*^9, 
    3.674556703131688*^9}, {3.674556833229961*^9, 3.674556904748719*^9}, {
    3.674559651750844*^9, 3.674559679256551*^9}, {3.67681071478096*^9, 
-   3.676810719090163*^9}}],
+   3.676810719090163*^9}, {3.6884861803258457`*^9, 3.688486211492762*^9}}],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`i$$ = 1, Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`i$$ = 201, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`i$$], 1, 3, 1}}, Typeset`size$$ = {
+      Hold[$CellContext`i$$], 1, 201, 1}}, Typeset`size$$ = {
     360., {177., 183.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`i$1577$$ = 0}, 
+    Typeset`skipInitDone$$ = True, $CellContext`i$155444$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`i$$ = 1}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`i$$, $CellContext`i$1577$$, 0]}, 
+        Hold[$CellContext`i$$, $CellContext`i$155444$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -340,61 +364,714 @@ Cell[BoxData[
            Arrow[
             Tube[{{0, 0, 0}, 
               Part[
-               $CellContext`conf[$CellContext`i$$], 1, All]}, 0.01]]}], 
+               $CellContext`conf[$CellContext`i$$], 
+               Part[$CellContext`spinLines, 1], All]}, 0.01]]}], 
          Graphics3D[{Green, 
            Arrowheads[0.1], 
            Arrow[
             Tube[{{0, 0, 0}, 
               Part[
-               $CellContext`conf[$CellContext`i$$], 37, All]}, 0.01]]}], 
+               $CellContext`conf[$CellContext`i$$], 
+               Part[$CellContext`spinLines, 2], All]}, 0.01]]}], 
          Graphics3D[{Blue, 
            Arrowheads[0.1], 
            Arrow[
             Tube[{{0, 0, 0}, 
               Part[
-               $CellContext`conf[$CellContext`i$$], 433, All]}, 0.01]]}], 
+               $CellContext`conf[$CellContext`i$$], 
+               Part[$CellContext`spinLines, 3], All]}, 0.01]]}], 
          Graphics3D[{Pink, 
            Arrowheads[0.1], 
            Arrow[
             Tube[{{0, 0, 0}, 
               Part[
-               $CellContext`conf[$CellContext`i$$], 469, All]}, 0.01]]}], 
+               $CellContext`conf[$CellContext`i$$], 
+               Part[$CellContext`spinLines, 4], All]}, 0.01]]}], 
          Graphics3D[{Brown, 
            Arrowheads[0.1], 
            Arrow[
             Tube[{{0, 0, 0}, 
               Part[
-               $CellContext`conf[$CellContext`i$$], 865, All]}, 0.01]]}], 
+               $CellContext`conf[$CellContext`i$$], 
+               Part[$CellContext`spinLines, 5], All]}, 0.01]]}], 
          Graphics3D[{Purple, 
            Arrowheads[0.1], 
            Arrow[
             Tube[{{0, 0, 0}, 
               Part[
-               $CellContext`conf[$CellContext`i$$], 901, All]}, 0.01]]}]}, 
-        AspectRatio -> 1, ViewPoint -> {1, 1, 0}], 
-      "Specifications" :> {{$CellContext`i$$, 1, 3, 1}}, "Options" :> {}, 
+               $CellContext`conf[$CellContext`i$$], 
+               Part[$CellContext`spinLines, 6], All]}, 0.01]]}]}, AspectRatio -> 
+        1, ViewPoint -> {1, 1, 0}], 
+      "Specifications" :> {{$CellContext`i$$, 1, 201, 1}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
      ImageSizeCache->{407., {221., 228.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
     SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
     UnsavedVariables:>{Typeset`initDone$$},
     UntrackedVariables:>{Typeset`size$$}], "Manipulate",
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{3.6782820001137733`*^9, 3.6786220475824337`*^9}]
-}, Open  ]],
+ CellChangeTimes->{3.6782820001137733`*^9, 3.6786220475824337`*^9, 
+  3.688486212543618*^9, 3.688486462183427*^9}],
 
 Cell[BoxData[
- RowBox[{"Testplot", "=", 
-  RowBox[{"Plot", "[", 
-   RowBox[{"x", ",", 
-    RowBox[{"{", 
-     RowBox[{"x", ",", 
-      RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "]"}]}]], "Input",
- CellChangeTimes->{{3.678622118804721*^9, 3.678622132502965*^9}}],
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6884868942429123`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6884868943158607`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688486894344385*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688486894386462*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"3\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688486894414805*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"partd\\\"}], \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during \
+this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688486894436208*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"3\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6884868944720488`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"pkspec1\\\"}], \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed \
+during this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688486894496183*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688486934665361*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688486934708209*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6884869347371683`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688486934792618*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"3\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688486934822884*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"partd\\\"}], \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during \
+this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.68848693487533*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"3\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688486934876463*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"pkspec1\\\"}], \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed \
+during this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688486934911867*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6884877044257708`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688487704467595*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688487704503211*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688487704539002*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"3\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688487704575727*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"partd\\\"}], \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during \
+this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6884877046122217`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"3\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688487704654193*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"pkspec1\\\"}], \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed \
+during this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688487704655781*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6884877462798986`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688487746321073*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688487746358591*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688487746396345*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"3\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.68848774643434*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"partd\\\"}], \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during \
+this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688487746435473*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"3\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688487746475909*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"pkspec1\\\"}], \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed \
+during this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688487746516292*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688488123865526*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6884881239084*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688488123945464*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688488123985187*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"3\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.68848812402497*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"partd\\\"}], \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during \
+this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688488124026218*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"3\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688488124068305*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"pkspec1\\\"}], \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed \
+during this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6884881241192617`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688488434551073*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688488434593666*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688488434631194*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688488434669231*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"3\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] is longer than depth \
+of object. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\
+\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688488434708797*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"partd\\\"}], \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during \
+this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688488434709783*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The expression \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"3\\\", \\\"\[RightDoubleBracket]\\\"}]\\)\[NoBreak] cannot be used as a \
+part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
+\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688488434752203*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"pkspec1\\\"}], \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed \
+during this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.688488434792128*^9}]
+}, Open  ]],
 
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.67862235639021*^9, 3.678622356418469*^9}}],
@@ -402,24 +1079,13 @@ Cell[BoxData[""], "Input",
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Export", "[", 
-  RowBox[{"\"\<Testplot.png\>\"", ",", "Testplot"}], "]"}]], "Input",
- CellChangeTimes->{{3.678622058021929*^9, 3.678622069478232*^9}, {
-  3.678622136695223*^9, 3.67862214469427*^9}}],
+ RowBox[{"(*", 
+  RowBox[{"Export", "[", 
+   RowBox[{"\"\<highField111.avi\>\"", ",", "animate", ",", 
+    RowBox[{"\"\<FrameRate\>\"", "\[Rule]", "60"}]}], "]"}], "*)"}]], "Input",\
 
-Cell[BoxData["\<\"Testplot.png\"\>"], "Output",
- CellChangeTimes->{
-  3.6786220701679792`*^9, {3.678622145189625*^9, 3.678622161996848*^9}}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Export", "[", 
-  RowBox[{"\"\<highField111.avi\>\"", ",", "animate", ",", 
-   RowBox[{"\"\<FrameRate\>\"", "\[Rule]", "60"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.676810743829858*^9, 3.676810757717629*^9}, 
-   3.678281963010045*^9}],
+   3.678281963010045*^9, {3.68848593925268*^9, 3.688485941571982*^9}}],
 
 Cell[BoxData["\<\"highField111.avi\"\>"], "Output",
  GeneratedCell->False,
@@ -427,10 +1093,10 @@ Cell[BoxData["\<\"highField111.avi\"\>"], "Output",
  CellChangeTimes->{3.676810821471437*^9, 3.678281963010735*^9}]
 }, Open  ]]
 },
-WindowSize->{927, 1028},
-WindowMargins->{{Automatic, -7}, {Automatic, 0}},
+WindowSize->{935, 1028},
+WindowMargins->{{-6, Automatic}, {Automatic, 0}},
 ShowSelection->True,
-FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+FrontEndVersion->"10.3 for Linux x86 (64-bit) (October 9, 2015)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -446,27 +1112,68 @@ CellTagsIndex->{}
 Notebook[{
 Cell[557, 20, 294, 6, 32, "Input"],
 Cell[854, 28, 160, 3, 32, "Input"],
-Cell[1017, 33, 3710, 54, 32, "Input"],
-Cell[4730, 89, 545, 11, 32, "Input"],
-Cell[5278, 102, 472, 12, 32, "Input"],
-Cell[5753, 116, 846, 24, 133, "Input"],
+Cell[1017, 33, 3796, 54, 32, "Input"],
+Cell[4816, 89, 595, 12, 32, "Input"],
+Cell[5414, 103, 472, 12, 32, "Input"],
+Cell[5889, 117, 405, 11, 55, "Input"],
+Cell[6297, 130, 246, 5, 32, "Input"],
+Cell[6546, 137, 846, 24, 133, "Input"],
 Cell[CellGroupData[{
-Cell[6624, 144, 121, 2, 32, "Input"],
-Cell[6748, 148, 308, 6, 32, "Output"]
+Cell[7417, 165, 7470, 171, 385, "Input"],
+Cell[14890, 338, 3269, 80, 466, "Output"],
+Cell[18162, 420, 567, 12, 23, "Message"],
+Cell[18732, 434, 556, 11, 23, "Message"],
+Cell[19291, 447, 565, 12, 23, "Message"],
+Cell[19859, 461, 554, 11, 23, "Message"],
+Cell[20416, 474, 565, 12, 23, "Message"],
+Cell[20984, 488, 560, 12, 23, "Message"],
+Cell[21547, 502, 556, 11, 23, "Message"],
+Cell[22106, 515, 562, 12, 23, "Message"],
+Cell[22671, 529, 565, 12, 23, "Message"],
+Cell[23239, 543, 554, 11, 23, "Message"],
+Cell[23796, 556, 567, 12, 23, "Message"],
+Cell[24366, 570, 554, 11, 23, "Message"],
+Cell[24923, 583, 565, 12, 23, "Message"],
+Cell[25491, 597, 559, 12, 23, "Message"],
+Cell[26053, 611, 554, 11, 23, "Message"],
+Cell[26610, 624, 562, 12, 23, "Message"],
+Cell[27175, 638, 567, 12, 23, "Message"],
+Cell[27745, 652, 554, 11, 23, "Message"],
+Cell[28302, 665, 565, 12, 23, "Message"],
+Cell[28870, 679, 554, 11, 23, "Message"],
+Cell[29427, 692, 565, 12, 23, "Message"],
+Cell[29995, 706, 562, 12, 23, "Message"],
+Cell[30560, 720, 554, 11, 23, "Message"],
+Cell[31117, 733, 562, 12, 23, "Message"],
+Cell[31682, 747, 567, 12, 23, "Message"],
+Cell[32252, 761, 554, 11, 23, "Message"],
+Cell[32809, 774, 565, 12, 23, "Message"],
+Cell[33377, 788, 554, 11, 23, "Message"],
+Cell[33934, 801, 564, 12, 23, "Message"],
+Cell[34501, 815, 560, 12, 23, "Message"],
+Cell[35064, 829, 554, 11, 23, "Message"],
+Cell[35621, 842, 562, 12, 23, "Message"],
+Cell[36186, 856, 565, 12, 23, "Message"],
+Cell[36754, 870, 552, 11, 23, "Message"],
+Cell[37309, 883, 565, 12, 23, "Message"],
+Cell[37877, 897, 554, 11, 23, "Message"],
+Cell[38434, 910, 564, 12, 23, "Message"],
+Cell[39001, 924, 560, 12, 23, "Message"],
+Cell[39564, 938, 554, 11, 23, "Message"],
+Cell[40121, 951, 564, 12, 23, "Message"],
+Cell[40688, 965, 565, 12, 23, "Message"],
+Cell[41256, 979, 554, 11, 23, "Message"],
+Cell[41813, 992, 565, 12, 23, "Message"],
+Cell[42381, 1006, 554, 11, 23, "Message"],
+Cell[42938, 1019, 565, 12, 23, "Message"],
+Cell[43506, 1033, 560, 12, 23, "Message"],
+Cell[44069, 1047, 554, 11, 23, "Message"],
+Cell[44626, 1060, 562, 12, 23, "Message"]
 }, Open  ]],
+Cell[45203, 1075, 91, 1, 32, "Input"],
 Cell[CellGroupData[{
-Cell[7093, 159, 6782, 153, 363, "Input"],
-Cell[13878, 314, 2877, 72, 466, "Output"]
-}, Open  ]],
-Cell[16770, 389, 260, 7, 32, "Input"],
-Cell[17033, 398, 91, 1, 32, InheritFromParent],
-Cell[CellGroupData[{
-Cell[17149, 403, 222, 4, 32, "Input"],
-Cell[17374, 409, 140, 2, 32, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[17551, 416, 260, 5, 32, "Input"],
-Cell[17814, 423, 165, 3, 32, "Output"]
+Cell[45319, 1080, 334, 7, 32, "Input"],
+Cell[45656, 1089, 165, 3, 32, "Output"]
 }, Open  ]]
 }
 ]

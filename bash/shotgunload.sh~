@@ -35,11 +35,12 @@ do
 
 		directory_quantity=`find * -maxdepth 0 -type d | wc -l`
 		echo -ne "                                                                             \r"
-		echo -ne "$run_dir ($directory_quantity)\r"
-		mkdir $run_dir
-		cp gsconf$num.dat $run_dir/spin0000.dat
-		cp ~/Desktop/Work/code/sim/$simcode $run_dir/
-		cd $run_dir
+		echo -ne "$i ($directory_quantity)\r"
+		mkdir $i
+		cp fieldAngles.dat $i/
+		cp gsconf$num.dat $i/spin0000.dat
+		cp $simcode $i/
+		cd $i
 		gfortran $simcode
 		./a.out
 		cd ../

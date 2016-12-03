@@ -17,7 +17,7 @@ echo "exiting"
 exit
 fi
 
-if [ ! -f ~/Desktop/Work/code/sim/$simcode ];then
+if [ ! -f $simcode ];then
 echo "$simcode does not exist: exiting"
 exit
 fi
@@ -37,8 +37,9 @@ do
 		echo -ne "                                                                             \r"
 		echo -ne "$i ($directory_quantity)\r"
 		mkdir $i
+		cp fieldAngles.dat $i/
 		cp gsconf$num.dat $i/spin0000.dat
-		cp ~/Desktop/Work/code/sim/$simcode $i/
+		cp $simcode $i/
 		cd $i
 		gfortran $simcode
 		./a.out

@@ -21,9 +21,9 @@ fi
 echo $ret
 }
 
-output="SecondDerivative.dat"
-rm $output
-touch $output
+#output="inflections.dat"
+#rm $output
+#touch $output
 file=$1
 
 length=`cat $file | wc -l`
@@ -51,7 +51,11 @@ do
 	D1=`echo "( $y2 - $y1 ) / ( $x2 - $x1 )" | bc -l`
 	D2=`echo "( $y3 - $y2 ) / ( $x3 - $x2 )" | bc -l`
 	SecDeriv=`echo "( $D2 - $D1 ) / ( $x2 - $x1 )" | bc -l`
-	echo $x1 $y1 $x2 $y2 $D1 $D2 $SecDeriv >> $output
+	#echo $x1 $y1 $x2 $y2 $D1 $D2 $SecDeriv >> $output
 	negative=`echo $SecDeriv'<'0 | bc -l`
+	if [[ $negative -eq 1 ]];then
+		echo $x1
+		break;
+	fi
 done
-echo "Program complete."
+#echo "Program complete."
