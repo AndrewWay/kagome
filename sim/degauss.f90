@@ -2,10 +2,10 @@ module input_module_3d
 implicit none
  
 !Parameters
-integer,parameter :: L=12
+integer,parameter :: L=2
 double precision, parameter :: pi=3.14159265358979323846264338327
-double precision, parameter :: T=0,Hmax1=0.2,Hmin1=0,CON=0.0000001
-integer,parameter    :: nfield1=5, ntrans =5000, nmeas = 1,nsite=L*L*L,intervals=10
+double precision, parameter :: T=0,Hmax1=0.02,Hmin1=0
+integer,parameter    :: nfield1=80, ntrans =500, nmeas = 1,nsite=L*L*L
        
        
 !Data types
@@ -22,13 +22,11 @@ double precision :: rmx,rmy,rmz,rnum,rmav,rmav2,rmxav,rmyav,rmzav,rm2root,rmav4,
 double precision :: UB,UB2,nxsum,nysum,nzsum,ent,entav,beta1,beta2,t1,t2,nbrx(L*L*L),nbry(L*L*L),nbrz(L*L*L),Hmag,hmx,hmy,hmz
 double precision :: mcx,mcy,mcz,msx,msy,msz,chi,cm2av,cmxav,cmyav,cmzav,mcav,mcav2,msav,msav2,nocc
 double precision :: Htheta,Hphi
-double precision :: Ecurr,Eprev,tol,garbtmp
 integer :: imeas,irand0,iseed,ran
 integer :: flush
 integer :: i,j,k,dx,dy,dz,ax,ay,az,bx,by,bz,cx,cy,cz,i2,i4,i5,i11,i12
 integer :: a1,a2,a3,b1,b2,b3,c1,c2,c3,d1,d2,d3
 integer :: nz0,nz1,nz2,nz3
-integer :: counter,duration
 
 external r250_, flush
 character(20):: conffile
@@ -172,20 +170,18 @@ call gamma(L,D)
 jex=0
 di=1
 Hmag=0
-Htheta=0.785398
-Hphi=0.785398
 
-!call setField
+call setField
 
 !Random initialization
-Call init_random_seed()
-Call random_number(rnd)
-ran=INT(rnd*100)
-Do i=1,ran
-call spinit
-EndDo
+!Call init_random_seed()
+!Call random_number(rnd)
+!ran=INT(rnd*100)
+!Do i=1,ran
+!call spinit
+!EndDo
 !Preset intialization
-!call spinitPreset
+call spinitPreset
 
 !write(*,*) "Entering loop"
 do i2=0,nfield1
@@ -224,22 +220,14 @@ hmy=Hmag*dsin(Htheta)*dsin(Hphi)
 hmz=Hmag*dcos(Htheta)
 call measure
 !write(*,*) hmag,E/nocc
-garbtmp=ntrans/intervals
-duration=floor(garbtmp)
-counter=0
-Ecurr=E/nocc
-Eprev=0
-TOL=1
-DO WHILE (COUNTER .LE. INTERVALS .AND. TOL .GT. CON) 
-	DO IMEAS=1,DURATION
-		CALL EFM
-	ENDDO
-	CALL MEASURE
-	Eprev=Ecurr
-	Ecurr=E/nocc
-	tol=dabs(Ecurr-Eprev)/dabs(Ecurr)
-	COUNTER=COUNTER+1
-ENDDO
+
+do imeas=1,ntrans
+call efm
+enddo
+
+do imeas=1,nmeas
+call efm
+call measure
 
 do i=0,3
 sm2av(i)=sm2av(i)+smx(i)*smx(i)+smy(i)*smy(i)+smz(i)*smz(i)
@@ -259,6 +247,7 @@ rmyav=rmyav+(rmy)
 rmzav=rmzav+(rmz)
 rm2root=rm2root+dsqrt(rmx*rmx+rmy*rmy+rmz*rmz)
 
+enddo
 sm2av=sm2av/nmeas
 smav=dsqrt(sm2av)/nz1
 entav=entav/nmeas
@@ -845,7 +834,6 @@ enddo
 contains 
 	integer function ndelta(i,j)
 	integer :: i,j
-!Kronecker Delta function
 	ndelta=0
 	if(i.eq.j) ndelta=1
 end function ndelta
@@ -876,7 +864,6 @@ End Subroutine
 
 Subroutine init_random_seed()
 implicit none
-!Create random seed
          Integer :: i, n, clock
          Integer, Dimension(:), Allocatable :: seed
 
