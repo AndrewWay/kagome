@@ -2,10 +2,11 @@ module input_module_3d
 implicit none
  
 !Parameters
-integer,parameter :: L=12
+integer,parameter :: L=2
 double precision, parameter :: pi=3.14159265358979323846264338327
 double precision, parameter :: T=0,Hmax1=0.2,Hmin1=0,CON=0.0000001
-integer,parameter    :: nfield1=5, ntrans =5000, nmeas = 1,nsite=L*L*L,intervals=10
+integer,parameter    :: nfield1=20, ntrans =5000, nmeas = 1,nsite=L*L*L,intervals=10
+integer,parameter :: degauss=1
        
        
 !Data types
@@ -28,7 +29,7 @@ integer :: flush
 integer :: i,j,k,dx,dy,dz,ax,ay,az,bx,by,bz,cx,cy,cz,i2,i4,i5,i11,i12
 integer :: a1,a2,a3,b1,b2,b3,c1,c2,c3,d1,d2,d3
 integer :: nz0,nz1,nz2,nz3
-integer :: counter,duration
+integer :: counter,duration,fieldsteps
 
 external r250_, flush
 character(20):: conffile
@@ -186,9 +187,13 @@ call spinit
 EndDo
 !Preset intialization
 !call spinitPreset
-
+if (degauss.eq.1) then
+fieldsteps=2*nfield1
+else
+fieldsteps=nfield1
+end if
 !write(*,*) "Entering loop"
-do i2=0,nfield1
+do i2=0,fieldsteps
 
 !Set averages to zero 
 sm2av=0.
@@ -216,9 +221,17 @@ cmyav=0.
 cmzav=0.
 cm2av=0.
 rm2root=0.
+if(degauss.eq.1)then
+	if(i2.le.nfield1)then
+		Hmag=Hmin1+I2*(Hmax1-Hmin1)/(nfield1)
+	else
+		Hmag=Hmax1-(I2-nfield1)*(Hmax1-Hmin1)/(nfield1)
+	end if
+else
+	Hmag=Hmin1+I2*(Hmax1-Hmin1)/(nfield1)
+	!Hmag=Hmax1-I2*(Hmax1-Hmin1)/(nfield1)
+end if
 
-!Hmag=Hmax1-I2*(Hmax1-Hmin1)/(nfield1)
-Hmag=Hmin1+I2*(Hmax1-Hmin1)/(nfield1)
 hmx=Hmag*dsin(Htheta)*dcos(Hphi)
 hmy=Hmag*dsin(Htheta)*dsin(Hphi)
 hmz=Hmag*dcos(Htheta)
