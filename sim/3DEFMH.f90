@@ -719,6 +719,74 @@ sz(it)=sztmp/stnew
 Enddo
 end subroutine efm
 
+subroutine randefm
+use input_module_3d
+implicit none
+
+
+Do is=1,nsite
+!write(*,*) "Within randefm"
+
+it=NINT(nsite*r250_(iseed))
+!write(*,*) it, NINT(nsite*r250_(iseed)), r250_(iseed), iseed
+!write(*,*) bit_size(it), bit_size(NINT(nsite*r250_(iseed))), precision(r250_(iseed)), bit_size(iseed)
+!write(*,*) "Entering if statement",is,bit_size(is)
+!it=is
+if(it==0) go to 56
+!write(69,*) it
+if (sm(it)==0) go to 56
+nbrx=0.0
+nbry=0.0
+nbrz=0.0
+!write(*,*) "Debug 1"
+Do j=1,12
+   nbrx(it)=nbrx(it)+sx(nbr(it,j))
+   nbry(it)=nbry(it)+sy(nbr(it,j))
+   nbrz(it)=nbrz(it)+sz(nbr(it,j))
+EndDo
+!write(*,*) "Debug 2"
+hpx1=0.0
+hpy1=0.0
+hpz1=0.0
+
+Do j=1,nsite
+   ix=(itable(j,1)-itable(it,1))
+   iyy=(itable(j,2)-itable(it,2))
+   iz=(itable(j,3)-itable(it,3))
+   If (ix<0) ix=ix+L
+   If (iyy<0) iyy=iyy+L
+   If (iz<0) iz=iz+L
+   s(j,1)=sx(j)
+   s(j,2)=sy(j)
+   s(j,3)=sz(j)
+
+ Do k=1,3
+      hpx1=hpx1-D(1,k,ix,iyy,iz)*s(j,k)
+      hpy1=hpy1-D(2,k,ix,iyy,iz)*s(j,k)
+      hpz1=hpz1-D(3,k,ix,iyy,iz)*s(j,k)
+   EndDo
+EndDo
+!write(*,*) "Debug 3"
+
+sxtmp=di*hpx1-(jex*nbrx(it))+hmx
+sytmp=di*hpy1-(jex*nbry(it))+hmy
+sztmp=di*hpz1-(jex*nbrz(it))+hmz
+!write(*,*) "Debug 4"
+stnew=dsqrt(sxtmp*sxtmp+sytmp*sytmp+sztmp*sztmp)
+
+sx(it)=sxtmp/stnew
+sy(it)=sytmp/stnew
+sz(it)=sztmp/stnew
+!write(*,*) "Debug 5"
+
+56 Continue
+!write(*,*) "Debug 6"
+
+Enddo
+!write(*,*) "Debug 7"
+end subroutine randefm
+
+
 Subroutine Gamma(L,D)
 implicit none
 !use numerical_libraries
