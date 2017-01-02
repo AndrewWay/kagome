@@ -1,10 +1,10 @@
 module input_module_3d
 implicit none
 !Parameters
-integer,parameter :: L=6
+integer,parameter :: L=12
 double precision, parameter :: pi=3.14159265358979323846264338327
-double precision, parameter :: T=0,Hmax1=0.2,Hmin1=0,CON=0.0000001
-integer,parameter    :: nfield1=20, ntrans =5000, nmeas = 1,nsite=L*L*L,intervals=10
+double precision, parameter :: T=0,Hmax1=0,Hmin1=0,CON=0.0000001
+integer,parameter    :: nfield1=1, ntrans =2000, nmeas = 1,nsite=L*L*L,intervals=10
 integer,parameter :: degauss=0
 integer,parameter :: threads=4
        
@@ -329,7 +329,7 @@ EndDo
 enddo 
 call cpu_time(time1)
 ep = time1 - time2
-!$ ep = ep/num_threads
+!$ ep = ep/threads
 print *, "Time", ep
 
 999 format(1x,8e16.6)
@@ -675,10 +675,10 @@ DE=Enew-Eold
 subroutine efm
 use input_module_3d
 implicit none
-!$ print *, "Number of threads used : ",threads
+!$! print *, "Number of threads used : ",threads
 !$ call omp_set_num_threads(threads)
-
-!$omp parallel do private(is)
+!$OMP PARALLEL DO PRIVATE(is,it,ix,iyy,iz,j,k,hpx1,hpy1,hpz1,sxtmp,sytmp,sztmp,stnew) shared(jex,di, &
+!$OMP& nbr,nbrx,nbry,nbrz,sm,sx,sy,sz,itable,s,D,hmx,hmy,hmz), default(none)
 Do is=1,nsite
 if (sm(is)==0) go to 56
 it=is
@@ -696,7 +696,6 @@ EndDo
 hpx1=0.0
 hpy1=0.0
 hpz1=0.0
-
 Do j=1,nsite
    ix=(itable(j,1)-itable(it,1))
    iyy=(itable(j,2)-itable(it,2))
@@ -727,7 +726,6 @@ sz(it)=sztmp/stnew
 
 56 Continue
 Enddo
-!$omp end parallel do
 end subroutine efm
 
 subroutine randefm
