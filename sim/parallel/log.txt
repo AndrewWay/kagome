@@ -1,0 +1,222 @@
+3DEFMH.f90:242:1:
+
+  if(i2.le.nfield1)then
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:243:1:
+
+   Hmag=Hmin1+I2*(Hmax1-Hmin1)/(nfield1)
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:244:1:
+
+  else
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:245:1:
+
+   Hmag=Hmax1-(I2-nfield1)*(Hmax1-Hmin1)/(nfield1)
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:246:1:
+
+  end if
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:248:1:
+
+  Hmag=Hmin1+I2*(Hmax1-Hmin1)/(nfield1)
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:270:1:
+
+  DO IMEAS=1,DURATION
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:271:1:
+
+   CALL EFM
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:272:1:
+
+  ENDDO
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:273:1:
+
+  CALL MEASURE
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:274:1:
+
+  Eprev=Ecurr
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:275:1:
+
+  Ecurr=E/nocc
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:276:1:
+
+  tol=dabs(Ecurr-Eprev)/dabs(Ecurr)
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:277:1:
+
+  COUNTER=COUNTER+1
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:365:1:
+
+  do i11=1,3
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:366:1:
+
+  Do i12=1,nsite
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:367:1:
+
+  if (isub(i12).eq.i11) Then
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:368:1:
+
+   read(99,*) sx(i12),sy(i12),sz(i12)
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:369:1:
+
+  end if
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:370:1:
+
+  EndDo
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:371:1:
+
+  enddo
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:453:1:
+
+  do while (dsin(x56) > dcos(x56))
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:454:1:
+
+   x56=x56-inc56
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:455:1:
+
+  end do
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:457:1:
+
+  do while (dcos(x56) > dsin(x56))
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:458:1:
+
+   x56=x56+inc56
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:459:1:
+
+  end do
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:461:1:
+
+  inc56=inc56/10
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:616:1:
+
+  implicit none
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:702:24:
+
+ if (tmpindex == threads)
+                        1
+Error: Cannot assign to a named constant at (1)
+3DEFMH.f90:704:4:
+
+ else
+    1
+Error: Unexpected ELSE statement at (1)
+3DEFMH.f90:708:27:
+
+     siteHandled(tmpindex)=1
+                           1
+Error: Unexpected STATEMENT FUNCTION statement at (1)
+3DEFMH.f90:711:3:
+
+ end if
+   1
+Error: Unexpected END statement at (1)
+3DEFMH.f90:762:23:
+
+ siteHandled(tmpindex)=0
+                       1
+Error: Unexpected STATEMENT FUNCTION statement at (1)
+3DEFMH.f90:971:1:
+
+  integer function ndelta(i,j)
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:972:1:
+
+  integer :: i,j
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:974:1:
+
+  ndelta=0
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:975:1:
+
+  if(i.eq.j) ndelta=1
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+3DEFMH.f90:268:57:
+
+ !$OMP& sxtmp,sytmp,sztmp,stnew,tmpindex,startsite,endsite) shared(nbr, &
+                                                         1
+Error: Symbol ‘endsite’ at (1) has no IMPLICIT type
+3DEFMH.f90:269:56:
+
+ !$OMP& nbrx,nbry,nbrz,sm,sx,sy,sz,itable,s,D,sitehandled), default(none)
+                                                        1
+Error: Symbol ‘sitehandled’ at (1) has no IMPLICIT type
+3DEFMH.f90:268:49:
+
+ !$OMP& sxtmp,sytmp,sztmp,stnew,tmpindex,startsite,endsite) shared(nbr, &
+                                                 1
+Error: Symbol ‘startsite’ at (1) has no IMPLICIT type
+3DEFMH.f90:268:39:
+
+ !$OMP& sxtmp,sytmp,sztmp,stnew,tmpindex,startsite,endsite) shared(nbr, &
+                                       1
+Error: Symbol ‘tmpindex’ at (1) has no IMPLICIT type
+3DEFMH.f90:960:2:
+
+ 69 continue
+  1
+Warning: Label 69 at (1) defined but not used
+3DEFMH.f90:705:13:
+
+     do while(siteHandled(tmpindex) == 1)
+             1
+Error: Function ‘sitehandled’ at (1) has no IMPLICIT type
+At line 732 of file 3DEFMH.f90
+Fortran runtime error: Loop variable has been modified

@@ -1,12 +1,12 @@
 module input_module_3d
 implicit none
 !Parameters
-integer,parameter :: L=12
+integer,parameter :: L=8
 double precision, parameter :: pi=3.14159265358979323846264338327
 double precision, parameter :: T=0,Hmax1=0,Hmin1=0,CON=0.0000001
-integer,parameter    :: nfield1=1, ntrans =2000, nmeas = 1,nsite=L*L*L,intervals=10
+integer,parameter    :: nfield1=1, ntrans =100, nmeas = 1,nsite=L*L*L,intervals=10
 integer,parameter :: degauss=0
-integer,parameter :: threads=4
+integer,parameter :: threads=2
        
        
 !Data types
@@ -27,11 +27,11 @@ double precision :: Ecurr,Eprev,tol,garbtmp
 double precision :: time1, time2, ep
 integer :: imeas,irand0,iseed,ran
 integer :: flush,num_threads
-integer :: i,j,k,dx,dy,dz,ax,ay,az,bx,by,bz,cx,cy,cz,i2,i4,i5,i11,i12
+integer :: i,j,j1,k,dx,dy,dz,ax,ay,az,bx,by,bz,cx,cy,cz,i2,i4,i5,i11,i12
 integer :: a1,a2,a3,b1,b2,b3,c1,c2,c3,d1,d2,d3
 integer :: nz0,nz1,nz2,nz3
 integer :: counter,duration,fieldsteps
-
+integer :: sitesHandled(threads),startingSite(threads),siteInc
 
 external r250_, flush
 character(20):: conffile
@@ -148,6 +148,20 @@ nocc=0
 do i=1,nsite
 nocc=nocc+sm(i)
 enddo
+
+!Initialize the arrays that track what threads work on what sections of the lattice
+!For future reference: 
+!Depending on the number of threads used, the section of the lattice specified in the
+!end of the startingSite array will be longer than the other sections. 
+!Might cause problems with performance
+siteInc=floor(real(nsite/threads))
+
+do i=1,threads
+sitesHandled(i)=0
+startingSite(i)=(i-1)*siteInc+1
+write(*,*) startingSite(i)
+enddo
+
 !construct the dipole matrix for the given choice of basis vectors(in the subroutine)
 !remove if not calculating dipole interactions
 
@@ -246,7 +260,13 @@ counter=0
 Ecurr=E/nocc
 Eprev=0
 TOL=1
+
 DO WHILE (COUNTER .LE. INTERVALS .AND. TOL .GT. CON) 
+!$! print *, "Number of threads used : ",threads
+!$ call omp_set_num_threads(threads)
+!$OMP PARALLEL DO PRIVATE(imeas,is,it,ix,iyy,iz,j,j1,k,hpx1,hpy1,hpz1, &
+!$OMP& sxtmp,sytmp,sztmp,stnew,tmpindex,startsite,endsite) shared(nbr, &
+!$OMP& nbrx,nbry,nbrz,sm,sx,sy,sz,itable,s,D,sitehandled), default(none)
 	DO IMEAS=1,DURATION
 		CALL EFM
 	ENDDO
@@ -329,7 +349,7 @@ EndDo
 enddo 
 call cpu_time(time1)
 ep = time1 - time2
-!$ ep = ep/threads
+!$! ep = ep/threads
 print *, "Time", ep
 
 999 format(1x,8e16.6)
@@ -675,11 +695,24 @@ DE=Enew-Eold
 subroutine efm
 use input_module_3d
 implicit none
-!$! print *, "Number of threads used : ",threads
-!$ call omp_set_num_threads(threads)
-!$OMP PARALLEL DO PRIVATE(is,it,ix,iyy,iz,j,k,hpx1,hpy1,hpz1,sxtmp,sytmp,sztmp,stnew) shared(jex,di, &
-!$OMP& nbr,nbrx,nbry,nbrz,sm,sx,sy,sz,itable,s,D,hmx,hmy,hmz), default(none)
-Do is=1,nsite
+integer :: startSite,endSite,tmpindex
+startSite=1
+tmpindex=1
+!$OMP critical
+if (tmpindex == threads)
+    endsite=nsite
+else
+    do while(siteHandled(tmpindex) == 1)
+        tmpindex=tmpindex+1
+    enddo
+    siteHandled(tmpindex)=1
+    startSite=startingsite(tmpindex)
+    endsite=startSite+siteinc
+end if
+!$OMP end critical
+write(*,*) startsite,endsite
+write(*,*) L*L*L
+Do is=startSite,endSite
 if (sm(is)==0) go to 56
 it=is
 
@@ -687,10 +720,10 @@ nbrx=0.0
 nbry=0.0
 nbrz=0.0
 
-Do j=1,12
-   nbrx(it)=nbrx(it)+sx(nbr(it,j))
-   nbry(it)=nbry(it)+sy(nbr(it,j))
-   nbrz(it)=nbrz(it)+sz(nbr(it,j))
+Do j1=1,12
+   nbrx(it)=nbrx(it)+sx(nbr(it,j1))
+   nbry(it)=nbry(it)+sy(nbr(it,j1))
+   nbrz(it)=nbrz(it)+sz(nbr(it,j1))
 EndDo
 
 hpx1=0.0
@@ -726,6 +759,8 @@ sz(it)=sztmp/stnew
 
 56 Continue
 Enddo
+siteHandled(tmpindex)=0
+!$OMP BARRIER
 end subroutine efm
 
 subroutine randefm
