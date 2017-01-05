@@ -1,10 +1,10 @@
 module input_module_3d
 implicit none
 !Parameters
-integer,parameter :: L=12
+integer,parameter :: L=6
 double precision, parameter :: pi=3.14159265358979323846264338327
 double precision, parameter :: T=0,Hmax1=0,Hmin1=0,CON=0.0000001
-integer,parameter    :: nfield1=1, ntrans =2000, nmeas = 1,nsite=L*L*L,intervals=10
+integer,parameter    :: nfield1=1, ntrans =10000, nmeas = 1,nsite=L*L*L,intervals=1
 integer,parameter :: degauss=0
 integer,parameter :: threads=4
        
@@ -177,7 +177,8 @@ di=1
 Hmag=0
 Htheta=0.785398
 Hphi=0.785398
-
+time2=0
+time1=0
 !call setField
 
 !Random initialization
@@ -195,7 +196,6 @@ else
 fieldsteps=nfield1
 end if
 !write(*,*) "Entering loop"
-call cpu_time(time2)
 do i2=0,fieldsteps
 
 !Set averages to zero 
@@ -247,16 +247,22 @@ Ecurr=E/nocc
 Eprev=0
 TOL=1
 DO WHILE (COUNTER .LE. INTERVALS .AND. TOL .GT. CON) 
+call cpu_time(time1)
+!$ call omp_set_num_threads(threads)
+!$OMP PARALLEL DO private(imeas) shared(nbr,sm,sx,sy,sz,s), default(shared)
 	DO IMEAS=1,DURATION
 		CALL EFM
 	ENDDO
+!$OMP END PARALLEL DO
+call cpu_time(time2)
+ep = time2 - time1
+!$ ep = ep/threads
 	CALL MEASURE
 	Eprev=Ecurr
 	Ecurr=E/nocc
 	tol=dabs(Ecurr-Eprev)/dabs(Ecurr)
 	COUNTER=COUNTER+1
 ENDDO
-
 do i=0,3
 sm2av(i)=sm2av(i)+smx(i)*smx(i)+smy(i)*smy(i)+smz(i)*smz(i)
 enddo
@@ -325,11 +331,7 @@ Write(98,*) sx(i5),sy(i5),sz(i5)
 End If
 EndDo
 EndDo
-
 enddo 
-call cpu_time(time1)
-ep = time1 - time2
-!$ ep = ep/threads
 print *, "Time", ep
 
 999 format(1x,8e16.6)
@@ -675,54 +677,55 @@ DE=Enew-Eold
 subroutine efm
 use input_module_3d
 implicit none
-!$! print *, "Number of threads used : ",threads
-!$ call omp_set_num_threads(threads)
-!$OMP PARALLEL DO PRIVATE(is,it,ix,iyy,iz,j,k,hpx1,hpy1,hpz1,sxtmp,sytmp,sztmp,stnew) shared(jex,di, &
-!$OMP& nbr,nbrx,nbry,nbrz,sm,sx,sy,sz,itable,s,D,hmx,hmy,hmz), default(none)
-Do is=1,nsite
-if (sm(is)==0) go to 56
-it=is
+integer :: pis,pit,pj,pk,pix,piy,piz,threadid,OMP_GET_THREAD_NUM
+double precision :: nbrxp(nsite),nbryp(nsite),nbrzp(nsite),hpx1p,hpy1p,hpz1p
+double precision :: sxtmpp,sytmpp,sztmpp,stnewp
+!threadid=-1
+!$ threadid=OMP_GET_THREAD_NUM()
+!print *, "THREAD ID : ", threadid
+Do pis=1,nsite
+if (sm(pis)==0) go to 56
+pit=pis
+nbrxp=0.0
+nbryp=0.0
+nbrzp=0.0
 
-nbrx=0.0
-nbry=0.0
-nbrz=0.0
-
-Do j=1,12
-   nbrx(it)=nbrx(it)+sx(nbr(it,j))
-   nbry(it)=nbry(it)+sy(nbr(it,j))
-   nbrz(it)=nbrz(it)+sz(nbr(it,j))
+Do pj=1,12
+   nbrxp(pit)=nbrxp(pit)+sx(nbr(pit,pj))
+   nbryp(pit)=nbryp(pit)+sy(nbr(pit,pj))
+   nbrzp(pit)=nbrzp(pit)+sz(nbr(pit,pj))
 EndDo
 
-hpx1=0.0
-hpy1=0.0
-hpz1=0.0
-Do j=1,nsite
-   ix=(itable(j,1)-itable(it,1))
-   iyy=(itable(j,2)-itable(it,2))
-   iz=(itable(j,3)-itable(it,3))
-   If (ix<0) ix=ix+L
-   If (iyy<0) iyy=iyy+L
-   If (iz<0) iz=iz+L
-   s(j,1)=sx(j)
-   s(j,2)=sy(j)
-   s(j,3)=sz(j)
+hpx1p=0.0
+hpy1p=0.0
+hpz1p=0.0
+Do pj=1,nsite
+   pix=(itable(pj,1)-itable(pit,1))
+   piy=(itable(pj,2)-itable(pit,2))
+   piz=(itable(pj,3)-itable(pit,3))
+   If (pix<0) pix=pix+L
+   If (piy<0) piy=piy+L
+   If (piz<0) piz=piz+L
+   s(pj,1)=sx(pj)
+   s(pj,2)=sy(pj)
+   s(pj,3)=sz(pj)
 
-   Do k=1,3
-      hpx1=hpx1-D(1,k,ix,iyy,iz)*s(j,k)
-      hpy1=hpy1-D(2,k,ix,iyy,iz)*s(j,k)
-      hpz1=hpz1-D(3,k,ix,iyy,iz)*s(j,k)
+   Do pk=1,3
+      hpx1p=hpx1p-D(1,pk,pix,piy,piz)*s(pj,pk)
+      hpy1p=hpy1p-D(2,pk,pix,piy,piz)*s(pj,pk)
+      hpz1p=hpz1p-D(3,pk,pix,piy,piz)*s(pj,pk)
    EndDo
 EndDo
 
-sxtmp=di*hpx1-(jex*nbrx(it))+hmx
-sytmp=di*hpy1-(jex*nbry(it))+hmy
-sztmp=di*hpz1-(jex*nbrz(it))+hmz
+sxtmpp=di*hpx1p-(jex*nbrxp(pit))+hmx
+sytmpp=di*hpy1p-(jex*nbryp(pit))+hmy
+sztmpp=di*hpz1p-(jex*nbrzp(pit))+hmz
 
-stnew=dsqrt(sxtmp*sxtmp+sytmp*sytmp+sztmp*sztmp)
+stnewp=dsqrt(sxtmpp*sxtmpp+sytmpp*sytmpp+sztmpp*sztmpp)
 
-sx(it)=sxtmp/stnew
-sy(it)=sytmp/stnew
-sz(it)=sztmp/stnew
+sx(pit)=sxtmpp/stnewp
+sy(pit)=sytmpp/stnewp
+sz(pit)=sztmpp/stnewp
 
 56 Continue
 Enddo
