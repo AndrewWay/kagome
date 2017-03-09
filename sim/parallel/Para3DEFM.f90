@@ -6,7 +6,7 @@ double precision, parameter :: pi=3.14159265358979323846264338327
 double precision, parameter :: T=0,Hmax1=0,Hmin1=0,CON=0.0000001
 integer,parameter    :: nfield1=1, ntrans =10000, nmeas = 1,nsite=L*L*L,intervals=1
 integer,parameter :: degauss=0
-integer,parameter :: threads=4
+integer,parameter :: threads=6
        
        
 !Data types
@@ -248,11 +248,16 @@ Eprev=0
 TOL=1
 !DO WHILE (COUNTER .LE. INTERVALS .AND. TOL .GT. CON) 
 call cpu_time(time1)
+call omp_set_num_threads(threads)
+!$OMP PARALLEL DO private(imeas) shared(nbr,sm,sx,sy,sz,s), default(shared) &
+!$OMP& schedule(static)
 	DO IMEAS=1,DURATION
 		CALL EFM
 	ENDDO
+!$OMP END PARALLEL DO
 call cpu_time(time2)
 ep = time2 - time1
+!$ ep = ep/threads
 	CALL MEASURE
 	Eprev=Ecurr
 	Ecurr=E/nocc
