@@ -42,7 +42,8 @@ if [ $choice -eq 1 ]; then
 elif [ $choice -eq 2 ]; then
 ./analysis.sh
 elif [ $choice -eq 3 ]; then
-./settings.sh
+nano settings.txt
+./main.sh
 elif [ $choice -eq 4 ]; then
 echo ""
 else

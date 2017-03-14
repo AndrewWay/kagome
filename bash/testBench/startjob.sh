@@ -18,43 +18,46 @@ echo "S T A R T - J O B"
 tput sgr0
  
 tput cup 7 15
-echo "1. Start Job"
- 
+echo "1. Submit Job"
 tput cup 8 15
-echo "2. Check Job"
- 
+echo "2. Set Parameters"
 tput cup 9 15
-echo "3. View Code"
-
+echo "3. Job Management"
 tput cup 10 15
-echo "4. Job Management"
- 
-tput cup 11 15
-echo "5. Main Menu"
+echo "4. Main Menu"
  
 # Set bold mode 
 tput bold
 tput cup 13 15
 read -p "Enter your choice [1-5] " choice
-tput clear
 tput sgr0
-tput rc
-echo "CHOICE: " $choice
-if [ $choice -eq 1 ]; then
-#get the name of the file to be compiled and used
-sim_code=`cat settings.txt | grep "sim_code" | awk '{print $2}'`
-#get the parameters being used in the simulation
 
-./jobmanagement.sh
+if [ $choice -eq 1 ]; then
+    ./dp.sh
+    stat=$?
+    tput cup 14 15 
+    if [ $stat == 1 ]; then
+	tput setaf 1
+	echo "Sim code does not exist"
+    elif [ $stat == 2 ]; then
+	tput setaf 3
+        echo "Error: A job using these parameters already exists" 
+    else
+	tput setaf 2
+	echo "Job running"
+    fi
+    tput cup 15 15
+    tput setaf 7
+    read -p "Press any key to continue" input
+    ./startjob.sh
 elif [ $choice -eq 2 ]; then
-./jobmanagement.sh
+nano parameters.txt
+./startjob.sh
 elif [ $choice -eq 3 ]; then
 ./jobmanagement.sh
 elif [ $choice -eq 4 ]; then
-./jobmanagement.sh
-elif [ $choice -eq 5 ]; then
 ./main.sh
 else
-./jobmanagement.sh
+./startjob.sh
 fi
  

@@ -24,7 +24,7 @@ tput cup 8 15
 echo "2. Check Job"
 
 tput cup 9 15
-echo "3. Job Code"
+echo "3. Edit Job Code"
  
 tput cup 10 15
 echo "4. Main Menu"
