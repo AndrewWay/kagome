@@ -15,18 +15,18 @@ exit 1
 fi
 
 echo "creating ground state angles..."
-createGSangles.sh $phlb $phub $phnum $thlb $thub $thnum
+~/Work/code/bash/createGSangles.sh $phlb $phub $phnum $thlb $thub $thnum
 confquant=`cat ground_states.dat | wc -l`
 echo "$confquant angle pairs generated"
 
 echo "building spin files..."
 for i in `seq 1 $confquant`
 do
-	angletoSpin.sh $i $L
+	~/Work/code/bash/angletoSpin.sh $i $L
 	echo -ne "completed $i/$confquant\r"
 done
 echo "completed $confquant/$confquant"
 
 echo "creating allspins.txt"
-ExtractAllSpins.sh
+~/Work/code/bash/ExtractAllSpins.sh
 echo "done"
