@@ -5,7 +5,7 @@ implicit none
 integer,parameter :: L=18
 double precision, parameter :: pi=3.14159265358979323846264338327
 double precision, parameter :: T=0,Hmax1=0,Hmin1=0,CON=0.00000001
-integer,parameter    :: nfield1=1, ntrans =1, nmeas = 1,nsite=L*L*L,intervals=10
+integer,parameter    :: nfield1=1, ntrans =50000, nmeas = 1,nsite=L*L*L,intervals=10
 integer,parameter :: degauss=0
        
        

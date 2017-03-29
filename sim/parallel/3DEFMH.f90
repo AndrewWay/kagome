@@ -1,7 +1,7 @@
 module input_module_3d
 implicit none
 !Parameters
-integer,parameter :: L=6
+integer,parameter :: L=12
 double precision, parameter :: pi=3.14159265358979323846264338327
 double precision, parameter :: T=0,Hmax1=0,Hmin1=0,CON=0.0000001
 integer,parameter    :: nfield1=1, ntrans =10000, nmeas = 1,nsite=L*L*L,intervals=1
