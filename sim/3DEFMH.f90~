@@ -2,10 +2,11 @@ module input_module_3d
 implicit none
  
 !Parameters
-integer,parameter :: L=12
+integer,parameter :: L=2
 double precision, parameter :: pi=3.14159265358979323846264338327
-double precision, parameter :: T=0,Hmax1=0.2,Hmin1=0,CON=0.0000001
-integer,parameter    :: nfield1=5, ntrans =5000, nmeas = 1,nsite=L*L*L,intervals=10
+double precision, parameter :: T=0.005,Hmax1=0,Hmin1=0,CON=0.000000000001
+integer,parameter    :: nfield1=1, ntrans =100, nmeas = 1,nsite=L*L*L,intervals=10
+integer,parameter :: degauss=1
        
        
 !Data types
@@ -28,7 +29,7 @@ integer :: flush
 integer :: i,j,k,dx,dy,dz,ax,ay,az,bx,by,bz,cx,cy,cz,i2,i4,i5,i11,i12
 integer :: a1,a2,a3,b1,b2,b3,c1,c2,c3,d1,d2,d3
 integer :: nz0,nz1,nz2,nz3
-integer :: counter,duration
+integer :: counter,duration,fieldsteps
 
 external r250_, flush
 character(20):: conffile
@@ -186,9 +187,13 @@ call spinit
 EndDo
 !Preset intialization
 !call spinitPreset
-
+if (degauss.eq.1) then
+fieldsteps=2*nfield1
+else
+fieldsteps=nfield1
+end if
 !write(*,*) "Entering loop"
-do i2=0,nfield1
+do i2=0,fieldsteps
 
 !Set averages to zero 
 sm2av=0.
@@ -216,9 +221,17 @@ cmyav=0.
 cmzav=0.
 cm2av=0.
 rm2root=0.
+if(degauss.eq.1)then
+	if(i2.le.nfield1)then
+		Hmag=Hmin1+I2*(Hmax1-Hmin1)/(nfield1)
+	else
+		Hmag=Hmax1-(I2-nfield1)*(Hmax1-Hmin1)/(nfield1)
+	end if
+else
+	Hmag=Hmin1+I2*(Hmax1-Hmin1)/(nfield1)
+	!Hmag=Hmax1-I2*(Hmax1-Hmin1)/(nfield1)
+end if
 
-!Hmag=Hmax1-I2*(Hmax1-Hmin1)/(nfield1)
-Hmag=Hmin1+I2*(Hmax1-Hmin1)/(nfield1)
 hmx=Hmag*dsin(Htheta)*dcos(Hphi)
 hmy=Hmag*dsin(Htheta)*dsin(Hphi)
 hmz=Hmag*dcos(Htheta)
@@ -230,17 +243,20 @@ counter=0
 Ecurr=E/nocc
 Eprev=0
 TOL=1
-DO WHILE (COUNTER .LE. INTERVALS .AND. TOL .GT. CON) 
-	DO IMEAS=1,DURATION
-		CALL EFM
+!DO WHILE (COUNTER .LE. INTERVALS .AND. TOL .GT. CON) 
+	DO IMEAS=1,NTRANS!DURATION
+		IF (T .GT. 0) THEN
+			CALL TEFM
+		ELSE
+			CALL EFM
+		END IF
 	ENDDO
 	CALL MEASURE
-	Eprev=Ecurr
-	Ecurr=E/nocc
-	tol=dabs(Ecurr-Eprev)/dabs(Ecurr)
-	COUNTER=COUNTER+1
-write(*,*) Eprev, Ecurr, tol, COUNTER
-ENDDO
+!	Eprev=Ecurr
+!	Ecurr=E/nocc
+!	tol=dabs(Ecurr-Eprev)/dabs(Ecurr)
+!	COUNTER=COUNTER+1
+!ENDDO
 
 do i=0,3
 sm2av(i)=sm2av(i)+smx(i)*smx(i)+smy(i)*smy(i)+smz(i)*smz(i)
@@ -313,7 +329,7 @@ EndDo
 
 enddo 
 
-999 format(1x,8e16.6)
+999 format(1x,12e20.6)
 end program kag_dipole_3d
 !!!!!!!!!!!!!!!!!!!!!
 
@@ -706,6 +722,144 @@ sz(it)=sztmp/stnew
 56 Continue
 Enddo
 end subroutine efm
+
+subroutine randefm
+use input_module_3d
+implicit none
+
+
+Do is=1,nsite
+!write(*,*) "Within randefm"
+
+it=NINT(nsite*r250_(iseed))
+!write(*,*) it, NINT(nsite*r250_(iseed)), r250_(iseed), iseed
+!write(*,*) bit_size(it), bit_size(NINT(nsite*r250_(iseed))), precision(r250_(iseed)), bit_size(iseed)
+!write(*,*) "Entering if statement",is,bit_size(is)
+!it=is
+if(it==0) go to 56
+!write(69,*) it
+if (sm(it)==0) go to 56
+nbrx=0.0
+nbry=0.0
+nbrz=0.0
+!write(*,*) "Debug 1"
+Do j=1,12
+   nbrx(it)=nbrx(it)+sx(nbr(it,j))
+   nbry(it)=nbry(it)+sy(nbr(it,j))
+   nbrz(it)=nbrz(it)+sz(nbr(it,j))
+EndDo
+!write(*,*) "Debug 2"
+hpx1=0.0
+hpy1=0.0
+hpz1=0.0
+
+Do j=1,nsite
+   ix=(itable(j,1)-itable(it,1))
+   iyy=(itable(j,2)-itable(it,2))
+   iz=(itable(j,3)-itable(it,3))
+   If (ix<0) ix=ix+L
+   If (iyy<0) iyy=iyy+L
+   If (iz<0) iz=iz+L
+   s(j,1)=sx(j)
+   s(j,2)=sy(j)
+   s(j,3)=sz(j)
+
+ Do k=1,3
+      hpx1=hpx1-D(1,k,ix,iyy,iz)*s(j,k)
+      hpy1=hpy1-D(2,k,ix,iyy,iz)*s(j,k)
+      hpz1=hpz1-D(3,k,ix,iyy,iz)*s(j,k)
+   EndDo
+EndDo
+!write(*,*) "Debug 3"
+
+sxtmp=di*hpx1-(jex*nbrx(it))+hmx
+sytmp=di*hpy1-(jex*nbry(it))+hmy
+sztmp=di*hpz1-(jex*nbrz(it))+hmz
+!write(*,*) "Debug 4"
+stnew=dsqrt(sxtmp*sxtmp+sytmp*sytmp+sztmp*sztmp)
+
+sx(it)=sxtmp/stnew
+sy(it)=sytmp/stnew
+sz(it)=sztmp/stnew
+!write(*,*) "Debug 5"
+
+56 Continue
+!write(*,*) "Debug 6"
+
+Enddo
+!write(*,*) "Debug 7"
+end subroutine randefm
+
+subroutine tefm
+use input_module_3d
+
+
+Do it=1,nsite
+if(sm(it).eq.0) go to 55
+hpx1=0.
+ hpy1=0.
+ hpz1=0.
+do j=1,nsite
+ix=(itable(j,1)-itable(it,1))
+iyy=(itable(j,2)-itable(it,2))
+iz=(itable(j,3)-itable(it,3))
+if(ix<0) then 
+ix=ix+L 
+endif
+if(iyy<0) then 
+iyy=iyy+L 
+endif
+if(iz<0) then 
+iz=iz+L 
+endif
+s(j,1)=sx(j)
+s(j,2)=sy(j)
+s(j,3)=sz(j)
+
+do k=1,3
+hpx1=hpx1-D(1,k,ix,iyy,iz)*s(j,k)
+hpy1=hpy1-D(2,k,ix,iyy,iz)*s(j,k)
+hpz1=hpz1-D(3,k,ix,iyy,iz)*s(j,k)
+enddo 
+
+
+ enddo
+
+!EFM uses above fields to set spins in direction of field
+! we can generalize to finite but small T
+ 
+
+
+ hmp=hpx1**2+hpy1**2+hpz1**2
+ if(hmp.lt.1.d-06) go to 55
+ hm=sqrt(hmp)
+ hmi=1./hm                     
+
+ hx=hpx1*hmi
+ hy=hpy1*hmi                 ! these are direction cosines of the field
+ hz=hpz1*hmi
+ sth=sqrt(hx**2+hy**2)
+ sthi=1./sth
+ cph=hx*sthi
+ sph=hy*sthi
+
+ phi=2*pi*r250_(iseed)        ! choose random phi around direction of field
+ cp=cos(phi)
+ sp=sin(phi)
+ y=r250_(iseed)                ! choose random cos(theta) wrt field axis
+ !determine most probable cos(theta) at a given T
+ct=1.0+log(y)*T/hm
+
+ IF (ct.gt.1)ct=1.       !simple prevents round off above unity
+ st=sqrt(abs(1.0-ct*ct))  
+ sx(it)=(hz*cph*st*cp-sph*st*sp+hx*ct)   !note that if T=0, then ct=1, st=0 and sx=hx
+ sy(it)=(hz*sph*st*cp+cph*st*sp+hy*ct)    ! and sy=hy 
+ sz(it)=(-sth*st*cp+hz*ct)                  ! and sz=hz which is the usual efm
+ 55 continue
+ 
+  end do
+  return
+  end subroutine tefm
 
 Subroutine Gamma(L,D)
 implicit none

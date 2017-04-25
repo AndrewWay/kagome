@@ -1,10 +1,10 @@
 module input_module_3d
 implicit none
 !Parameters
-integer,parameter :: L=6
+integer,parameter :: L=2
 double precision, parameter :: pi=3.14159265358979323846264338327
 double precision, parameter :: T=0,Hmax1=0,Hmin1=0,CON=0.0000001
-integer,parameter    :: nfield1=1, ntrans =10000, nmeas = 1,nsite=L*L*L,intervals=1
+integer,parameter    :: nfield1=1, ntrans =10, nmeas = 1,nsite=L*L*L,intervals=1
 integer,parameter :: degauss=0
 integer,parameter :: threads=4
        
@@ -248,6 +248,7 @@ Eprev=0
 TOL=1
 DO WHILE (COUNTER .LE. INTERVALS .AND. TOL .GT. CON) 
 call cpu_time(time1)
+!$write(*,*) 'HELLO WORLD'
 !$ call omp_set_num_threads(threads)
 !$OMP PARALLEL DO private(imeas) shared(nbr,sm,sx,sy,sz,s), default(shared)
 	DO IMEAS=1,DURATION
@@ -682,7 +683,8 @@ double precision :: nbrxp(nsite),nbryp(nsite),nbrzp(nsite),hpx1p,hpy1p,hpz1p
 double precision :: sxtmpp,sytmpp,sztmpp,stnewp
 !threadid=-1
 !$ threadid=OMP_GET_THREAD_NUM()
-!print *, "THREAD ID : ", threadid
+!$write(*,*) "THREAD ID : ", threadid
+!$write(*,*) 'HELLO WORLD'
 Do pis=1,nsite
 if (sm(pis)==0) go to 56
 pit=pis

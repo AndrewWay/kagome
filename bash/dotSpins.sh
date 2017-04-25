@@ -1,7 +1,6 @@
 #!/bin/bash
 
-#Revision 1 - FOR L=12 ONLY
-#May 26th 2016
+#FOR L=12 ONLY
 
 arccos() {
     scale=17
@@ -36,11 +35,11 @@ echo $ret
 }
 
 
-#if [[ `cat conf010000.dat | wc -l` -ne 1296 ]];then
-#echo "Either the conf files are not from L=12 simulations, or conf0000.dat DNE"
-#echo "Script will fail. Exiting."
-#exit 1
-#fi
+if [[ `cat conf0000.dat | wc -l` -ne 1296 ]];then
+echo "Either the conf files are not from L=12 simulations, or conf0000.dat DNE"
+echo "Script will fail. Exiting."
+exit 1
+fi
 if [[ -s "debug.txt" ]];then
 echo "Resetting debug.txt"
 rm debug.txt
@@ -72,9 +71,7 @@ rm normAngles.dat
 touch normAngles.dat
 rm sumAngles.dat
 touch sumAngles.dat
-hinitial=$1
-increment=$2
-fnum=$hinitial
+hcounter=1
 
 for f in `ls | egrep -o "\<conf[0-9]+.dat"`
 do
@@ -273,13 +270,11 @@ Esum=`echo "$AE + $BE + $CE + $DE + $EF" | bc -l`
 Fsum=`echo "$AF + $BF + $CF + $DF + $EF" | bc -l`
 AngleString=`printf "%3.3f %3.3f %3.3f %3.3f %3.3f %3.3f" $AB $BC $CD $DE $EF $AF` 
 #echo "Checkpoint 6"
-echo $fnum $AngleString >> spinAngles.dat
-echo $fnum $AN $BN $CN $DN $EN $FN  >> normAngles.dat
-fnum=`echo "$fnum + $increment" | bc -l`
-echo "$fnum"
+H=`cat fort.1 | head -n $hcounter | tail -n 1 | awk '{print $1}'`
+hcounter=$((hcounter + 1))
+H=`expTest $H`
+echo $H $AngleString >> spinAngles.dat
+echo $H $AN $BN $CN $DN $EN $FN  >> normAngles.dat
+echo "$H"
 #echo "checkpoint 7"
 done
-
-#Revision History
-#Revision 1 May 26th 2016
-#Modified ProjectionAngles4.sh to dot all spins with each other. 

@@ -4,7 +4,7 @@
 
 rm AllSpins.txt 2> /dev/null
 
-for f in `ls | egrep -o "gsconf[0-9]+.dat"`
+for f in `ls | grep ".dat"`
 do
 
 SpinA=`cat $f | head -n 1 | tail -n 1`

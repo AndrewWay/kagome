@@ -48,6 +48,11 @@ P=36
 rep=6
 fi
 
+if [[ $L == 18 ]];then
+P=81
+rep=9
+fi
+
 
 length=$((3*L*L*L/4))
 
