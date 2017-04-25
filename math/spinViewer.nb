@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     20639,        496]
-NotebookOptionsPosition[     19730,        463]
-NotebookOutlinePosition[     20087,        479]
-CellTagsIndexPosition[     20044,        476]
+NotebookDataLength[     20217,        480]
+NotebookOptionsPosition[     19347,        448]
+NotebookOutlinePosition[     19705,        464]
+CellTagsIndexPosition[     19662,        461]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -35,8 +35,8 @@ Cell[BoxData[
  RowBox[{
   RowBox[{
   "SetDirectory", "[", 
-   "\"\</users/home/arway/Desktop/phase1/Data/Acenet/MAG/21apr16/005to000\>\"\
-", "]"}], ";"}]], "Input",
+   "\"\</users/home/arway/Desktop/Work/data/TEFM/19jan17/L6\>\"", "]"}], 
+  ";"}]], "Input",
  CellChangeTimes->{{3.643531395052595*^9, 3.643531424682768*^9}, {
    3.643626583918521*^9, 3.6436265855347977`*^9}, 3.6437101267700167`*^9, {
    3.6452808946709003`*^9, 3.6452809111836357`*^9}, {3.645346212211898*^9, 
@@ -87,7 +87,8 @@ Cell[BoxData[
    3.678279777729147*^9, 3.678279778485105*^9}, {3.678280054772848*^9, 
    3.678280054852625*^9}, {3.688485953862467*^9, 3.68848596434015*^9}, {
    3.688486014996914*^9, 3.688486015747978*^9}, {3.689961212319796*^9, 
-   3.689961265600917*^9}, {3.689961364405479*^9, 3.689961366256309*^9}}],
+   3.689961265600917*^9}, {3.689961364405479*^9, 3.689961366256309*^9}, {
+   3.693821008894355*^9, 3.6938210228786488`*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -124,44 +125,26 @@ Cell[BoxData[{
     RowBox[{"1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6"}], "}"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
+  RowBox[{"L6sl", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "10", ",", "55", ",", "64", ",", "109", ",", "118"}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{"L12sl", "=", 
    RowBox[{"{", 
     RowBox[{"1", ",", "37", ",", "433", ",", "469", ",", "865", ",", "901"}], 
     "}"}]}], ";"}]}], "Input",
- CellChangeTimes->{{3.688486163716901*^9, 3.688486171140642*^9}}],
+ CellChangeTimes->{{3.688486163716901*^9, 3.688486171140642*^9}, {
+  3.693820470431528*^9, 3.693820473839859*^9}, {3.693820843311996*^9, 
+  3.693820843631784*^9}, {3.693820914174789*^9, 3.693820982351602*^9}}],
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"spinLines", "=", "L12sl"}], ";"}]], "Input",
+  RowBox[{"spinLines", "=", "L6sl"}], ";"}]], "Input",
  CellChangeTimes->{{3.688486048129901*^9, 3.688486081876136*^9}, {
    3.688486127172826*^9, 3.688486140324497*^9}, {3.6884861746285467`*^9, 
-   3.6884861766281223`*^9}, 3.689961282111678*^9}],
-
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"g", "=", 
-   FractionBox["1", 
-    SqrtBox["2"]]}], ";", 
-  RowBox[{"Amp", "=", "0.85"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"u1", "=", 
-   RowBox[{"{", 
-    RowBox[{"0", ",", "g", ",", "g"}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"u2", "=", 
-   RowBox[{"{", 
-    RowBox[{"g", ",", "0", ",", "g"}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"u3", "=", 
-   RowBox[{"{", 
-    RowBox[{"g", ",", "g", ",", "0"}], "}"}]}], ";"}]}], "Input",
- CellChangeTimes->{{3.6435413413468943`*^9, 3.643541425760642*^9}, {
-  3.6549365735903883`*^9, 3.654936624787445*^9}, {3.654939312469631*^9, 
-  3.654939317764711*^9}, {3.65493938250028*^9, 3.654939388531034*^9}, {
-  3.654939555411316*^9, 3.654939571603695*^9}, {3.671361142083707*^9, 
-  3.6713611434008303`*^9}}],
+   3.6884861766281223`*^9}, 3.689961282111678*^9, {3.693821037374164*^9, 
+   3.6938210375815*^9}}],
 
 Cell[CellGroupData[{
 
@@ -173,24 +156,26 @@ Cell[BoxData[
      RowBox[{"Show", "[", 
       RowBox[{
        RowBox[{"{", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"Graphics3D", "[", 
+           RowBox[{"{", 
+            RowBox[{"Black", ",", 
+             RowBox[{"Arrowheads", "[", "0.1", "]"}], ",", 
+             RowBox[{"Arrow", "[", 
+              RowBox[{"Tube", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"-", "1"}], ",", 
+                    RowBox[{"-", "1"}], ",", 
+                    RowBox[{"-", "1"}]}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"1", ",", "1", ",", "1"}], "}"}]}], "}"}], ",", 
+                "0.01"}], "]"}], "]"}]}], "}"}], "]"}], ","}], "*)"}], 
         RowBox[{
-         RowBox[{"Graphics3D", "[", 
-          RowBox[{"{", 
-           RowBox[{"Black", ",", 
-            RowBox[{"Arrowheads", "[", "0.1", "]"}], ",", 
-            RowBox[{"Arrow", "[", 
-             RowBox[{"Tube", "[", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{
-                 RowBox[{"{", 
-                  RowBox[{
-                   RowBox[{"-", "1"}], ",", 
-                   RowBox[{"-", "1"}], ",", 
-                   RowBox[{"-", "1"}]}], "}"}], ",", 
-                 RowBox[{"{", 
-                  RowBox[{"1", ",", "1", ",", "1"}], "}"}]}], "}"}], ",", 
-               "0.01"}], "]"}], "]"}]}], "}"}], "]"}], ",", 
          RowBox[{"Graphics3D", "[", 
           RowBox[{"{", 
            RowBox[{"Red", ",", 
@@ -336,22 +321,23 @@ Cell[BoxData[
    3.674555590607164*^9, 3.6745556062707863`*^9}, {3.6745566995808487`*^9, 
    3.674556703131688*^9}, {3.674556833229961*^9, 3.674556904748719*^9}, {
    3.674559651750844*^9, 3.674559679256551*^9}, {3.67681071478096*^9, 
-   3.676810719090163*^9}, {3.6884861803258457`*^9, 3.688486211492762*^9}}],
+   3.676810719090163*^9}, {3.6884861803258457`*^9, 3.688486211492762*^9}, {
+   3.693821075576138*^9, 3.693821078999385*^9}}],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`i$$ = 1, Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`i$$ = 3, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`i$$], 1, 501, 1}}, Typeset`size$$ = {
+      Hold[$CellContext`i$$], 1, 3, 1}}, Typeset`size$$ = {
     360., {177., 183.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`i$366144$$ = 0}, 
+    Typeset`skipInitDone$$ = True, $CellContext`i$7729$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`i$$ = 1}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`i$$, $CellContext`i$366144$$, 0]}, 
+        Hold[$CellContext`i$$, $CellContext`i$7729$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -404,14 +390,13 @@ Cell[BoxData[
                $CellContext`conf[$CellContext`i$$], 
                Part[$CellContext`spinLines, 6], All]}, 0.01]]}]}, AspectRatio -> 
         1, ViewPoint -> {1, 1, 0}], 
-      "Specifications" :> {{$CellContext`i$$, 1, 501, 1}}, "Options" :> {}, 
+      "Specifications" :> {{$CellContext`i$$, 1, 3, 1}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{407., {232., 239.}},
+     ImageSizeCache->{407., {221., 228.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
     SynchronousInitialization->True,
-    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
     UnsavedVariables:>{Typeset`initDone$$},
     UntrackedVariables:>{Typeset`size$$}], "Manipulate",
    Deployed->True,
@@ -419,7 +404,7 @@ Cell[BoxData[
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{3.6782820001137733`*^9, 3.6786220475824337`*^9, 
   3.688486212543618*^9, 3.688486462183427*^9, 3.689961313882126*^9, 
-  3.689961529423459*^9}]
+  3.689961529423459*^9, 3.693821054127239*^9}]
 }, Open  ]],
 
 Cell[BoxData[""], "Input",
@@ -464,7 +449,7 @@ Cell[BoxData["\<\"highField111.avi\"\>"], "Output",
 WindowSize->{935, 1028},
 WindowMargins->{{Automatic, -7}, {Automatic, 0}},
 ShowSelection->True,
-FrontEndVersion->"10.3 for Linux x86 (64-bit) (October 9, 2015)",
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -480,23 +465,22 @@ CellTagsIndex->{}
 Notebook[{
 Cell[557, 20, 294, 6, 32, "Input"],
 Cell[854, 28, 160, 3, 32, "Input"],
-Cell[1017, 33, 3916, 56, 32, "Input"],
-Cell[4936, 91, 641, 12, 32, "Input"],
-Cell[5580, 105, 472, 12, 32, "Input"],
-Cell[6055, 119, 405, 11, 55, "Input"],
-Cell[6463, 132, 271, 5, 32, "Input"],
-Cell[6737, 139, 846, 24, 133, "Input"],
+Cell[1017, 33, 3955, 57, 32, "Input"],
+Cell[4975, 92, 641, 12, 32, "Input"],
+Cell[5619, 106, 472, 12, 32, "Input"],
+Cell[6094, 120, 721, 18, 77, "Input"],
+Cell[6818, 140, 318, 6, 32, "Input"],
 Cell[CellGroupData[{
-Cell[7608, 167, 7470, 171, 385, "Input"],
-Cell[15081, 340, 3314, 81, 488, "Output"]
+Cell[7161, 150, 7588, 174, 407, "Input"],
+Cell[14752, 326, 3260, 80, 466, "Output"]
 }, Open  ]],
-Cell[18410, 424, 91, 1, 32, "Input"],
-Cell[18504, 427, 202, 5, 32, "Input"],
+Cell[18027, 409, 91, 1, 32, "Input"],
+Cell[18121, 412, 202, 5, 32, "Input"],
 Cell[CellGroupData[{
-Cell[18731, 436, 408, 7, 32, "Input"],
-Cell[19142, 445, 211, 4, 32, "Output"],
-Cell[19356, 451, 190, 4, 32, "Output"],
-Cell[19549, 457, 165, 3, 32, "Output"]
+Cell[18348, 421, 408, 7, 32, "Input"],
+Cell[18759, 430, 211, 4, 32, "Output"],
+Cell[18973, 436, 190, 4, 32, "Output"],
+Cell[19166, 442, 165, 3, 32, "Output"]
 }, Open  ]]
 }
 ]
