@@ -4,15 +4,9 @@ implicit none
 !Parameters
 integer,parameter :: L=18
 double precision, parameter :: pi=3.14159265358979323846264338327
-<<<<<<< HEAD
-double precision, parameter :: T=0,Hmax1=0,Hmin1=0,CON=0.000000000001
-integer,parameter    :: nfield1=1, ntrans =100, nmeas = 1,nsite=L*L*L,intervals=10
-integer,parameter :: degauss=1
-=======
 double precision, parameter :: T=0,Hmax1=0,Hmin1=0,CON=0.00000001
-integer,parameter    :: nfield1=1, ntrans =1, nmeas = 1,nsite=L*L*L,intervals=10
+integer,parameter    :: nfield1=1, ntrans =50000, nmeas = 1,nsite=L*L*L,intervals=10
 integer,parameter :: degauss=0
->>>>>>> e7d032cf6d4e93c685c9e970513eb4c207679c87
        
        
 !Data types
@@ -249,21 +243,17 @@ counter=0
 Ecurr=E/nocc
 Eprev=0
 TOL=1
-!DO WHILE (COUNTER .LE. INTERVALS .AND. TOL .GT. CON) 
-	DO IMEAS=1,NTRANS!DURATION
-		IF (T .GT. 0) THEN
-			CALL TEFM
-		ELSE
-			CALL EFM
-		END IF
+DO WHILE (COUNTER .LE. INTERVALS .AND. TOL .GT. CON) 
+	DO IMEAS=1,DURATION
+		CALL EFM
 	ENDDO
 	write(*,*) 'counter',counter
 	CALL MEASURE
-!	Eprev=Ecurr
-!	Ecurr=E/nocc
-!	tol=dabs(Ecurr-Eprev)/dabs(Ecurr)
-!	COUNTER=COUNTER+1
-!ENDDO
+	Eprev=Ecurr
+	Ecurr=E/nocc
+	tol=dabs(Ecurr-Eprev)/dabs(Ecurr)
+	COUNTER=COUNTER+1
+ENDDO
 
 do i=0,3
 sm2av(i)=sm2av(i)+smx(i)*smx(i)+smy(i)*smy(i)+smz(i)*smz(i)
@@ -336,7 +326,7 @@ EndDo
 
 enddo 
 
-999 format(1x,12e20.6)
+999 format(1x,8e16.6)
 end program kag_dipole_3d
 !!!!!!!!!!!!!!!!!!!!!
 
@@ -797,76 +787,6 @@ Enddo
 !write(*,*) "Debug 7"
 end subroutine randefm
 
-subroutine tefm
-use input_module_3d
-
-
-Do it=1,nsite
-if(sm(it).eq.0) go to 55
-hpx1=0.
- hpy1=0.
- hpz1=0.
-do j=1,nsite
-ix=(itable(j,1)-itable(it,1))
-iyy=(itable(j,2)-itable(it,2))
-iz=(itable(j,3)-itable(it,3))
-if(ix<0) then 
-ix=ix+L 
-endif
-if(iyy<0) then 
-iyy=iyy+L 
-endif
-if(iz<0) then 
-iz=iz+L 
-endif
-s(j,1)=sx(j)
-s(j,2)=sy(j)
-s(j,3)=sz(j)
-
-do k=1,3
-hpx1=hpx1-D(1,k,ix,iyy,iz)*s(j,k)
-hpy1=hpy1-D(2,k,ix,iyy,iz)*s(j,k)
-hpz1=hpz1-D(3,k,ix,iyy,iz)*s(j,k)
-enddo 
-
-
- enddo
-
-!EFM uses above fields to set spins in direction of field
-! we can generalize to finite but small T
- 
-
-
- hmp=hpx1**2+hpy1**2+hpz1**2
- if(hmp.lt.1.d-06) go to 55
- hm=sqrt(hmp)
- hmi=1./hm                     
-
- hx=hpx1*hmi
- hy=hpy1*hmi                 ! these are direction cosines of the field
- hz=hpz1*hmi
- sth=sqrt(hx**2+hy**2)
- sthi=1./sth
- cph=hx*sthi
- sph=hy*sthi
-
- phi=2*pi*r250_(iseed)        ! choose random phi around direction of field
- cp=cos(phi)
- sp=sin(phi)
- y=r250_(iseed)                ! choose random cos(theta) wrt field axis
- !determine most probable cos(theta) at a given T
-ct=1.0+log(y)*T/hm
-
- IF (ct.gt.1)ct=1.       !simple prevents round off above unity
- st=sqrt(abs(1.0-ct*ct))  
- sx(it)=(hz*cph*st*cp-sph*st*sp+hx*ct)   !note that if T=0, then ct=1, st=0 and sx=hx
- sy(it)=(hz*sph*st*cp+cph*st*sp+hy*ct)    ! and sy=hy 
- sz(it)=(-sth*st*cp+hz*ct)                  ! and sz=hz which is the usual efm
- 55 continue
- 
-  end do
-  return
-  end subroutine tefm
 
 Subroutine Gamma(L,D)
 implicit none

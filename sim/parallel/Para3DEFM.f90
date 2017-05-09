@@ -1,18 +1,12 @@
 module input_module_3d
 implicit none
- 
 !Parameters
-integer,parameter :: L=18
+integer,parameter :: L=6
 double precision, parameter :: pi=3.14159265358979323846264338327
-<<<<<<< HEAD
-double precision, parameter :: T=0,Hmax1=0,Hmin1=0,CON=0.000000000001
-integer,parameter    :: nfield1=1, ntrans =100, nmeas = 1,nsite=L*L*L,intervals=10
-integer,parameter :: degauss=1
-=======
-double precision, parameter :: T=0,Hmax1=0,Hmin1=0,CON=0.00000001
-integer,parameter    :: nfield1=1, ntrans =1, nmeas = 1,nsite=L*L*L,intervals=10
+double precision, parameter :: T=0,Hmax1=0,Hmin1=0,CON=0.0000001
+integer,parameter    :: nfield1=1, ntrans =10000, nmeas = 1,nsite=L*L*L,intervals=1
 integer,parameter :: degauss=0
->>>>>>> e7d032cf6d4e93c685c9e970513eb4c207679c87
+integer,parameter :: threads=6
        
        
 !Data types
@@ -30,12 +24,14 @@ double precision :: UB,UB2,nxsum,nysum,nzsum,ent,entav,beta1,beta2,t1,t2,nbrx(L*
 double precision :: mcx,mcy,mcz,msx,msy,msz,chi,cm2av,cmxav,cmyav,cmzav,mcav,mcav2,msav,msav2,nocc
 double precision :: Htheta,Hphi
 double precision :: Ecurr,Eprev,tol,garbtmp
+double precision :: time1, time2, ep
 integer :: imeas,irand0,iseed,ran
-integer :: flush
+integer :: flush,num_threads
 integer :: i,j,k,dx,dy,dz,ax,ay,az,bx,by,bz,cx,cy,cz,i2,i4,i5,i11,i12
 integer :: a1,a2,a3,b1,b2,b3,c1,c2,c3,d1,d2,d3
 integer :: nz0,nz1,nz2,nz3
 integer :: counter,duration,fieldsteps
+
 
 external r250_, flush
 character(20):: conffile
@@ -181,7 +177,8 @@ di=1
 Hmag=0
 Htheta=0.785398
 Hphi=0.785398
-
+time2=0
+time1=0
 !call setField
 
 !Random initialization
@@ -250,21 +247,23 @@ Ecurr=E/nocc
 Eprev=0
 TOL=1
 !DO WHILE (COUNTER .LE. INTERVALS .AND. TOL .GT. CON) 
-	DO IMEAS=1,NTRANS!DURATION
-		IF (T .GT. 0) THEN
-			CALL TEFM
-		ELSE
-			CALL EFM
-		END IF
+call cpu_time(time1)
+call omp_set_num_threads(threads)
+!$OMP PARALLEL DO private(imeas) shared(nbr,sm,sx,sy,sz,s), default(shared) &
+!$OMP& schedule(static)
+	DO IMEAS=1,DURATION
+		CALL EFM
 	ENDDO
-	write(*,*) 'counter',counter
+!$OMP END PARALLEL DO
+call cpu_time(time2)
+ep = time2 - time1
+!$ ep = ep/threads
 	CALL MEASURE
-!	Eprev=Ecurr
-!	Ecurr=E/nocc
-!	tol=dabs(Ecurr-Eprev)/dabs(Ecurr)
-!	COUNTER=COUNTER+1
+	Eprev=Ecurr
+	Ecurr=E/nocc
+	tol=dabs(Ecurr-Eprev)/dabs(Ecurr)
+	COUNTER=COUNTER+1
 !ENDDO
-
 do i=0,3
 sm2av(i)=sm2av(i)+smx(i)*smx(i)+smy(i)*smy(i)+smz(i)*smz(i)
 enddo
@@ -333,10 +332,10 @@ Write(98,*) sx(i5),sy(i5),sz(i5)
 End If
 EndDo
 EndDo
-
 enddo 
+print *, "Time", ep
 
-999 format(1x,12e20.6)
+999 format(1x,8e16.6)
 end program kag_dipole_3d
 !!!!!!!!!!!!!!!!!!!!!
 
@@ -679,52 +678,53 @@ DE=Enew-Eold
 subroutine efm
 use input_module_3d
 implicit none
+integer :: pis,pit,pj,pk,pix,piy,piz,threadid,OMP_GET_THREAD_NUM
+double precision :: nbrxp(nsite),nbryp(nsite),nbrzp(nsite),hpx1p,hpy1p,hpz1p
+double precision :: sxtmpp,sytmpp,sztmpp,stnewp
 
-Do is=1,nsite
-if (sm(is)==0) go to 56
-it=is
+Do pis=1,nsite
+if (sm(pis)==0) go to 56
+pit=pis
+nbrxp=0.0
+nbryp=0.0
+nbrzp=0.0
 
-nbrx=0.0
-nbry=0.0
-nbrz=0.0
-
-Do j=1,12
-   nbrx(it)=nbrx(it)+sx(nbr(it,j))
-   nbry(it)=nbry(it)+sy(nbr(it,j))
-   nbrz(it)=nbrz(it)+sz(nbr(it,j))
+Do pj=1,12
+   nbrxp(pit)=nbrxp(pit)+sx(nbr(pit,pj))
+   nbryp(pit)=nbryp(pit)+sy(nbr(pit,pj))
+   nbrzp(pit)=nbrzp(pit)+sz(nbr(pit,pj))
 EndDo
 
-hpx1=0.0
-hpy1=0.0
-hpz1=0.0
+hpx1p=0.0
+hpy1p=0.0
+hpz1p=0.0
+Do pj=1,nsite
+   pix=(itable(pj,1)-itable(pit,1))
+   piy=(itable(pj,2)-itable(pit,2))
+   piz=(itable(pj,3)-itable(pit,3))
+   If (pix<0) pix=pix+L
+   If (piy<0) piy=piy+L
+   If (piz<0) piz=piz+L
+   s(pj,1)=sx(pj)
+   s(pj,2)=sy(pj)
+   s(pj,3)=sz(pj)
 
-Do j=1,nsite
-   ix=(itable(j,1)-itable(it,1))
-   iyy=(itable(j,2)-itable(it,2))
-   iz=(itable(j,3)-itable(it,3))
-   If (ix<0) ix=ix+L
-   If (iyy<0) iyy=iyy+L
-   If (iz<0) iz=iz+L
-   s(j,1)=sx(j)
-   s(j,2)=sy(j)
-   s(j,3)=sz(j)
-
-   Do k=1,3
-      hpx1=hpx1-D(1,k,ix,iyy,iz)*s(j,k)
-      hpy1=hpy1-D(2,k,ix,iyy,iz)*s(j,k)
-      hpz1=hpz1-D(3,k,ix,iyy,iz)*s(j,k)
+   Do pk=1,3
+      hpx1p=hpx1p-D(1,pk,pix,piy,piz)*s(pj,pk)
+      hpy1p=hpy1p-D(2,pk,pix,piy,piz)*s(pj,pk)
+      hpz1p=hpz1p-D(3,pk,pix,piy,piz)*s(pj,pk)
    EndDo
 EndDo
 
-sxtmp=di*hpx1-(jex*nbrx(it))+hmx
-sytmp=di*hpy1-(jex*nbry(it))+hmy
-sztmp=di*hpz1-(jex*nbrz(it))+hmz
+sxtmpp=di*hpx1p-(jex*nbrxp(pit))+hmx
+sytmpp=di*hpy1p-(jex*nbryp(pit))+hmy
+sztmpp=di*hpz1p-(jex*nbrzp(pit))+hmz
 
-stnew=dsqrt(sxtmp*sxtmp+sytmp*sytmp+sztmp*sztmp)
+stnewp=dsqrt(sxtmpp*sxtmpp+sytmpp*sytmpp+sztmpp*sztmpp)
 
-sx(it)=sxtmp/stnew
-sy(it)=sytmp/stnew
-sz(it)=sztmp/stnew
+sx(pit)=sxtmpp/stnewp
+sy(pit)=sytmpp/stnewp
+sz(pit)=sztmpp/stnewp
 
 56 Continue
 Enddo
@@ -797,76 +797,6 @@ Enddo
 !write(*,*) "Debug 7"
 end subroutine randefm
 
-subroutine tefm
-use input_module_3d
-
-
-Do it=1,nsite
-if(sm(it).eq.0) go to 55
-hpx1=0.
- hpy1=0.
- hpz1=0.
-do j=1,nsite
-ix=(itable(j,1)-itable(it,1))
-iyy=(itable(j,2)-itable(it,2))
-iz=(itable(j,3)-itable(it,3))
-if(ix<0) then 
-ix=ix+L 
-endif
-if(iyy<0) then 
-iyy=iyy+L 
-endif
-if(iz<0) then 
-iz=iz+L 
-endif
-s(j,1)=sx(j)
-s(j,2)=sy(j)
-s(j,3)=sz(j)
-
-do k=1,3
-hpx1=hpx1-D(1,k,ix,iyy,iz)*s(j,k)
-hpy1=hpy1-D(2,k,ix,iyy,iz)*s(j,k)
-hpz1=hpz1-D(3,k,ix,iyy,iz)*s(j,k)
-enddo 
-
-
- enddo
-
-!EFM uses above fields to set spins in direction of field
-! we can generalize to finite but small T
- 
-
-
- hmp=hpx1**2+hpy1**2+hpz1**2
- if(hmp.lt.1.d-06) go to 55
- hm=sqrt(hmp)
- hmi=1./hm                     
-
- hx=hpx1*hmi
- hy=hpy1*hmi                 ! these are direction cosines of the field
- hz=hpz1*hmi
- sth=sqrt(hx**2+hy**2)
- sthi=1./sth
- cph=hx*sthi
- sph=hy*sthi
-
- phi=2*pi*r250_(iseed)        ! choose random phi around direction of field
- cp=cos(phi)
- sp=sin(phi)
- y=r250_(iseed)                ! choose random cos(theta) wrt field axis
- !determine most probable cos(theta) at a given T
-ct=1.0+log(y)*T/hm
-
- IF (ct.gt.1)ct=1.       !simple prevents round off above unity
- st=sqrt(abs(1.0-ct*ct))  
- sx(it)=(hz*cph*st*cp-sph*st*sp+hx*ct)   !note that if T=0, then ct=1, st=0 and sx=hx
- sy(it)=(hz*sph*st*cp+cph*st*sp+hy*ct)    ! and sy=hy 
- sz(it)=(-sth*st*cp+hz*ct)                  ! and sz=hz which is the usual efm
- 55 continue
- 
-  end do
-  return
-  end subroutine tefm
 
 Subroutine Gamma(L,D)
 implicit none

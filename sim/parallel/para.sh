@@ -16,6 +16,10 @@ echo "Running in Parallel"
 #gfortran -g3 -fcheck=all -Wall -fbacktrace -fsanitize=undefined -fsanitize=address -fsanitize=leak -fopenmp -c 3DEFMH.f90
 #gfortran -g3 -fcheck=all -Wall -fbacktrace -fsanitize=undefined -fsanitize=address -fsanitize=leak -fopenmp 3DEFMH.o -o efmh.exe
 
+
 gfortran -fopenmp -c 3DEFMH.f90
 gfortran -fopenmp 3DEFMH.o -o efmh.exe
+#gfortran -fopenmp -c Para3DEFM.f90
+#gfortran -fopenmp Para3DEFM.o -o efmh.exe
+
 ./efmh.exe

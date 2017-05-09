@@ -26,7 +26,7 @@ start=1
 end=$jobsperCore
 for i in `seq 1 $cores`
 do
-shotgunload.sh $simcode $start $end &
+~/Work/code/bash/shotgunload.sh $simcode $start $end &
 echo "Jobs $start through $end executing under process $!"
 start=$(( end + 1 ))
 end=`echo $end + $jobsperCore | bc -l`

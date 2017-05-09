@@ -1,7 +1,9 @@
 module input_module_3d
 implicit none
 !Parameters
-integer,parameter :: L=2
+
+integer,parameter :: L=12
+
 double precision, parameter :: pi=3.14159265358979323846264338327
 double precision, parameter :: T=0,Hmax1=0,Hmin1=0,CON=0.0000001
 integer,parameter    :: nfield1=1, ntrans =10, nmeas = 1,nsite=L*L*L,intervals=1
@@ -246,7 +248,7 @@ counter=0
 Ecurr=E/nocc
 Eprev=0
 TOL=1
-DO WHILE (COUNTER .LE. INTERVALS .AND. TOL .GT. CON) 
+!DO WHILE (COUNTER .LE. INTERVALS .AND. TOL .GT. CON) 
 call cpu_time(time1)
 !$write(*,*) 'HELLO WORLD'
 !$ call omp_set_num_threads(threads)
@@ -254,16 +256,14 @@ call cpu_time(time1)
 	DO IMEAS=1,DURATION
 		CALL EFM
 	ENDDO
-!$OMP END PARALLEL DO
 call cpu_time(time2)
 ep = time2 - time1
-!$ ep = ep/threads
 	CALL MEASURE
 	Eprev=Ecurr
 	Ecurr=E/nocc
 	tol=dabs(Ecurr-Eprev)/dabs(Ecurr)
 	COUNTER=COUNTER+1
-ENDDO
+!ENDDO
 do i=0,3
 sm2av(i)=sm2av(i)+smx(i)*smx(i)+smy(i)*smy(i)+smz(i)*smz(i)
 enddo
@@ -681,10 +681,7 @@ implicit none
 integer :: pis,pit,pj,pk,pix,piy,piz,threadid,OMP_GET_THREAD_NUM
 double precision :: nbrxp(nsite),nbryp(nsite),nbrzp(nsite),hpx1p,hpy1p,hpz1p
 double precision :: sxtmpp,sytmpp,sztmpp,stnewp
-!threadid=-1
-!$ threadid=OMP_GET_THREAD_NUM()
-!$write(*,*) "THREAD ID : ", threadid
-!$write(*,*) 'HELLO WORLD'
+
 Do pis=1,nsite
 if (sm(pis)==0) go to 56
 pit=pis
