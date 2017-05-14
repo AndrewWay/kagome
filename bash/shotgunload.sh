@@ -1,9 +1,10 @@
 #!/bin/bash
 
 gsAng="ground_states.dat"
+gsAngSize=`cat $gsAng | wc -l`
 
 if [ ! -f $gsAng ];then
-echo $gsAng does not exist: exiting
+    echo $gsAng does not exist: exiting
 exit
 fi
 
@@ -12,16 +13,16 @@ start=$2
 end=$3
 
 if [ $# != 3 ];then
-echo "usage: shotgunrun.sh <simulation-code>.f90"
-echo "exiting"
+    echo "usage: shotgunrun.sh <simulation-code>.f90"
+    echo "exiting"
 exit
 fi
 
 if [ ! -f $simcode ];then
-echo "$simcode does not exist: exiting"
+    echo "$simcode does not exist: exiting"
 exit
 fi
-gsAngSize=`cat $gsAng | wc -l`
+
 if [ $end -gt $gsAngSize ];then
 	end=$gsAngSize
 fi
