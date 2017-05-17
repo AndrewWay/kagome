@@ -794,15 +794,19 @@ end subroutine randefm
 
 
 Subroutine Gamma(L,D,eta0)
+
 implicit none
 !use numerical_libraries
 double precision :: a(3),b(3),c(3),u1(3),u2(3),u3(3),u2xu3(3),u3xu1(3),u1xu2(3),b1(3),b2(3),b3(3),vu
+double precision :: b1xb2(3)
+double precision :: u1xu2dotu3,norm_u1xu2,b1xb2dotb3,norm_b1xb2
 double precision :: Q(3),r(3),R1(3),Q2,Q1,rdotQ,rRab,rR2,rR1,rR4,rR5,F,G,D(3,3,0:L-1,0:L-1,0:L-1)
 double precision, parameter :: pi=3.14159265358979323846264338327
 double precision, parameter :: sqrt_pi=1.77245385090551602729816748334
 double precision, parameter :: tau=1.d-3
 double precision :: eta0,eta,eta2
 integer :: R3(3),L,i,ibet,ii,jj,kk,nsize=15,n,k,m,ial
+double precision :: rcut,kcut,boxHeight,k_boxHeight
 !Double precision parameters originally only went to like 17 decimal places. Maybe that's 
 !limiting precision to only 17 decimal places. 
 eta=eta0
@@ -860,6 +864,39 @@ b1(i)=2*pi*u2xu3(i)/vu!Reciprocal lattice basis vectors
 b2(i)=2*pi*u3xu1(i)/vu
 b3(i)=2*pi*u1xu2(i)/vu
 enddo
+
+!Calculate the height of the central unit in real space.
+!Use it in the real space radial cutoff
+u1xu2dotu3=0
+norm_u1xu2=0
+do i=1,3
+u1xu2dotu3=u1xu2dotu3+u1xu2(i)*u3(i)!u1xu2 dotted with u3
+norm_u1xu2=norm_u1xu2 + u1xu2(i)*u1xu2(i)!Squared norm of u1xu2
+enddo
+boxHeight=u1xu2dotu3/norm_u1xu2
+write(*,*) 'boxHeight: ',boxHeight
+!Calculate the real space radial cutoff
+rcut=(nsize-1)*boxHeight
+
+
+b1xb2(1)=b1(2)*b2(3)-b1(3)*b2(2)
+b1xb2(2)=b1(3)*b2(1)-b1(1)*b2(3)
+b1xb2(3)=b1(1)*b2(2)-b1(2)*b2(1)
+!Calculate the height of the central unit in reciprocal space.
+!Use it in the reciprocal space radial cutoff
+b1xb2dotb3=0
+norm_b1xb2=0
+do i=1,3
+b1xb2dotb3=b1xb2dotb3+b1xb2(i)*b3(i)!u1xu2 dotted with u3
+norm_b1xb2=norm_b1xb2 + b1xb2(i)*b1xb2(i)!Squared norm of u1xu2
+enddo
+k_boxHeight=b1xb2dotb3/norm_b1xb2
+write(*,*) 'k_boxHeight: ',k_boxHeight
+!Calculate the real space radial cutoff
+kcut=(nsize-1)*k_boxHeight
+
+
+
 do ial=1,3
 do ibet=ial,3
 
@@ -890,8 +927,9 @@ enddo
 Q2=Q(1)*Q(1)+Q(2)*Q(2)+Q(3)*Q(3)
 Q1=dsqrt(Q2)!Length of reciprocal lattice vector 
 rdotQ=r(1)*Q(1)+r(2)*Q(2)+r(3)*Q(3)
-if (Q1.lt.1.d-05) go to 50!Something weird happens at Q1=0. So we choose a number close to it?
-!0.00001 isn't super close to 0. What happens if make the exponent more negative? Better precision?
+!if (Q1.lt.1.d-05 ) go to 50!rhombozoidal cutoff
+if (Q1.lt.1.d-05 .OR. Q1.gt.kcut) go to 50!spherical cutoff
+
 if(kk.eq.0.and.jj.eq.0.and.ii.eq.0) then
 !F is the fourier coefficients 
 F=F-4*pi*dexp(-Q2/(4*eta2))*(Q2*ndelta(ial,ibet)-3*Q(ial)*Q(ibet))/(3*vu*Q2)
@@ -908,7 +946,9 @@ rR2=R1(1)*R1(1)+R1(2)*R1(2)+R1(3)*R1(3)
 rR1=dsqrt(rR2)
 rR4=rR2*rR2
 rR5=rR4*rR1
-if(rR1.lt.1.d-5) go to 51!Again, the less than 0.00005. Are these for checking convergence?
+!if(rR1.lt.1.d-5 ) go to 51!Rhombozoidal cutoff
+if(rR1.lt.1.d-5 .OR. rR1 .GT. rcut ) go to 51!Spherical cutoff
+
 if(kk.eq.0.and.jj.eq.0.and.ii.eq.0) then
 G=G+(rR2*ndelta(ial,ibet)-3*R1(ial)*R1(ibet))*(2*eta*dexp(-rR2*eta2)*(3+2*rR2*eta2)/(3*rR4*sqrt_pi)+derfc(rR1*eta)/rR5)
 !!!!The first term that is not G is for when R!=0, not when it is.!!! 
