@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     20217,        480]
-NotebookOptionsPosition[     19347,        448]
-NotebookOutlinePosition[     19705,        464]
-CellTagsIndexPosition[     19662,        461]
+NotebookDataLength[     23331,        563]
+NotebookOptionsPosition[     22140,        523]
+NotebookOutlinePosition[     22491,        539]
+CellTagsIndexPosition[     22448,        536]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -404,7 +404,82 @@ Cell[BoxData[
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{3.6782820001137733`*^9, 3.6786220475824337`*^9, 
   3.688486212543618*^9, 3.688486462183427*^9, 3.689961313882126*^9, 
-  3.689961529423459*^9, 3.693821054127239*^9}]
+  3.689961529423459*^9, 3.693821054127239*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","partd",
+   "\"Part specification \\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\
+\[LeftDoubleBracket]\\\", \\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\) is \
+longer than depth of object.\"",2,30,5,21693001116542082888,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7037666102716503`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","pkspec1",
+   "\"The expression \\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\
+\[LeftDoubleBracket]\\\", \\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\) \
+cannot be used as a part specification.\"",2,30,6,21693001116542082888,
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.703766610345291*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","partd",
+   "\"Part specification \\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\
+\[LeftDoubleBracket]\\\", \\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\) is \
+longer than depth of object.\"",2,30,7,21693001116542082888,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.703766610395813*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","pkspec1",
+   "\"The expression \\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\
+\[LeftDoubleBracket]\\\", \\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\) \
+cannot be used as a part specification.\"",2,30,8,21693001116542082888,
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.703766610446888*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","partd",
+   "\"Part specification \\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\
+\[LeftDoubleBracket]\\\", \\\"3\\\", \\\"\[RightDoubleBracket]\\\"}]\\) is \
+longer than depth of object.\"",2,30,9,21693001116542082888,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.703766610499715*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"partd\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,30,10,21693001116542082888,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.703766610600781*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","pkspec1",
+   "\"The expression \\!\\(\\*RowBox[{\\\"spinLines\\\", \\\"\
+\[LeftDoubleBracket]\\\", \\\"3\\\", \\\"\[RightDoubleBracket]\\\"}]\\) \
+cannot be used as a part specification.\"",2,30,11,21693001116542082888,
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.703766610650817*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"pkspec1\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,30,12,21693001116542082888,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.703766610701519*^9}]
 }, Open  ]],
 
 Cell[BoxData[""], "Input",
@@ -446,10 +521,10 @@ Cell[BoxData["\<\"highField111.avi\"\>"], "Output",
  CellChangeTimes->{3.676810821471437*^9, 3.678281963010735*^9}]
 }, Open  ]]
 },
-WindowSize->{935, 1028},
-WindowMargins->{{Automatic, -7}, {Automatic, 0}},
+WindowSize->{935, 703},
+WindowMargins->{{Automatic, 4}, {0, 29}},
 ShowSelection->True,
-FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -464,26 +539,33 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[557, 20, 294, 6, 32, "Input"],
-Cell[854, 28, 160, 3, 32, "Input"],
-Cell[1017, 33, 3955, 57, 32, "Input"],
-Cell[4975, 92, 641, 12, 32, "Input"],
-Cell[5619, 106, 472, 12, 32, "Input"],
-Cell[6094, 120, 721, 18, 77, "Input"],
-Cell[6818, 140, 318, 6, 32, "Input"],
+Cell[854, 28, 160, 3, 34, "Input"],
+Cell[1017, 33, 3955, 57, 34, "Input"],
+Cell[4975, 92, 641, 12, 34, "Input"],
+Cell[5619, 106, 472, 12, 34, "Input"],
+Cell[6094, 120, 721, 18, 80, "Input"],
+Cell[6818, 140, 318, 6, 34, "Input"],
 Cell[CellGroupData[{
-Cell[7161, 150, 7588, 174, 407, "Input"],
-Cell[14752, 326, 3260, 80, 466, "Output"]
+Cell[7161, 150, 7588, 174, 376, "Input"],
+Cell[14752, 326, 3260, 80, 466, "Output"],
+Cell[18015, 408, 345, 7, 23, "Message"],
+Cell[18363, 417, 353, 8, 23, "Message"],
+Cell[18719, 427, 343, 7, 23, "Message"],
+Cell[19065, 436, 353, 8, 23, "Message"],
+Cell[19421, 446, 343, 7, 23, "Message"],
+Cell[19767, 455, 338, 7, 23, "Message"],
+Cell[20108, 464, 354, 8, 23, "Message"],
+Cell[20465, 474, 340, 7, 23, "Message"]
 }, Open  ]],
-Cell[18027, 409, 91, 1, 32, "Input"],
-Cell[18121, 412, 202, 5, 32, "Input"],
+Cell[20820, 484, 91, 1, 32, "Input"],
+Cell[20914, 487, 202, 5, 32, "Input"],
 Cell[CellGroupData[{
-Cell[18348, 421, 408, 7, 32, "Input"],
-Cell[18759, 430, 211, 4, 32, "Output"],
-Cell[18973, 436, 190, 4, 32, "Output"],
-Cell[19166, 442, 165, 3, 32, "Output"]
+Cell[21141, 496, 408, 7, 32, "Input"],
+Cell[21552, 505, 211, 4, 32, "Output"],
+Cell[21766, 511, 190, 4, 32, "Output"],
+Cell[21959, 517, 165, 3, 32, "Output"]
 }, Open  ]]
 }
 ]
 *)
 
-(* End of internal cache information *)

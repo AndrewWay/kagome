@@ -1,0 +1,4 @@
+- Create a script that verifies that the states contained within an AllSpins.txt file
+are all states described by the Andrew-Byron relations
+
+- Create a script that transforms theta phi pairs into a single block of the plane

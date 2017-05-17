@@ -1,7 +1,7 @@
 #!/bin/bash
 
 num_of_threads=8 #Number of threads used for creating ground states and executing simulation code
-
+L=2
 #check if directory empty before filling with data
 if [ "$(ls -A .)" ];then
     echo "directory not empty: exiting"
@@ -10,9 +10,9 @@ fi
 echo "directory empty: initiating production"
 
 #create the field angles
-createHangles.sh 0.7853981633 0.7853981633 1 0.955316618 0.955316618 1
+createHangles.sh 0.1 3.14 30 0.1 3.14 30
 #create the ground state configuration files
-generate_groundstates.sh 0 0.77 4 1.5 3.14 4 6
+generate_groundstates.sh 0 0.77 2 1.5 3.14 2 $L
 
 #length is the number of different fields there are
 length=`cat field_angles.dat | wc -l`
@@ -26,7 +26,6 @@ do
     Hpair=`cat field_angles.dat | head -n $i | tail -n 1`
     echo $Hpair > $i/fieldAngles.dat
     echo -ne "$i/$length\r"
-    echo 'hello'
     cd $i/
     #What does shotgun.sh do?
     shotgun.sh $num_of_threads ~/Work/code/sim/3DEFMH.f90 >/dev/null
