@@ -795,7 +795,7 @@ end subroutine randefm
 
 Subroutine Gamma(L,D,eta0)
 
-implicit none
+eimplicit none
 !use numerical_libraries
 double precision :: a(3),b(3),c(3),u1(3),u2(3),u3(3),u2xu3(3),u3xu1(3),u1xu2(3),b1(3),b2(3),b3(3),vu
 double precision :: b1xb2(3)
