@@ -2,12 +2,12 @@ module input_module_3d
 implicit none
  
 !Parameters
-integer,parameter :: L=6
+integer,parameter :: L=2
 double precision, parameter :: pi=3.14159265358979323846264338327
 double precision, parameter :: CON=0.000000000001
 double precision, parameter :: tmax=0.01,tmin=0
-integer,parameter    :: nfield1=10, ntrans =1000, nmeas = 1,nsite=L*L*L,intervals=10
-integer,parameter :: degauss=1,tsteps=10
+integer,parameter    :: ntrans =50000, nmeas = 1,nsite=L*L*L,intervals=10
+integer,parameter :: degauss=0,tsteps=10
        
        
 !Data types
@@ -49,8 +49,8 @@ use input_module_3d
 implicit none 
 
 !write(*,*) "L: ",L," Trans: ",ntrans," Meas: ",nmeas," Number of steps: ",nfield1  
-write(10,*) "L: ",L," Trans: ",ntrans," Meas: ",nmeas," Number of steps: ",nfield1  
-write(10,*) "T: ",T
+!write(10,*) "L: ",L," Trans: ",ntrans," Meas: ",nmeas," Number of steps: ",nfield1  
+!write(10,*) "T: ",T
 !call precisiontest
 !ns counts number of sites
 !nz0 counts sublattice D  (0,0,0)
@@ -181,7 +181,27 @@ ran=INT(rnd*100)
 Do i=1,ran
 call spinit
 EndDo
-!Preset intialization
+
+garbtmp=ntrans/intervals
+duration=floor(garbtmp)
+counter=0
+Ecurr=E/nocc
+Eprev=0
+TOL=1
+DO WHILE (COUNTER .LE. INTERVALS .AND. TOL .GT. CON) 
+	DO IMEAS=1,DURATION
+		IF (i2 .LE. tsteps) THEN			
+			CALL TEFM
+		ELSE
+			CALL EFM
+		END IF
+	ENDDO
+	CALL MEASURE
+	Eprev=Ecurr
+	Ecurr=E/nocc
+	tol=dabs(Ecurr-Eprev)/dabs(Ecurr)
+	COUNTER=COUNTER+1
+ENDDO
 
 Write(conffile,"('spin0000.dat')") !changes the name of file for each iteration of loop, e.g. conf0001.dat. Change the variable i2 to your loop counter.
 Open(Unit=98,FILE=conffile,STATUS='REPLACE')
@@ -856,7 +876,7 @@ double precision :: a(3),b(3),c(3),u1(3),u2(3),u3(3),u2xu3(3),u3xu1(3),u1xu2(3),
 double precision :: Q(3),r(3),R1(3),Q2,Q1,rdotQ,rRab,rR2,rR1,rR4,rR5,F,G,D(3,3,0:L-1,0:L-1,0:L-1)
 double precision, parameter :: pi=3.14159265358979323846264338327
 double precision, parameter :: sqrt_pi=1.77245385090551602729816748334
-double precision, parameter :: tau=1.d-3,eta=1.2d0,eta2=eta*eta
+double precision, parameter :: tau=1.d-3,eta=0.5d0,eta2=eta*eta
 integer :: R3(3),L,i,ibet,ii,jj,kk,nsize=15,n,k,m,ial
 !Double precision parameters originally only went to like 17 decimal places. Maybe that's 
 !limiting precision to only 17 decimal places. 
