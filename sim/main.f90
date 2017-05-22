@@ -875,10 +875,24 @@ double precision :: a(3),b(3),c(3),u1(3),u2(3),u3(3),u2xu3(3),u3xu1(3),u1xu2(3),
 double precision :: Q(3),r(3),R1(3),Q2,Q1,rdotQ,rRab,rR2,rR1,rR4,rR5,F,G,D(3,3,0:L-1,0:L-1,0:L-1)
 double precision, parameter :: pi=3.14159265358979323846264338327
 double precision, parameter :: sqrt_pi=1.77245385090551602729816748334
-double precision, parameter :: tau=1.d-3,eta=1.2d0,eta2=eta*eta
+double precision, parameter :: tau=1.d-3
 integer :: R3(3),L,i,ibet,ii,jj,kk,nsize=15,n,k,m,ial
+double precision :: eta,eta2
 !Double precision parameters originally only went to like 17 decimal places. Maybe that's 
 !limiting precision to only 17 decimal places. 
+
+!Set eta values to optimal value for the current L
+!To do: Actually find what the optimal eta values are for a particular L
+!May 21st 2017
+
+IF (L.EQ.2 .OR. L.EQ.6 .OR. L.EQ.12 ) THEN
+    eta=1.2d0
+ELSE IF ( L.EQ.18 ) THEN
+    eta=0.5d0
+ELSE 
+    eta=0.4d0
+END IF
+eta2=eta*eta
 
 !Why are there two different assignments of basis vectors?
 !a is a1
