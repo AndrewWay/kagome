@@ -4,9 +4,9 @@ implicit none
 !Parameters
 integer,parameter :: L=2
 double precision, parameter :: pi=3.14159265358979323846264338327
-double precision, parameter :: T=0,Hmax1=0.02,Hmin1=0,CON=0.000000000001
-integer,parameter    :: nfield1=10, ntrans =1000, nmeas = 1,nsite=L*L*L,intervals=10
-integer,parameter :: degauss=1
+double precision, parameter :: T=0,Hmax1=0.02,Hmin1=0,CON=0.0000001
+integer,parameter    :: nfield1=10, ntrans =50000, nmeas = 1,nsite=L*L*L,intervals=10
+integer,parameter :: degauss=1,presetspin=0,presetfield=0
        
        
 !Data types
@@ -176,17 +176,23 @@ Hmag=0
 Htheta=0.785398
 Hphi=0.785398
 
-call setField
+IF (presetfield.EQ.1) THEN
+    call setField
+END IF
 
-!Random initialization
-!Call init_random_seed()
-!Call random_number(rnd)
-!ran=INT(rnd*100)
-!Do i=1,ran
-!call spinit
-!EndDo
-!Preset intialization
-call spinitPreset
+IF (presetspin.EQ.1) THEN
+    !Preset intialization
+    call spinitPreset
+ELSE
+    !Random initialization
+    Call init_random_seed()
+    Call random_number(rnd)
+    ran=INT(rnd*100)
+    Do i=1,ran
+        call spinit
+    EndDo
+END IF
+
 if (degauss.eq.1) then
 fieldsteps=2*nfield1
 else
@@ -869,10 +875,24 @@ double precision :: a(3),b(3),c(3),u1(3),u2(3),u3(3),u2xu3(3),u3xu1(3),u1xu2(3),
 double precision :: Q(3),r(3),R1(3),Q2,Q1,rdotQ,rRab,rR2,rR1,rR4,rR5,F,G,D(3,3,0:L-1,0:L-1,0:L-1)
 double precision, parameter :: pi=3.14159265358979323846264338327
 double precision, parameter :: sqrt_pi=1.77245385090551602729816748334
-double precision, parameter :: tau=1.d-3,eta=1.2d0,eta2=eta*eta
+double precision, parameter :: tau=1.d-3
 integer :: R3(3),L,i,ibet,ii,jj,kk,nsize=15,n,k,m,ial
+double precision :: eta,eta2
 !Double precision parameters originally only went to like 17 decimal places. Maybe that's 
 !limiting precision to only 17 decimal places. 
+
+!Set eta values to optimal value for the current L
+!To do: Actually find what the optimal eta values are for a particular L
+!May 21st 2017
+
+IF (L.LT.18 ) THEN
+    eta=1.2d0
+ELSE IF ( L.EQ.18 ) THEN
+    eta=0.5d0
+ELSE 
+    eta=0.4d0
+END IF
+eta2=eta*eta
 
 !Why are there two different assignments of basis vectors?
 !a is a1
