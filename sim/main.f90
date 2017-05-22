@@ -885,7 +885,7 @@ double precision :: eta,eta2
 !To do: Actually find what the optimal eta values are for a particular L
 !May 21st 2017
 
-IF (L.EQ.2 .OR. L.EQ.6 .OR. L.EQ.12 ) THEN
+IF (L.LT.18 ) THEN
     eta=1.2d0
 ELSE IF ( L.EQ.18 ) THEN
     eta=0.5d0
