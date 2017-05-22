@@ -4,9 +4,9 @@ implicit none
 !Parameters
 integer,parameter :: L=2
 double precision, parameter :: pi=3.14159265358979323846264338327
-double precision, parameter :: T=0,Hmax1=0.02,Hmin1=0,CON=0.000000000001
-integer,parameter    :: nfield1=10, ntrans =1000, nmeas = 1,nsite=L*L*L,intervals=10
-integer,parameter :: degauss=1
+double precision, parameter :: T=0,Hmax1=0.02,Hmin1=0,CON=0.0000001
+integer,parameter    :: nfield1=10, ntrans =50000, nmeas = 1,nsite=L*L*L,intervals=10
+integer,parameter :: degauss=1,presetspin=0,presetfield=0
        
        
 !Data types
@@ -176,17 +176,23 @@ Hmag=0
 Htheta=0.785398
 Hphi=0.785398
 
-call setField
+IF (presetfield.EQ.1) THEN
+    call setField
+END IF
 
-!Random initialization
-!Call init_random_seed()
-!Call random_number(rnd)
-!ran=INT(rnd*100)
-!Do i=1,ran
-!call spinit
-!EndDo
-!Preset intialization
-call spinitPreset
+IF (presetspin.EQ.1) THEN
+    !Preset intialization
+    call spinitPreset
+ELSE
+    !Random initialization
+    Call init_random_seed()
+    Call random_number(rnd)
+    ran=INT(rnd*100)
+    Do i=1,ran
+        call spinit
+    EndDo
+END IF
+
 if (degauss.eq.1) then
 fieldsteps=2*nfield1
 else
