@@ -4,9 +4,9 @@ implicit none
 !Parameters
 integer,parameter :: L=2
 double precision, parameter :: pi=3.14159265358979323846264338327
-double precision, parameter :: T=0,Hmax1=0.02,Hmin1=0,CON=0.0000001
-integer,parameter    :: nfield1=10, ntrans =50000, nmeas = 1,nsite=L*L*L,intervals=10
-integer,parameter :: degauss=1,presetspin=0,presetfield=0
+double precision, parameter :: T=0,Hmax1=0.02,Hmin1=0,CON=0.0000000001
+integer,parameter    :: nfield1=20, ntrans =5000, nmeas = 1,nsite=L*L*L,intervals=10
+integer,parameter :: degauss=1,presetspin=1,presetfield=1
        
        
 !Data types

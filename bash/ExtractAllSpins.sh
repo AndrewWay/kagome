@@ -4,7 +4,7 @@
 
 rm AllSpins.txt 2> /dev/null
 
-for i in `echo conf*`
+for i in `echo preEFM*`
 do
 f=$i
 length=`cat $f | wc -l`

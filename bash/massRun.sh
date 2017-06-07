@@ -10,9 +10,9 @@ fi
 echo "directory empty: initiating production"
 
 #create the field angles
-createHangles.sh 0.1 3.14 30 0.1 3.14 30
+createHangles.sh 0.1 3.14 3 0.1 3.14 3
 #create the ground state configuration files
-generate_groundstates.sh 0 0.77 2 1.5 3.14 2 $L
+generate_groundstates.sh 0 0.77 5 1.5 3.14 5 $L
 
 #length is the number of different fields there are
 length=`cat field_angles.dat | wc -l`
@@ -28,7 +28,7 @@ do
     echo -ne "$i/$length\r"
     cd $i/
     #What does shotgun.sh do?
-    shotgun.sh $num_of_threads ~/Work/code/sim/3DEFMH.f90 >/dev/null
+    shotgun.sh $num_of_threads ~/work/kago/code/sim/main.f90 >/dev/null
     #inflectionOperator.sh >/dev/null
     #cp inflections.dat ../infldata/$i"_infl.dat"
     cd ..

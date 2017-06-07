@@ -1,3 +1,0 @@
-sim_code /home/andrew/Work/code/sim/3DEFMH.f90
-database /home/andrew/Work/code/bash/testBench/testDB2
-job_info /home/andrew/Work/code/bash/testBench/testDB2/job_info.txt 
